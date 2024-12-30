@@ -198,7 +198,7 @@ given a behavior policy $b(\bm{u}|\bm{x})$.
 \hl{Tweak \#2}: target networks
 \begin{itemize}
 	\item Similar to DQN we introduce a (delayed) target network to estimate the $Q$-learning target $$r+ \gamma q(\bm{x}',\bm{\mu}(\bm{x}',\bm{\theta}),\bm{w})$$ since it depends on the same parameters $\bm{w}$ which we want to update.\pause
-	\item Hence, the target network's purpose it to mimic the generation of i.i.d. data as the ground truth to minimize \eqref{eq:MSBE_DDPG}.\pause
+	\item Hence, the target network's purpose it to mimic the generation of i.i.d.\ data as the ground truth to minimize \eqref{eq:MSBE_DDPG}.\pause
 	\item Since the policy parameters $\bm{\theta}$ are also part of the target calculation it turns out that an additional policy target network is also beneficial to stabilize the $Q$-learning.\pause
 	\item In contrast to the classical DQN implementation, the original DDPG algorithm does not perform periodically hard target network updates but continuous ones using a low-pass filter characteristic
 	\begin{equation}
