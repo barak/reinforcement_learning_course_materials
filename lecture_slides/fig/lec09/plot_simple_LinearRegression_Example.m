@@ -12,7 +12,7 @@ x_vec = -5:0.5:5; %base grid vector
 [dx, dy] = meshgrid(x_vec); %base grid
 
 %% Simple arbitrary learning step at x1 = x2 = 1 with target U = 1
-U = 1; %target at evaluated state (e.g. from one-step TD or MC)
+U = 1; %target at evaluated state (e.g., from one-step TD or MC)
 zeta = [1 1 1]; %regression vector with zeta = [x1 x2 1] 
 w_new = w_old + alpha * (U - zeta*w_old)*w_old; %incremental learning step
 
