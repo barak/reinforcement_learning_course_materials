@@ -21,10 +21,17 @@
 *.tcp
 *.toc
 *.tps
-lecture_slides/*.pdf
-!lecture_slides/built/*.pdf
-**/fig/**/*-eps-converted-to.pdf
 *.dvi
+*.fdb_latexmk
+*.fls
+/lecture_slides/*.pdf
+/lecture_slides/built/*.pdf
+/lecture_slides/build-*.tex
+!/lecture_slides/build-all.tex
+**/fig/**/*-eps-converted-to.pdf
+
+# paper
+/paper/paper.pdf
 
 # misc.
 *.db
