@@ -390,8 +390,8 @@
     Regularization of $\hat{\bm w}$ alleviates this effect - it induces bias for less variance.
     Most prevalent linear regularized techniques are LASSO and Ridge:
     \begin{align}
-      \text{RSS}_\text{LASSO}(\bm w) &= (\bm y-\bm{\Xi w})\T(\bm y - \bm{\Xi w}) + \lambda||\bm w||_1, \\
-      \text{RSS}_\text{Ridge}(\bm w) &= (\bm y-\bm{\Xi w})\T(\bm y - \bm{\Xi w}) + \lambda||\bm w||_2,
+      \text{RSS}_\text{LASSO}(\bm w) &= (\bm y-\bm{\Xi w})\T(\bm y - \bm{\Xi w}) + \lambda\lVert\bm w\rVert_1, \\
+      \text{RSS}_\text{Ridge}(\bm w) &= (\bm y-\bm{\Xi w})\T(\bm y - \bm{\Xi w}) + \lambda\lVert\bm w\rVert_2,
       \label{eq:ridge}
     \end{align}
     where $\lambda$ controls the growth penalty.
