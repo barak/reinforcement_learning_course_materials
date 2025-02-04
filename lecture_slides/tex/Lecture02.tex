@@ -17,19 +17,19 @@
 		\item finite MDPs (i.e., finite number of states \& actions).
 	\end{itemize}
 \end{itemize}
-\hfill
+\vfill
 \onslide<3->\begin{table}
 	\centering
-		\begin{tabular}{M{0.5cm}M{1cm}M{3cm}M{3cm}}
+		\begin{tabular}{M{2ex}M{2em}M{10em}M{10em}}
 		%\cline{3-4}
-			\multicolumn{2}{c}{\multirow{2}{*}{}}& \multicolumn{2}{c}{All states observable?}\\
+			\multicolumn{2}{c}{\multirow{2}{*}{}}& \multicolumn{2}{c}{All states observable?}\\[1ex]
 			%\cline{3-4}
 			\multicolumn{2}{c}{} & Yes & No\\
-			\cline{3-4}
-			 \multirow{2}{*}{\rotatebox{90}{Actions?}} & No & Markov chain &Hidden Markov model\\
+			\cmidrule{3-4}
+			 \multirow{2}{*}{\rotatebox{90}{Actions?}} & No & Markov Chain (MC) &Hidden Markov Model (HMM)\\[2ex]
 			%\cline{2-4}
-			& Yes & Markov decision process (MDP) & Partially observable MDP\\
-			\cline{3-4}
+			& Yes & Markov Decision Process (MDP) & Partially Observable MDP (POMDP)\\
+			\cmidrule{3-4}
 		\end{tabular}
 	\caption{Different Markov models}
 	\label{tab:DifferentMarkovModels}
