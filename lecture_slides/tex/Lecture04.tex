@@ -124,7 +124,7 @@ $l(x)\leftarrow$ an empty list for every $x\in\mathcal{X}$}
 	\label{eq:inc_impl_MC_pred}
 \end{equation} \pause
 \begin{itemize}
-	\item \hl{If a given decision problem is non-stationary}, using a forgetting factor $\alpha\in\left\{\mathbb{R}|0<\alpha<1\right\}$ allows for dynamic adaption: 
+	\item \hl{If a given decision problem is non-stationary}, using a forgetting factor $\alpha\in\left\{\Re|0<\alpha<1\right\}$ allows for dynamic adaption: 
 \end{itemize}
 \begin{equation}
 	\mu_J = \mu_{J-1} + \alpha\left[g_J-\mu_{J-1}\right] .
@@ -385,7 +385,7 @@ $n(x,u)\leftarrow$ an empty list for state-action visits $\forall \, \left\{x\in
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Output{Optimal $\varepsilon$-greedy policy $\pi^*(u|x)$, \hspace{0.5cm}\textbf{parameter:} $\varepsilon\in\left\{\mathbb{R}|0<\varepsilon<<1\right\}$}%\Param{}
+\Output{Optimal $\varepsilon$-greedy policy $\pi^*(u|x)$, \hspace{0.5cm}\textbf{parameter:} $\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}$}%\Param{}
 \Init{$\pi_{i=0}(u|x)$ arbitrarily soft $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$\newline
 $\hat{q}(x,u)$ arbitrarily $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$\newline 
 $n(x,u)\leftarrow$ an empty list counting state-action visits $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}

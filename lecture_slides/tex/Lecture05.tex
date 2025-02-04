@@ -41,7 +41,7 @@ Recap the every-visit MC update rule \eqref{eq:inc_impl_MC_pred_non_stat} for no
 	\label{eq:MC_non_stat_up_lec05}
 \end{equation}
 \begin{itemize}
-	\item $\alpha\in\left\{\mathbb{R}|0<\alpha<1\right\}$ is the forgetting factor / step size.
+	\item $\alpha\in\left\{\Re|0<\alpha<1\right\}$ is the forgetting factor / step size.
 	\item $g_k$ is the \hl{target} of the incremental update rule.
 	\item To execute the update \eqref{eq:MC_non_stat_up_lec05} one has to wait until the episode's termination since only then $g_k$ is available (MC requirement).
 \end{itemize}\pause
@@ -437,7 +437,7 @@ GPI concept is directly applied to the TD framework using action values:
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Param{$\varepsilon\in\left\{\mathbb{R}|0<\varepsilon<<1\right\}, \quad \alpha\in\left\{\mathbb{R}|0<\alpha<1\right\}$}
+\Param{$\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}, \quad \alpha\in\left\{\Re|0<\alpha<1\right\}$}
 \Init{$\hat{q}(x,u)$ arbitrarily (except terminal states) $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}
 \For{$j=1,2,\ldots$ episodes}{
 	Initialize $x_0$\;
@@ -538,7 +538,7 @@ Requirement for $Q$-learning control:
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Param{$\varepsilon\in\left\{\mathbb{R}|0<\varepsilon<<1\right\}, \quad \alpha\in\left\{\mathbb{R}|0<\alpha<1\right\}$}
+\Param{$\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}, \quad \alpha\in\left\{\Re|0<\alpha<1\right\}$}
 \Init{$\hat{q}(x,u)$ arbitrarily (except terminal states) $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}
 \For{$j=1,2,\ldots$ episodes}{
 	Initialize $x_0$\;
@@ -661,7 +661,7 @@ Assign specific tasks to each estimate:
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Param{$\varepsilon\in\left\{\mathbb{R}|0<\varepsilon<<1\right\}, \quad \alpha\in\left\{\mathbb{R}|0<\alpha<1\right\}$}
+\Param{$\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}, \quad \alpha\in\left\{\Re|0<\alpha<1\right\}$}
 \Init{$\hat{q}_1(x,u),\,\hat{q}_2(x,u)$ arbitrarily (except terminal states) $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}
 \For{$j=1,2,\ldots$ episodes}{
 	Initialize $x_0$\;

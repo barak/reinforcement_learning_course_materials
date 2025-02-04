@@ -98,11 +98,11 @@ Given a Markov state $X_k=x$ and its successor $X_{k+1}=x'$ , the \hl{state tran
 \end{equation}
  \end{defi}
 \pause
-Here,  $\bm{\mathcal{P}}_{xx'}\in\mathbb{R}^{n\times n}$ has the form
+Here,  $\bm{\mathcal{P}}_{xx'}\in\Re^{n\times n}$ has the form
 \begin{equation*}
 	\bm{\mathcal{P}}_{xx'} = \begin{bmatrix} p_{11} & p_{12} & \cdots & p_{1n}\\ p_{21} &  &  & \vdots\\ \vdots & & & \vdots\\ p_{n1} & \cdots & \cdots & p_{nn}\end{bmatrix}
 \end{equation*}
-with $p_{ij}\in\left\{\mathbb{R}|0 \leq p_{ij} \leq 1 \right\}$ being the specific probability to go from state $x=X_i$ to state $x'=X_j$. Obviously, $\sum_{j} p_{ij}=1 \, \forall i$ must hold.
+with $p_{ij}\in\left\{\Re|0 \leq p_{ij} \leq 1 \right\}$ being the specific probability to go from state $x=X_i$ to state $x'=X_j$. Obviously, $\sum_{j} p_{ij}=1 \, \forall i$ must hold.
 }
 
 
@@ -169,7 +169,7 @@ A \hl{finite Markov reward process (MRP)} is a tuple $\left\langle\mathcal{X}, \
 	\item $\mathcal{X}$ being a finite set of discrete-time states $X_k\in\mathcal{X}$, 
 	\item $\bm{\mathcal{P}}=\bm{\mathcal{P}}_{xx'}=\Pb{X_{k+1}=x'|X_{k}=x}$ is the state transition probability,
 	\item \hl{$\mathcal{R}$ is a reward function, $\mathcal{R}=\mathcal{R}_x=\E{R_{k+1}|X_k=x_k}$ and} 
-	\item \hl{$\gamma$ is a discount factor, $\gamma\in\left\{\mathbb{R}|0 \leq \gamma \leq 1\right\}$}.
+	\item \hl{$\gamma$ is a discount factor, $\gamma\in\left\{\Re|0 \leq \gamma \leq 1\right\}$}.
 \end{itemize}
 \end{defi}
 \pause
@@ -364,7 +364,7 @@ A \hl{finite Markov decision process (MDP)} is a tuple $\left\langle\mathcal{X},
 	\item \hl{$\mathcal{U}$ as a finite set of discrete-time actions $U_k\in\mathcal{U}$,} 
 	\item $\bm{\mathcal{P}}=\bm{\mathcal{P}}_{xx'}^{\hl{u}}$ is the state transition probability $\bm{\mathcal{P}}=\Pb{X_{k+1}=x'|X_{k}=x_k, \hl{U_{k}=u_k}}$,
 	\item $\mathcal{R}$ is a reward function, $\mathcal{R}=\mathcal{R}_x^{\hl{u}}=\E{R_{k+1}|X_k=x_k, \hl{U_{k}=u_k}}$ and 
-	\item $\gamma$ is a discount factor, $\gamma\in\left\{\mathbb{R}|0 \leq \gamma \leq 1\right\}$.
+	\item $\gamma$ is a discount factor, $\gamma\in\left\{\Re|0 \leq \gamma \leq 1\right\}$.
 \end{itemize}
 \end{defi}
 \pause

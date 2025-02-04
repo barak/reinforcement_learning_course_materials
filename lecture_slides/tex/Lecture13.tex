@@ -347,8 +347,8 @@ based on related unconstrained problems.
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{diff. stochastic policy fct. $\pi(\bm{u}|\bm{x},\bm{\theta})$ and value fct. $\hat{v}(\bm{x},\bm{w})$}
-\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\mathbb{R}|0<\alpha\right\}$}
-\Init{weights $\bm{w}\in\mathbb{R}^{\zeta}$ and $\bm{\theta}\in\mathbb{R}^d$ arbitrarily, memory $\bm{\mathcal{D}}$}\pause
+\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re|0<\alpha\right\}$}
+\Init{weights $\bm{w}\in\Re^{\zeta}$ and $\bm{\theta}\in\Re^d$ arbitrarily, memory $\bm{\mathcal{D}}$}\pause
  \For{$j=1,2,\ldots,$ (sub-)episodes}{
 		initialize $\bm{x}_0$ (if new episode)\; 
 		collect a set of tuples $\left\langle \bm{x}_k, \bm{u}_k, r_{k+1}, \bm{x}_{k+1}\right\rangle$ by a rollout using $\pi(\bm{u}|\bm{x},\bm{\theta}_j)$\;\pause

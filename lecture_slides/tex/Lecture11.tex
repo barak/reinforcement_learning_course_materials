@@ -16,7 +16,7 @@ to (direct) policy-based solutions:
 	\bm{\pi}(\bm{u}|\bm{x})=\Pb{\bm{U} = \bm{u} | \bm{X} = \bm{x}}\approx\bm{\pi}(\bm{u}|\bm{x}, \bm{\theta})\, .
 \end{equation}\pause
 \begin{itemize}
-	\item Above, $\bm{\theta}\in \mathbb{R}^d$ is the policy parameter vector.
+	\item Above, $\bm{\theta}\in \Re^d$ is the policy parameter vector.
 	\item Note, that $\bm{u}$ is now vectorial and might contain multiple continuous quantities. 
 \end{itemize}
 \pause
@@ -80,7 +80,7 @@ A typical policy function is:
 		\pi(u|\bm{x},\bm{\theta}) = \frac{e^{h(\bm{x},u,\bm{\theta})}}{\sum_i e^{h(\bm{x},i,\bm{\theta})}}
 		\label{eq:soft_max_preference}
 	\end{equation}
-	with $h(\bm{x},u,\bm{\theta}):\mathcal{X}\times\mathcal{U}\times\mathbb{R}^d \rightarrow \mathbb{R}$ being the numerical preference per state-action pair.\pause
+	with $h(\bm{x},u,\bm{\theta}):\mathcal{X}\times\mathcal{U}\times\Re^d \rightarrow \Re$ being the numerical preference per state-action pair.\pause
 	\item Denominator of \eqref{eq:soft_max_preference} sums up action probabilities to one per state. \pause
 	\item Is designed as a stochastic policy but can approach deterministic behavior in the limit. \pause
 	\item The preference is parametrized via a function approximator, e.g., linear in features
@@ -96,7 +96,7 @@ A typical policy function is:
 \frame{\frametitle{Example policy function: continuous action space (1)}
 Assumption:
 \begin{itemize}
-	\item Action space is continuous and there is only one scalar action $u\in\mathbb{R}$.
+	\item Action space is continuous and there is only one scalar action $u\in\Re$.
 \end{itemize}\pause
 A typical policy function is:
 \begin{itemize}
@@ -105,7 +105,7 @@ A typical policy function is:
 		\pi(u|\bm{x},\bm{\theta}) = \frac{1}{\sigma(\bm{x},\bm{\theta})\sqrt{2\pi}}\exp\left(-\frac{(u-\mu(\bm{x},\bm{\theta}))^2}{2\sigma(\bm{x},\bm{\theta})^2}\right)
 		\label{eq:gaussian_action}
 	\end{equation}
-	with mean $\mu(\bm{x},\bm{\theta}):\mathcal{X}\times\mathbb{R}^d \rightarrow \mathbb{R}$ and standard deviation $\sigma(\bm{x},\bm{\theta}):\mathcal{X}\times\mathbb{R}^d \rightarrow \mathbb{R}$ given by parametric function approximation.\pause
+	with mean $\mu(\bm{x},\bm{\theta}):\mathcal{X}\times\Re^d \rightarrow \Re$ and standard deviation $\sigma(\bm{x},\bm{\theta}):\mathcal{X}\times\Re^d \rightarrow \Re$ given by parametric function approximation.\pause
 		\item Variants regarding function $\mu$ and $\sigma$:
 	\begin{enumerate}
 		\item Both  share a mutual parameter set $\bm{\theta}$ (e.g., artificial neural network with multiple outputs).\pause
@@ -136,7 +136,7 @@ A typical policy function is:
 \frame{\frametitle{Example policy function: continuous action space (3)}
 Assumption:
 \begin{itemize}
-	\item Action space is continuous and there are multiple actions $\bm{u}\in\mathbb{R}^m$.
+	\item Action space is continuous and there are multiple actions $\bm{u}\in\Re^m$.
 \end{itemize} \pause
 A typical policy function is:
 \begin{itemize}
@@ -145,7 +145,7 @@ A typical policy function is:
 		\pi(\bm{u}|\bm{x},\bm{\theta}) = \frac{1}{\sqrt{(2\pi)^m\det(\bm{\Sigma})}}\exp\left(-\frac{1}{2}(\bm{u}-\bm{\mu})\T\bm{\Sigma}^{-1}(\bm{u}-\bm{\mu})\right)
 		\label{eq:gaussian_action_multivariate}
 	\end{equation}
-	with mean $\bm{\mu}(\bm{x},\bm{\theta}):\mathcal{X}\times\mathbb{R}^d \rightarrow \mathbb{R}^m$ and covariance matrix $\bm{\Sigma}(\bm{x},\bm{\theta}):\mathcal{X}\times\mathbb{R}^d \rightarrow \mathbb{R}^{m \times m }$ given by parametric function approximation. \pause
+	with mean $\bm{\mu}(\bm{x},\bm{\theta}):\mathcal{X}\times\Re^d \rightarrow \Re^m$ and covariance matrix $\bm{\Sigma}(\bm{x},\bm{\theta}):\mathcal{X}\times\Re^d \rightarrow \Re^{m \times m }$ given by parametric function approximation. \pause
 		\item Same parametrization variants apply to $\bm{\mu}$ and $\bm{\Sigma}$ as in the scalar action case. \pause
 		\item In addition, $\bm{\Sigma}$ can be considered a diagonal matrix and clipped to reduce complexity as well as ensure nonsingularity.
 \end{itemize}
@@ -395,8 +395,8 @@ Monte Carlo policy gradient:
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{a differentiable policy function $\pi(\bm{u}|\bm{x},\bm{\theta})$}
-\Param{step size $\alpha\in\left\{\mathbb{R}|0<\alpha<1\right\}$}
-\Init{parameter vector $\bm{\theta}\in\mathbb{R}^d$ arbitrarily}
+\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$}
+\Init{parameter vector $\bm{\theta}\in\Re^d$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
 		generate an episode following $\pi(\cdot|\cdot,\bm{\theta})$: $\bm{x}_{0}, \bm{u}_{0}, r_{1},\ldots,\bm{x}_{T}$ \;  
 		\For{$k=0,1,\ldots, T-1$ time steps}{
@@ -503,8 +503,8 @@ Monte Carlo policy gradient:
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{a differentiable policy function $\pi(\bm{u}|\bm{x},\bm{\theta})$ and state-value function $\hat{v}(\bm{x},\bm{w})$}
-\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\mathbb{R}|0<\alpha<1\right\}$}
-\Init{parameter vectors $\bm{w}\in\mathbb{R}^{\zeta}$ and $\bm{\theta}\in\mathbb{R}^d$ arbitrarily}
+\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re|0<\alpha<1\right\}$}
+\Init{parameter vectors $\bm{w}\in\Re^{\zeta}$ and $\bm{\theta}\in\Re^d$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
 		generate an episode following $\pi(\cdot|\cdot,\bm{\theta})$: $\bm{x}_{0}, \bm{u}_{0}, r_{1},\ldots,\bm{x}_{T}$ \;  
 		\For{$k=0,1,\ldots, T-1$ time steps}{
@@ -621,8 +621,8 @@ Alternative: use an additional function approximator, the so-called \hl{critic},
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{a differentiable policy function $\pi(\bm{u}|\bm{x},\bm{\theta})$ and state-value function $\hat{v}(\bm{x},\bm{w})$}
-\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\mathbb{R}|0<\alpha<1\right\}$}
-\Init{parameter vectors $\bm{w}\in\mathbb{R}^{\zeta}$ and $\bm{\theta}\in\mathbb{R}^d$ arbitrarily}
+\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re|0<\alpha<1\right\}$}
+\Init{parameter vectors $\bm{w}\in\Re^{\zeta}$ and $\bm{\theta}\in\Re^d$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
 		initialize $\bm{x}_0$\; 
 		\For{$k=0,1,\ldots, T-1$ time steps}{
@@ -676,8 +676,8 @@ Alternative: use an additional function approximator, the so-called \hl{critic},
 \SetKwInput{Param}{parameter}
 \Input{a differentiable policy function $\pi(\bm{u}|\bm{x},\bm{\theta})$}
 \Input{a differentiable state-value function $\hat{v}(\bm{x},\bm{w})$}
-\Param{$\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\mathbb{R}|0<\alpha<1\right\}$, $\{\lambda_{w}, \lambda_{\theta}\}\in\left\{\mathbb{R}|0 \leq \lambda \leq 1\right\}$}
-\Init{parameter vectors $\bm{w}\in\mathbb{R}^{\zeta}$ and $\bm{\theta}\in\mathbb{R}^d$ arbitrarily}
+\Param{$\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re|0<\alpha<1\right\}$, $\{\lambda_{w}, \lambda_{\theta}\}\in\left\{\Re|0 \leq \lambda \leq 1\right\}$}
+\Init{parameter vectors $\bm{w}\in\Re^{\zeta}$ and $\bm{\theta}\in\Re^d$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
 		initialize $\bm{x}_0$, $\bm{z}_w=0$, $\bm{z}_{\theta}=0$\; 
 		\For{$k=0,1,\ldots, T-1$ time steps}{

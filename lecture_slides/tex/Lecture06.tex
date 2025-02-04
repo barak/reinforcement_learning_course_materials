@@ -264,7 +264,7 @@ Analog to $n$-step TD, the state-action value target is rewritten as:
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 %\Output{estimate $\hat{q}_\pi$ or $\hat{q}^*$}
-\Param{$\alpha\in(0,1]$, $n\in\mathbb{Z}^+$, $\varepsilon\in\left\{\mathbb{R}|0<\varepsilon<<1\right\}$}
+\Param{$\alpha\in(0,1]$, $n\in\mathbb{Z}^+$, $\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}$}
 \Init{$\hat{q}(x,u)$ arbitrarily (except terminal states) $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}
 \Init{$\pi$ to be $\varepsilon$-greedy with respect to $\hat{q}$ or to a given, fixed policy}
  \For{$j=1,\ldots,J$ episodes}{
@@ -406,7 +406,7 @@ Analog, an \hl{$n$-step off-policy SARSA-style update} exists:
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{an arbitrary behavior policy $b$ with $b(u|x)>0 \, \forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}
-\Param{$\alpha\in(0,1]$, $n\in\mathbb{Z}^+$, $\varepsilon\in\left\{\mathbb{R}|0<\varepsilon<<1\right\}$}
+\Param{$\alpha\in(0,1]$, $n\in\mathbb{Z}^+$, $\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}$}
 \Init{$\hat{q}(x,u)$ $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$ and a policy $\pi$ to be greedy with respect to $\hat{q}$ or to a given, fixed policy}
  \For{$j=1,\ldots,J$ episodes}{
 		initialize $x_{0}$ and action $u_0 \sim b(\cdot | x_0)$ and store them, set also $T\leftarrow\infty$\;
@@ -493,7 +493,7 @@ Analog, an \hl{$n$-step off-policy SARSA-style update} exists:
 		g_k^\lambda = (1-\lambda)\sum_{n=1}^{\infty}\lambda^{(n-1)}g_{k:k+n}\,.
 		\label{eq:lambda_return}
 	\end{equation}
-	\item Parameter is $\lambda\in\left\{\mathbb{R}|0\leq \lambda \leq 1\right\}$.
+	\item Parameter is $\lambda\in\left\{\Re|0\leq \lambda \leq 1\right\}$.
 	\item Geometric series of weights is one:
 	\begin{equation*}
 		(1-\lambda)\sum_{n=1}^{\infty}\lambda^{(n-1)} = 1
@@ -581,7 +581,7 @@ Analog, an \hl{$n$-step off-policy SARSA-style update} exists:
 %% Eligibility Trace %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Eligibility trace}
-The \hl{eligibility trace $z_k(x)\in\mathbb{R}$} is defined and tracked for each state $x$ separately:
+The \hl{eligibility trace $z_k(x)\in\Re$} is defined and tracked for each state $x$ separately:
 	\begin{equation}
 \begin{split}
 	z_{0}(x)&=0,\\
@@ -634,7 +634,7 @@ Already known prediction and control methods can be modified accordingly. In con
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 %\Output{estimate $\hat{q}_\pi$ or $\hat{q}^*$}
-\Param{$\alpha\in(0,1]$, $\lambda\in(0,1]$, $\varepsilon\in\left\{\mathbb{R}|0<\varepsilon<<1\right\}$}
+\Param{$\alpha\in(0,1]$, $\lambda\in(0,1]$, $\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}$}
 \Init{$\hat{q}(x,u)$ arbitrarily (except terminal states) $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}
 \Init{$\pi$ to be $\varepsilon$-greedy with respect to $\hat{q}$ or to a given, fixed policy}
  \For{$j=1,\ldots,J$ episodes}{

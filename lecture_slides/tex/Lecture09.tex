@@ -75,7 +75,7 @@ Focus of this and the next lecture:
 		\begin{equation}
 			\hat{v}(\tilde{\bm{x}}, \bm{w}) \approx v_\pi(\bm{x}) .
 		\end{equation}
-	\item The state $\bm{x}$ might be enhanced by \hl{feature engineering} (i.e., additional signal inputs are derived in the \hl{feature vector $\tilde{\bm{x}}=\bm{f}(\bm{x})\in\mathbb{R}^\kappa$}).
+	\item The state $\bm{x}$ might be enhanced by \hl{feature engineering} (i.e., additional signal inputs are derived in the \hl{feature vector $\tilde{\bm{x}}=\bm{f}(\bm{x})\in\Re^\kappa$}).
 	\item Above, \hl{$\bm{w} \in \mathbb R^\zeta$ is the parameter vector}. \pause
 	\item Typically, $\zeta << |\mathcal{X}|$ applies (otherwise approximation is pointless).\pause
 \end{itemize}
@@ -106,7 +106,7 @@ The RL prediction objective is defined as the mean squared value error
 	\overline{\mbox{VE}}(\bm{w}) = \int_{\mathcal{X}}\mu(\bm{x})\left[v_{\pi}(\bm{x}) - \hat{v}(\tilde{\bm{x}}, \bm{w})\right]^2
 \label{eq:VE}
 \end{equation}
-with $\mu(\bm{x})\in\left\{\mathbb{R}|\mu(\bm{x})\geq 0\right\}$ being a state distribution weight with $\int_{\mathcal{X}}\mu=1$. 
+with $\mu(\bm{x})\in\left\{\Re|\mu(\bm{x})\geq 0\right\}$ being a state distribution weight with $\int_{\mathcal{X}}\mu=1$. 
 \end{defi}\pause
 \begin{itemize}
 	\item Practical note: As the true value $v_{\pi}(\bm{x})$ is most likely unknown in most tasks, \eqref{eq:VE} cannot be computed exactly but only estimated.
@@ -306,9 +306,9 @@ Nevertheless, the true update target $v_\pi(\bm{x}_k)$ is often unknown due to
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{a policy $\pi$ to be evaluated, a feature representation $\tilde{\bm{x}}=\bm{f}(\bm{x})$}
-\Input{a differentiable function $\hat{v}:\mathbb{R}^\kappa\times\mathbb{R}^\zeta\rightarrow\mathbb{R}$}
-\Param{step size $\alpha\in\left\{\mathbb{R}|0<\alpha<1\right\}$}
-\Init{value-function weights $\bm{w}\in\mathbb{R}^\zeta$ arbitrarily}
+\Input{a differentiable function $\hat{v}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$}
+\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$}
+\Init{value-function weights $\bm{w}\in\Re^\zeta$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
 		generate an episode following $\pi$: $x_{0}, u_{0}, r_{1},\ldots,x_{T}$ \;
 		calculate every-visit return $g_k$\;  
@@ -366,9 +366,9 @@ The semi-gradient of $J(\bm{w})$ for TD(0) from prev. slide is then
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{a policy $\pi$ to be evaluated, a feature representation $\tilde{\bm{x}}=\bm{f}(\bm{x})$}
-\Input{a differentiable function $\hat{v}:\mathbb{R}^\kappa\times\mathbb{R}^\zeta\rightarrow\mathbb{R}$ with $\hat{v}(\tilde{\bm{x}}_T, \cdot)=0$}
-\Param{step size $\alpha\in\left\{\mathbb{R}|0<\alpha<1\right\}$}
-\Init{value-function weights $\bm{w}\in\mathbb{R}^\zeta$ arbitrarily}
+\Input{a differentiable function $\hat{v}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$ with $\hat{v}(\tilde{\bm{x}}_T, \cdot)=0$}
+\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$}
+\Init{value-function weights $\bm{w}\in\Re^\zeta$ arbitrarily}
  \For{$j=1,2,\ldots$ episodes}{
 		initialize $\bm{x}_{0}$\;
 		\For{$k=0, 1, 2 \ldots $ time steps}{
@@ -395,9 +395,9 @@ The semi-gradient of $J(\bm{w})$ for TD(0) from prev. slide is then
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{a policy $\pi$ to be evaluated, a feature representation $\tilde{\bm{x}}= \bm{f}(\bm{x})$}
-\Input{a differentiable function $\hat{v}:\mathbb{R}^\kappa\times\mathbb{R}^\zeta\rightarrow\mathbb{R}$ with $\hat{v}(\tilde{\bm{x}}_T, \cdot)=0$}
-\Param{step size $\alpha\in\left\{\mathbb{R}|0<\alpha<1\right\}$, prediction steps $n\in\mathbb{Z}^+$}
-\Init{value-function weights $\bm{w}\in\mathbb{R}^\zeta$ arbitrarily}
+\Input{a differentiable function $\hat{v}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$ with $\hat{v}(\tilde{\bm{x}}_T, \cdot)=0$}
+\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$, prediction steps $n\in\mathbb{Z}^+$}
+\Init{value-function weights $\bm{w}\in\Re^\zeta$ arbitrarily}
  \For{$j=1,2\ldots$ episodes}{
 		initialize and store $\bm{x}_{0}$\;
 		$T\leftarrow\infty$\;
@@ -593,7 +593,7 @@ The RLS update rule is then
 \end{equation}
 with
 \begin{itemize}
-	\item $\lambda_k\in\left\{\mathbb{R}|0<\lambda \leq 1\right\}$ is an optional forgetting factor, 
+	\item $\lambda_k\in\left\{\Re|0<\lambda \leq 1\right\}$ is an optional forgetting factor, 
 	\item $\bm{P}_k$ is the covariance matrix and
 	\item $\bm{c}_k$ is an adaptive correction to reduce the error $\left(y_{k+1}-\bm{\xi}\T_k \bm{w}_{k+1}\right)$.
 \end{itemize}
@@ -612,8 +612,8 @@ with
 \SetKwInput{Param}{parameter}
 \Input{a policy $\pi$ to be evaluated}
 \Input{a feature representation $\tilde{\bm{x}}$ with $\tilde{\bm{x}}_T=0$ (i.e., $\hat{v}(\tilde{\bm{x}}_T,\cdot)=0$)}
-\Param{forgetting factor $\lambda\in\left\{\mathbb{R}|0 < \lambda \leq 1\right\}$}
-\Init{weights $\bm{w}\in\mathbb{R}^\zeta$ arbitrarily, covariance $\bm{P}>0$ (e.g., $\bm{P}=\beta\bm{I}$)}
+\Param{forgetting factor $\lambda\in\left\{\Re|0 < \lambda \leq 1\right\}$}
+\Init{weights $\bm{w}\in\Re^\zeta$ arbitrarily, covariance $\bm{P}>0$ (e.g., $\bm{P}=\beta\bm{I}$)}
  \For{$j=1,2,\ldots$ episodes}{
 		initialize $\bm{x}_{0}$\;
 		\For{$k=0, 1, 2 \ldots $ time steps}{
