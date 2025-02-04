@@ -41,13 +41,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Assessment}
-\begin{block}{Final exam (40\%)}
+\begin{block}{Final exam}       % (40\%)
   \begin{itemize}
   \item Two hours.
   \end{itemize}
 \end{block}
 \pause
-\begin{block}{Course Conference (60\%)}
+\begin{block}{Course Conference} % (60\%)
   \begin{itemize}[<+->]
   \item Each student does RL-related project; development in git.
   \item Submit manuscript describing project to class conference.
@@ -59,6 +59,8 @@
   \item The poster session will be open to the public.
   \end{itemize}
 \end{block}
+\pause
+Proposal: Cancel written exam, poster presentations \emph{are} final exam. Objections?
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,37 +89,35 @@
 %% Textbooks %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Recommended textbooks}
-\begin{itemize}
-		\item Reinforcement learning: an introduction, 
-		\begin{itemize}
-			\item R. Sutton and G. Barto
-			\item MIT Press, 2nd edition, 2018
-			\item Available \href{http://www.incompleteideas.net/book/the-book.html}{here}
-		\end{itemize}
-		\vspace{0.5cm}
-		\pause
-		\item Reinforcement learning (lecture script)
-		\begin{itemize}
-		  \item D. Silver
-			\item Entire slide set available \href{https://www.davidsilver.uk/teaching/}{here}
-			\item YouTube lecture series (click \href{https://www.youtube.com/watch?v=2pWv7GOvuf0}{here})
-		\end{itemize}
-		\vspace{0.5cm}
-		\pause
-		\item Reinforcement learning and optimal control
-		\begin{itemize}
-			\item D. Bertsekas
-			\item Athena Scientific, 2019
-			\item Available in library
-		\end{itemize}
-		
-	\end{itemize}
+  \frametitle{Recommended textbooks}
+  \begin{block}{Reinforcement Learning: An Introduction}
+    \begin{itemize}
+    \item Richard Sutton and Andy Barto
+    \item MIT Press, 2nd edition, 2018
+    \item Available at \url{https://www.incompleteideas.net/book/the-book.html}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Reinforcement Learning: The Silver Lectures}
+    \begin{itemize}
+    \item David Silver
+    \item Slide available at \url{https://www.davidsilver.uk/teaching/}
+    \item Lecture videos at \url{https://www.youtube.com/watch?v=2pWv7GOvuf0}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Reinforcement Learning and Optimal Control}
+    \begin{itemize}
+    \item D. Bertsekas
+    \item Athena Scientific, 2019
+    \item Available wherever fine books are carried
+    \end{itemize}
+  \end{block}
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Reinforcement learning: what is it?} 
+\section{Reinforcement learning: what is it?}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -193,17 +193,19 @@ A one step time delay is assumed between executing the action and receiving the 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% What is Learning? %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\frame{\frametitle{Some basic definitions from the literature}
-What is reinforcement?
-\begin{itemize}
-	\item ``\textit{Reinforcement is a consequence applied that will strengthen an organism's future behavior whenever that behavior is preceded by a specific antecedent stimulus.[...]There are four types of reinforcement: positive reinforcement, negative reinforcement, extinction, and punishment.}'', \href{https://en.wikipedia.org/wiki/Reinforcement}{wikipedia.org} (obtained 2023-03-31) 
-\end{itemize}
-\pause
-\vspace{0.5cm}
-What is learning?
-\begin{itemize}
-	\item ``\textit{Acquiring knowledge and skills and having them readily available from memory so you can make sense of future problems and opportunities.}'', From Make It Stick: The Science of Successful Learning, Brown et al., Harvard Press, 2014
-\end{itemize}
+\frame{\frametitle{RL: Some basic definitions from the literature}
+  \begin{block}{What is \hl{Reinforcement}?}
+    \begin{itemize}
+    \item ``\textit{Reinforcement is a consequence applied that will strengthen an organism's future behavior whenever that behavior is preceded by a specific antecedent stimulus.[...]There are four types of reinforcement: positive reinforcement, negative reinforcement, extinction, and punishment.}'' (\href{https://en.wikipedia.org/wiki/Reinforcement}{wikipedia.org}, obtained 2023-03-31)
+    \end{itemize}
+  \end{block}
+  \pause
+  \bigskip
+  \begin{block}{What is \hl{Learning}?}
+    \begin{itemize}
+    \item ``\textit{Acquiring knowledge and skills and having them readily available from memory so you can make sense of future problems and opportunities.}'' (Brown et al., 2014, Make It Stick: The Science of Successful Learning, Harvard Press)
+    \end{itemize}
+  \end{block}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -211,7 +213,7 @@ What is learning?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Context around reinforcement learning}
 \begin{figure}
-\includegraphics[height=0.7\textheight]{fig/lec01/Machine_Learning_Disciplines.pdf}
+\includegraphics[height=0.8\textheight]{fig/lec01/Machine_Learning_Disciplines.pdf}
 \caption{Disciplines of machine learning}
 \label{fig:Machine_Learning_Disciplines}
 \end{figure}
@@ -223,7 +225,7 @@ What is learning?
 \frame{\frametitle{Context around machine learning}
 \begin{figure}
 \centering
-\includegraphics[height=0.7\textheight]{fig/lec01/ML_AI.pdf}
+\includegraphics[height=0.8\textheight]{fig/lec01/ML_AI.pdf}
 \caption{The broader scope around machine learning}
 \label{fig:ML_AI}
 \end{figure}
@@ -344,7 +346,7 @@ Limited selection from a broad field:
 \begin{theo}{Reward hypothesis}{reward_hypo}
 All goals can be described by the maximization of the expected cumulative reward:
 \begin{equation}
-	\max \E{\sum_{i=0}^\infty R_{k+i+1}} .
+	\max \E{\sum_{i=0}^\infty R_{k+i+1}}
 \end{equation}
 \end{theo} 
 }
