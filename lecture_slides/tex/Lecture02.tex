@@ -65,19 +65,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Markov chain}
 
-\onslide<1->\begin{defi}{Finite Markov chain}{Markov_chain}
+\begin{defi}{Finite Markov chain}{Markov_chain}
 A \hl{finite Markov chain} is a tuple $\left\langle\mathcal{X}, \bm{\mathcal{P}} \right\rangle$ with
 \begin{itemize}
 	\item $\mathcal{X}$ being a finite set of discrete-time states $X_k\in\mathcal{X}$, 
 	\item $\bm{\mathcal{P}}=\bm{\mathcal{P}}_{xx'}=\Pb{X_{k+1}=x'|X_{k}=x}$ is the state transition probability.
 \end{itemize}
 \end{defi}
+\pause
 \begin{itemize}
-	\onslide<2->\item Specific stochastic process model
-	\onslide<2->\item Sequence of random variables $X_k, X_{k+1},\ldots$
-	\onslide<2->\item 'Memoryless', i.e., system properties are time invariant
-	\onslide<3->\item In continuous-time framework: Markov process\only<3->{\footnote[1]{However, this results in a literature nomenclature inconsistency with Markov decision/reward 'processes'.}} 
+	\item Specific stochastic process model
+          \pause
+	\item Sequence of random variables $X_k, X_{k+1},\ldots$
+          \pause
+	\item 'Memoryless', i.e., system properties are time invariant
+          \pause
+	\item In continuous-time framework: Markov Process\pause$^{\ddagger}$
 \end{itemize}
+\vfill
+{\footnotesize $^{\ddagger}$This results in a nomenclature inconsistency with Markov decision/reward `processes' in the literature.}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -423,7 +429,7 @@ In an MDP environment, a \hl{policy} is a distribution over actions given states
 \onslide<1->{
 \begin{figure}		
 	\includegraphics[height=0.35\textheight]{fig/lec02/monopoly.jpg}
-	\caption{What is you best Monopoly policy? (source: Ylanite Koppens on \href{https://www.pexels.com/de-de/foto/begrifflich-brettspiel-drinnen-farben-776654/}{Pexels})}
+	\caption{What is your best Monopoly policy? (source: Ylanite Koppens on \href{https://www.pexels.com/de-de/foto/begrifflich-brettspiel-drinnen-farben-776654/}{Pexels})}
 \end{figure}
 }
 }
@@ -551,7 +557,7 @@ Here, $\bm{r}_{\mathcal{X}}^{\pi}$ and $\bm{\mathcal{P}}_{xx'}^{\pi}$ are the re
 %% Bellman Expectation Equation Applied to Forest Tree Example (1)%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Bellman expectation equation \& forest tree example (1)}
-Let's assume following very simple policy ('\textit{fifty-fifty}')
+Assume system is following a very simple policy (`\textit{fifty-fifty}')
 \begin{equation*}
 \pi(u = \mbox{cut}|x) = 0.5, \quad \pi(u = \mbox{wait}|x) = 0.5 \quad\forall x\in\mathcal{X} \, .
 \end{equation*}
