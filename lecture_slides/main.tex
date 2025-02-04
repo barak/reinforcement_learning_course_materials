@@ -4,13 +4,14 @@
 \usetheme{Madrid}
 \usefonttheme{professionalfonts}
 \setbeamertemplate{itemize items}[triangle]
-\setbeamertemplate{section in toc}[ball]
+\setbeamertemplate{section in toc}[circle]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% logo & author information for the entire slide set %%%%%%%%%
-\titlegraphic{\href{https://ei.uni-paderborn.de/lea/}{\includegraphics[height=1cm]{fig/UPB_Logo}}\hspace{2cm} \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\includegraphics[height=1cm]{fig/by-nc-sa}}}
-\author{Oliver Wallscheid}
+\titlegraphic{%\href{https://ei.uni-paderborn.de/lea/}{\includegraphics[height=1cm]{fig/UPB_Logo}}\hspace{2cm}
+  \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\includegraphics[height=1cm]{fig/by-nc-sa}}}
+\author{Original Author: Oliver Wallscheid}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -115,28 +116,7 @@
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% Delete absolute page number depiction since \inserttotalframenumber is not updated to zero when using \part command  %%%%%
-\makeatletter
-\setbeamertemplate{footline}{
-  \leavevmode%
-  \hbox{%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-    \usebeamerfont{author in head/foot}\insertshortauthor\expandafter\ifblank\expandafter{\beamer@shortinstitute}{}{~~(\insertshortinstitute)}
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-    \usebeamerfont{title in head/foot}\insertshorttitle
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{5em}
-    \insertframenumber{}%/\inserttotalframenumber
-    \hspace*{2ex} 
-  \end{beamercolorbox}}%
-  \vskip0pt%
-
-}
-\makeatother
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% References %%%%%
