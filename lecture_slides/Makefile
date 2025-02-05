@@ -28,4 +28,4 @@ $(BLECS):
 .PRECIOUS: $(BLECS:.tex=.pdf)
 
 built/%.pdf: build-%.pdf
-	ln $< $@
+	ln --force $< $@
