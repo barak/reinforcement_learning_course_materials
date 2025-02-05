@@ -25,5 +25,7 @@ FORCE:
 $(BLECS):
 	echo "\includeonly{tex/$(subst build-,,$@)}\input{main.tex}" > $@
 
+.PRECIOUS: $(BLECS:.tex=.pdf)
+
 built/%.pdf: build-%.pdf
-	cp $< $@
+	ln $< $@
