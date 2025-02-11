@@ -78,7 +78,7 @@
     \pause
   \item Sequence of random variables $X_k, X_{k+1},\ldots$
     \pause
-  \item 'Memoryless', i.e., system properties are time invariant
+  \item `Memoryless', i.e., system properties are time invariant
     \pause
   \item In continuous-time framework: Markov Process\pause$^{\ddagger}$
   \end{itemize}
@@ -92,7 +92,7 @@
 \frame{\frametitle{State transition matrix}
 
   \begin{defi}{State transition matrix}{STM}
-    Given a Markov state $X_k=x$ and its successor $X_{k+1}=x'$ , the \hl{state transition probability} $\forall \left\{x,x'\right\}\in \mathcal{X}$ is defined by the matrix
+    Given a Markov state $X_k=x$ and its successor $X_{k+1}=x'$, the \hl{state transition probability} $\forall \left\{x,x'\right\}\in \mathcal{X}$ is defined by the matrix
     \begin{equation}
       \bm{\mathcal{P}}_{xx'}=\Pb{X_{k+1}=x'|X_{k}=x} .
     \end{equation}
@@ -102,7 +102,7 @@
   \begin{equation*}
     \bm{\mathcal{P}}_{xx'} = \begin{bmatrix} p_{11} & p_{12} & \cdots & p_{1n}\\ p_{21} &  &  & \vdots\\ \vdots & & & \vdots\\ p_{n1} & \cdots & \cdots & p_{nn}\end{bmatrix}
   \end{equation*}
-  with $p_{ij}\in\left\{\Re|0 \leq p_{ij} \leq 1 \right\}$ being the specific probability to go from state $x=X_i$ to state $x'=X_j$. Obviously, $\sum_{j} p_{ij}=1 \, \forall i$ must hold.
+  with $p_{ij}\in [0,1]$ being the specific probability to go from state $x=X_i$ to state $x'=X_j$. Since this is a probability distribution, $\sum_{j} p_{ij}=1$ must hold $\forall i$.
 }
 
 
@@ -126,11 +126,11 @@
     \end{align*}
   \end{minipage}
   \begin{itemize}
-  \item At $x=1$ a small tree is planted ('starting point').
+  \item At $x=1$ a small tree is planted (`starting point').
   \item A tree grows with $(1-\alpha)$ probability.
   \item If it reaches $x=3$ (large) its growth is limited.
   \item With $\alpha$ probability a natural hazard destroys the tree.
-  \item The state $x=4$ is terminal ('infinite loop').
+  \item The state $x=4$ is terminal (`infinite loop').
   \end{itemize}
 }
 
@@ -767,7 +767,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Optimal policy for forest tree MDP: state value (1)}
   \vspace{-0.15cm}
-  \onslide<1->{Start with $v(x=4)$ ('gone') and then continue going backwards:}
+  \onslide<1->{Start with $v(x=4)$ (`gone') and then continue going backwards:}
   \onslide<2->{
     \begin{align*}
       v^*(x=4) &= 0\, ,}\\
@@ -873,7 +873,7 @@
   \begin{itemize}
   \item Possible only for \hl{small action and state-space} MDPs
     \begin{itemize}
-    \item 'Solving' Backgammon with $\approx 10^{20}$ states?
+    \item `Solving' Backgammon with $\approx 10^{20}$ states?
     \end{itemize}
     \pause
   \item Another issue: total \hl{environment knowledge} required
