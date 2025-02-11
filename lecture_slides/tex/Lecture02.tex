@@ -400,11 +400,22 @@
 %% Forest Markov Decision Process (2) %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Example of a Markov decision process (2)}
-  For the previous example the state transition probability matrix and reward function are given as:
-  \begin{alignat*}{2}
-    \bm{\mathcal{P}}_{xx'}^{u=c} &= \begin{bmatrix}0 & 0 & 0 & 1  \\ 0 & 0 &0 & 1 \\ 0 & 0 &0 & 1 \\ 0 & 0 & 0 & 1\end{bmatrix}, \quad \bm{\mathcal{P}}_{xx'}^{u=w} &&= \begin{bmatrix}0 & 1-\alpha & 0 & \alpha  \\ 0 & 0 &1-\alpha & \alpha \\ 0 & 0 &1-\alpha & \alpha \\ 0 & 0 & 0 & 1\end{bmatrix},\\
-	\bm{r}_{\mathcal{X}}^{u=c} &= \begin{bmatrix}1 & 2 & 3 & 0 \end{bmatrix}\T, \quad \bm{r}_{\mathcal{X}}^{u=w} &&= \begin{bmatrix}0 & 0 & 1 & 0 \end{bmatrix}\T .
-  \end{alignat*}
+  For the previous example the state transition probability matrix and reward function are:
+  \begin{align*}
+    \bm{\mathcal{P}}_{xx'}^{u=c} &=
+    \begin{bmatrix}
+      0 & 0 & 0 & 1  \\ 0 & 0 &0 & 1 \\ 0 & 0 &0 & 1 \\ 0 & 0 & 0 & 1
+    \end{bmatrix}
+    &
+    \bm{\mathcal{P}}_{xx'}^{u=w} &=
+    \begin{bmatrix}
+      0 & 1-\alpha & 0 & \alpha  \\ 0 & 0 &1-\alpha & \alpha \\ 0 & 0 &1-\alpha & \alpha \\ 0 & 0 & 0 & 1
+    \end{bmatrix}
+    \\[2ex]
+    \bm{r}_{\mathcal{X}}^{u=c} &= \begin{bmatrix}1 & 2 & 3 & 0 \end{bmatrix}\T
+    &
+    \bm{r}_{\mathcal{X}}^{u=w} &= \begin{bmatrix}0 & 0 & 1 & 0 \end{bmatrix}\T
+  \end{align*}
   \begin{itemize}
   \item The term $\bm{r}_{\mathcal{X}}^u$ is the abbreviated form for receiving the output of $\mathcal{R}$ for the entire state space $\mathcal{X}$ given the action $u$.
   \end{itemize}
@@ -443,7 +454,7 @@
 \frame{\frametitle{Policy (2)}
   Given a finite MDP $\left\langle\mathcal{X}, \mathcal{U}, \bm{\mathcal{P}}, \mathcal{R}, \gamma \right\rangle$ and a policy $\bm{\pi}$:
   \begin{itemize}
-  \item The state sequence $X_k, X_{k+1},\ldots$ is a Markov chain $\left\langle\mathcal{X}, \bm{\mathcal{P}}^{\pi} \right\rangle$ since the state transition probability is only depending on the state:
+  \item The state sequence $X_k, X_{k+1},\ldots$ is a Markov chain $\left\langle\mathcal{X}, \bm{\mathcal{P}}^{\pi} \right\rangle$ since the state transition probability depends only on the current state:
     \begin{equation}
       \bm{\mathcal{P}}_{xx'}^{\pi}=\sum_{u_k\in\mathcal{U}}\bm{\pi}(u_k \vert x_k)\bm{\mathcal{P}}_{xx'}^{u}\, .
     \end{equation}\pause
@@ -478,7 +489,7 @@
 %% Bellman Expectation Equation (1) %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Bellman expectation equation (1)}
-  Analog to \eqref{eq:Bellman_MRP}, the state value of an MDP can be decomposed into a Bellman notation:
+  Similarly to \eqref{eq:Bellman_MRP}, an MDP state value can be decomposed using a Bellman equation:
   \begin{equation}
     v_\pi(x_k)	= \El{R_{k+1} + \gamma 	v_{\pi}(X_{k+1}) \vert X_k=x_k}{\pi}\, .
   \end{equation}
