@@ -30,3 +30,17 @@ $(BLECS):
 
 built/%.pdf: build-%.pdf
 	ln --force $< $@
+
+handout-%.tex:
+	echo "\PassOptionsToClass{handout}{beamer} \input{$(notdir $*)}" > $@
+
+.PRECIOUS: $(patsubst %,handout-build-%,$(LECS))
+.PRECIOUS: $(patsubst %,handout-build-%,$(LECS:.tex=.pdf))
+.PRECIOUS: handout-build-all.tex
+.PRECIOUS: handout-build-all.pdf
+
+built/handout-%.pdf: handout-build-%.pdf
+	ln --force $< $@
+
+all: $(patsubst %,built/handout-%,$(LECS:.tex=.pdf))
+all: built/handout-all.pdf
