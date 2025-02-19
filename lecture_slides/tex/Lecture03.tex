@@ -330,7 +330,7 @@
   \item In-place algorithms allow to update states in a beneficial order. \pause
   \item May converge faster than regular Richardson iteration if state update order is chosen wisely (sweep through state space).\pause
   \item For forest tree MDP: reverse order, i.e., start with $x=4$.\pause
-  \item As can be seen in \tabref{tab:Forest_tree_policy_eval_in_place} the in-place updates especially converge faster for the `early states'.
+  \item As seen in \tabref{tab:Forest_tree_policy_eval_in_place}, in-place updates converge faster for the `early states' in particular.
   \end{itemize}
 
   \begin{table}
@@ -648,18 +648,19 @@
     \end{itemize}
   \end{itemize}
   \pause
+  \vfill
   \begin{table}
     \centering
-    \begin{tabular}{M{1.65cm}M{4.75cm}M{4cm}}
+    \begin{tabular}{cM{4.75cm}c}
       \toprule
-      Problem & Relevant Equations & Algorithm\\
+      \textbf{Problem} & \textbf{Relevant Equations} & \textbf{Algorithm}\\
       \midrule
-      prediction & Bellman expectation eq. &  policy evaluation\\
-      control & Bellman expectation eq. \& greedy policy improvement & policy iteration\\
+      prediction & Bellman expectation eq. &  policy evaluation\\[1.5ex]
+      control & Bellman expectation eq.\ \& greedy policy improvement & policy iteration\\[2.5ex]
       control & Bellman optimality eq. & value iteration\\
       \bottomrule
     \end{tabular}
-    \caption{Short overview addressing the treated DP algorithms}
+    \caption{Short overview addressing DP algorithms discussed}
     \label{tab:DP_syn_algos}
   \end{table}
 }
@@ -708,7 +709,7 @@
     \subfloat{
       \includegraphics[height=4cm]{fig/lec03/GPI_02.pdf}
     }
-    \caption{Interpreting generalized policy iteration to switch back and forth between (arbitrary) evaluations and improvement steps (source: R. Sutton and G. Barto, Reinforcement learning: an introduction, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
+    \caption{Interpreting generalized policy iteration to switch back and forth between (arbitrary) evaluations and improvement steps (source: R. Sutton and G. Barto, \textit{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
   \end{figure}
 }
 
