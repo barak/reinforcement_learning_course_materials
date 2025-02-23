@@ -124,7 +124,7 @@
     \label{eq:inc_impl_MC_pred}
   \end{equation} \pause
   \begin{itemize}
-  \item \hl{If a given decision problem is non-stationary}, using a forgetting factor $\alpha\in\left\{\Re|0<\alpha<1\right\}$ allows for dynamic adaption:
+  \item \hl{If a given decision problem is non-stationary}, using a forgetting factor $\alpha\in\left\{\Re\vert 0<\alpha<1\right\}$ allows for dynamic adaption:
   \end{itemize}
   \begin{equation}
     \mu_J = \mu_{J-1} + \alpha\left[g_J-\mu_{J-1}\right] .
@@ -358,7 +358,7 @@
     \begin{itemize}
     \item Visit all state-action pairs with probability:
       \begin{equation}
-	\pi(u|x) > 0 \quad \forall\, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}\, .
+	\pi(u\vert x) > 0 \quad \forall\, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}\, .
       \end{equation}
     \item Policies with this characteristic are called: \hl{soft}.
     \item Level of exploration can be tuned during the learning process.
@@ -367,9 +367,9 @@
   \item \hl{$\varepsilon$-greedy on-policy learning}
     \begin{itemize}
     \item With probability $\varepsilon$ the agent's choice (i.e., the policy output) is overwritten with a random action.
-    \item Probability of all non-greedy actions: \begin{equation}\varepsilon/|\mathcal{U}|\,.\end{equation}
-    \item Probability of the greedy action: \begin{equation}1-\varepsilon+\varepsilon/|\mathcal{U}|\,.\end{equation}
-    \item Above, $|\mathcal{U}|$ is the cardinality of the action space.
+    \item Probability of all non-greedy actions: \begin{equation}\varepsilon/\lvert\mathcal{U}\rvert\,.\end{equation}
+    \item Probability of the greedy action: \begin{equation}1-\varepsilon+\varepsilon/\lvert\mathcal{U}\rvert\,.\end{equation}
+    \item Above, $\lvert\mathcal{U}\rvert$ is the cardinality of the action space.
     \end{itemize}
   \end{itemize}
 }
@@ -385,8 +385,8 @@
     \SetKwInput{Output}{output}
     \SetKwInput{Init}{init}
     \SetKwInput{Param}{parameter}
-    \Output{Optimal $\varepsilon$-greedy policy $\pi^*(u|x)$, \hspace{0.5cm}\textbf{parameter:} $\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}$}%\Param{}
-    \Init{$\pi_{i=0}(u|x)$ arbitrarily soft $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$\newline
+    \Output{Optimal $\varepsilon$-greedy policy $\pi^*(u\vert x)$, \hspace{0.5cm}\textbf{parameter:} $\varepsilon\in\left\{\Re\vert 0<\varepsilon \ll 1\right\}$}%\Param{}
+    \Init{$\pi_{i=0}(u\vert x)$ arbitrarily soft $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$\newline
       $\hat{q}(x,u)$ arbitrarily $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$\newline
       $n(x,u)\leftarrow$ an empty list counting state-action visits $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}
     \Repeat{$\pi_{i+1} = \pi_{i}$}{
@@ -399,7 +399,7 @@
 	  $n(x_k,u_k)\leftarrow n(x_k,u_k)+1$\;
 	  $\hat{q}(x_k,u_k)\leftarrow \hat{q}(x_k,u_k) + 1/n(x_k,u_k)\cdot(g-\hat{q}(x_k,u_k))$\;
 	  $\tilde{u}\leftarrow\argmax_{u}\,\, \hat{q}(x_k,u)$\;
-	  $\pi_i(u|x_k)\leftarrow\begin{cases}1-\varepsilon+\varepsilon/|\mathcal{U}|, \quad u=\tilde{u}\\ \varepsilon/|\mathcal{U}|, \quad u\neq\tilde{u}\end{cases}$\;
+	  $\pi_i(u\vert x_k)\leftarrow\begin{cases}1-\varepsilon+\varepsilon/\lvert\mathcal{U}\rvert , \quad u=\tilde{u}\\ \varepsilon/\lvert\mathcal{U}\rvert , \quad u\neq\tilde{u}\end{cases}$\;
 	}
       }
     }
@@ -419,9 +419,9 @@
   \small
   \begin{equation}
     \begin{split}
-      q_{\pi}(x,\pi'(x)) &= \sum_{u}\pi'(u|x)q_{\pi}(x,u),\\
-      &= \frac{\varepsilon}{|\mathcal{U}|}\sum_{u}q_{\pi}(x,u) + (1-\varepsilon)\max_{u}q_{\pi}(x,u),\\
-      &\geq \frac{\varepsilon}{|\mathcal{U}|}\sum_{u}q_{\pi}(x,u) + (1-\varepsilon)\sum_{u}\frac{\pi(u|x)-\frac{\varepsilon}{|\mathcal{U}|}}{1-\varepsilon}q_{\pi}(x,u).
+      q_{\pi}(x,\pi'(x)) &= \sum_{u}\pi'(u\vert x)q_{\pi}(x,u),\\
+      &= \frac{\varepsilon}{\lvert\mathcal{U}\rvert }\sum_{u}q_{\pi}(x,u) + (1-\varepsilon)\max_{u}q_{\pi}(x,u),\\
+      &\geq \frac{\varepsilon}{\lvert\mathcal{U}\rvert }\sum_{u}q_{\pi}(x,u) + (1-\varepsilon)\sum_{u}\frac{\pi(u\vert x)-\frac{\varepsilon}{\lvert\mathcal{U}\rvert }}{1-\varepsilon}q_{\pi}(x,u).
     \end{split}
   \end{equation}
   \normalsize
@@ -436,9 +436,9 @@
   \small
   \begin{equation}
     \begin{split}
-      q_{\pi}(x,\pi'(x)) &\geq \frac{\varepsilon}{|\mathcal{U}|}\sum_{u}q_{\pi}(x,u) + (1-\varepsilon)\sum_{u}\frac{\pi(u|x)-\frac{\varepsilon}{|\mathcal{U}|}}{1-\varepsilon}q_{\pi}(x,u),\\
-      &= \frac{\varepsilon}{|\mathcal{U}|}\sum_{u}\left(q_{\pi}(x,u) - q_{\pi}(x,u)\right) + \sum_{u}\pi(u|x)q_{\pi}(x,u),\\
-      &=\sum_{u}\pi(u|x)q_{\pi}(x,u),\\
+      q_{\pi}(x,\pi'(x)) &\geq \frac{\varepsilon}{\lvert\mathcal{U}\rvert }\sum_{u}q_{\pi}(x,u) + (1-\varepsilon)\sum_{u}\frac{\pi(u\vert x)-\frac{\varepsilon}{\lvert\mathcal{U}\rvert }}{1-\varepsilon}q_{\pi}(x,u),\\
+      &= \frac{\varepsilon}{\lvert\mathcal{U}\rvert }\sum_{u}\left(q_{\pi}(x,u) - q_{\pi}(x,u)\right) + \sum_{u}\pi(u\vert x)q_{\pi}(x,u),\\
+      &=\sum_{u}\pi(u\vert x)q_{\pi}(x,u),\\
       &=v_{\pi}(x).
     \end{split}
   \end{equation}
@@ -494,11 +494,11 @@
     \begin{itemize}
     \item If a state is visited infinitely often, then each action is chosen infinitely often:
       \begin{equation}
-	\lim_{i\rightarrow\infty} \pi_i(u|x)=1 \quad \forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}\, .
+	\lim_{i\rightarrow\infty} \pi_i(u\vert x)=1 \quad \forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}\, .
       \end{equation}
     \item In the limit ($i\rightarrow \infty$) the learning policy is greedy with respect to the learned action value:
       \begin{equation}
-	\lim_{i\rightarrow\infty} \pi_i(u|x)=\pi(x)= \argmax_{u} q(x, u) \quad \forall x\in\mathcal{X} \, .
+	\lim_{i\rightarrow\infty} \pi_i(u\vert x)=\pi(x)= \argmax_{u} q(x, u) \quad \forall x\in\mathcal{X} \, .
       \end{equation}
     \end{itemize}
   \end{defi}
@@ -548,8 +548,8 @@
   \begin{itemize}
   \item Use two separated policies:
     \begin{itemize}
-    \item \hl{Behavior policy} $b(u|x)$: explores in order to generate experience.
-    \item \hl{Target policy} $\pi(u|x)$: learns from that experience to become the optimal policy.
+    \item \hl{Behavior policy} $b(u\vert x)$: explores in order to generate experience.
+    \item \hl{Target policy} $\pi(u\vert x)$: learns from that experience to become the optimal policy.
     \end{itemize}\pause
   \item Use cases:
     \begin{itemize}
@@ -566,7 +566,7 @@
 \frame{\frametitle{Off-policy prediction problem statement}
   \begin{block}{MC off-policy prediction problem statement}
     \begin{itemize}
-    \item Estimate $v_\pi$ and/or $q_\pi$ while following $b(u|x)$.
+    \item Estimate $v_\pi$ and/or $q_\pi$ while following $b(u\vert x)$.
     \item Both policies are considered fixed (prediction assumption).
     \end{itemize}
   \end{block}
@@ -575,7 +575,7 @@
   \begin{itemize}
   \item \hl{Coverage}: Every action taken under $\pi$ must be (at least occasionally) taken under $b$, too. Hence, it follows:
     \begin{equation}
-      \pi(u|x) > 0 \Rightarrow b(u|x) > 0 \quad \forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\} .
+      \pi(u\vert x) > 0 \Rightarrow b(u\vert x) > 0 \quad \forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\} .
     \end{equation}\pause
   \item Consequences from that:
     \begin{itemize}
@@ -592,15 +592,15 @@
   Probability of observing a certain trajectory on random variables $U_k, X_{k+1}, U_{k+1}, \ldots, X_{T}$ starting in $X_{k}$ while following $\pi$:
   \begin{equation}
     \begin{split}
-      &\Pb{U_k, X_{k+1}, U_{k+1}, \ldots , X_{T}| X_{k}, \pi}=\pi(U_k|X_{k})p(X_{k+1}|X_{k}, U_{k})\pi(U_{k+1}|X_{k+1})\cdots\,,\\
-      &=\prod_k^{T-1} \pi(U_k|X_{k})p(X_{k+1}|X_{k}, U_{k}).
+      &\Pb{U_k, X_{k+1}, U_{k+1}, \ldots , X_{T}\vert  X_{k}, \pi}=\pi(U_k\vert X_{k})p(X_{k+1}\vert X_{k}, U_{k})\pi(U_{k+1}\vert X_{k+1})\cdots\,,\\
+      &=\prod_k^{T-1} \pi(U_k\vert X_{k})p(X_{k+1}\vert X_{k}, U_{k}).
     \end{split}
   \end{equation}
   Above $p$ is the state-transition probability (cf. \defref{defi:Markov_decision_process}).\pause
   \begin{defi}{Importance sampling ratio}{import_sampl_ratio}
     The relative probability of a trajectory under the target and behavior policy, the importance sampling ratio, from sample step $k$ to $T$ is:
     \begin{equation}
-      \rho_{k:T}=\frac{\prod_k^{T-1} \pi(U_k|X_{k})p(X_{k+1}|X_{k}, U_{k})}{\prod_k^{T-1} b(U_k|X_{k})p(X_{k+1}|X_{k}, U_{k})}=\frac{\prod_k^{T-1} \pi(U_k|X_{k})}{\prod_k^{T-1} b(U_k|X_{k})} .
+      \rho_{k:T}=\frac{\prod_k^{T-1} \pi(U_k\vert X_{k})p(X_{k+1}\vert X_{k}, U_{k})}{\prod_k^{T-1} b(U_k\vert X_{k})p(X_{k+1}\vert X_{k}, U_{k})}=\frac{\prod_k^{T-1} \pi(U_k\vert X_{k})}{\prod_k^{T-1} b(U_k\vert X_{k})} .
       \label{eq:import_sampl_ratio}
     \end{equation}
   \end{defi}
@@ -613,7 +613,7 @@
   \begin{defi}{State-value estimation via Monte Carlo importance sampling}{MC_ord_import_sampl}
     Estimating the state value $v_\pi$ following a behavior policy $b$ using (ordinary) importance sampling (OIS) results in scaling and averaging the sampled returns by the importance sampling ratio per episode:
     \begin{equation}
-      \hat{v}_\pi(x_k)=\frac{\sum_{k\in\mathcal{T}(x_k)}\rho_{k:T(k)}g_k}{|\mathcal{T}(x_k)|}.
+      \hat{v}_\pi(x_k)=\frac{\sum_{k\in\mathcal{T}(x_k)}\rho_{k:T(k)}g_k}{\lvert\mathcal{T}(x_k)\rvert }.
       \label{eq:OIS}
     \end{equation}
   \end{defi}
