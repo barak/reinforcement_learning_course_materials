@@ -245,11 +245,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Applying Generalized Policy Iteration (GPI) to MC Control %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\frame{\frametitle{Applying generalized policy iteration (GPI) to MC control}
-  \onslide<1->{GPI concept is directly applied to MC framework using action values:
+\frame{\frametitle{Applying Generalized Policy Iteration (GPI) to MC Control}
+  \onslide<1->{GPI is directly applied to MC framework using action values:
     \begin{equation}
       \label{eq:GPI_MC}
-      \pi_0 \rightarrow \hat{q}_{\pi_0} \rightarrow \pi_1 \rightarrow \hat{q}_{\pi_1} \rightarrow \cdots \pi^* \rightarrow \hat{q}_{\pi^*} \, .
+      \pi_0 \rightarrow \hat{q}_{\pi_0} \rightarrow \pi_1 \rightarrow \hat{q}_{\pi_1} \rightarrow \cdots \rightarrow \pi^* \rightarrow \hat{q}_{\pi^*} \, .
   \end{equation}}
   \begin{itemize}
     \onslide<2->{\item Degree of freedom: Choose number of episodes to approximate $\hat{q}_{\pi_i}$.}
@@ -478,7 +478,7 @@
 \frame{\frametitle{MC-based control example: forest tree MDP (1)}
   \begin{figure}
     \includegraphics[height=0.65\textheight]{fig/lec04/Forest_Tree_MC_Control_eps_02.pdf}
-    \caption{Different estimates of forest tree MDP ($\alpha=0.2, \gamma=0.8$) using MC control with \hl{$\varepsilon=0.2$} over the number of episodes. Mean is red and standard deviation is light blue, both calculated based on 2000 independent runs.}
+    \caption{Different estimates of forest tree MDP ($\alpha=0.2, \gamma=0.8$) using MC control with \hl{$\varepsilon=0.20$} over the number of episodes. Mean is red and standard deviation is light blue, both calculated based on 2000 independent runs.}
     \label{fig:Forest_Tree_MC_Control_eps_02}
   \end{figure}
 }
