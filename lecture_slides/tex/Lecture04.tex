@@ -263,7 +263,7 @@
         \includegraphics[height=0.4\textheight]{fig/lec04/MC_GPI.pdf}
       \end{minipage}
       \begin{minipage}[c]{0.45\textwidth}
-        \caption{Transferring GPI to MC-based control (source: R. Sutton and G. Barto, Reinforcement learning: an introduction, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
+        \caption{Transferring GPI to MC-based control (source: R. Sutton and G. Barto, Reinforcement Learning: An Introduction, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 	\label{fig:GPI_MC}
       \end{minipage}
   \end{figure}}
@@ -380,10 +380,13 @@
   \item \hl{$\varepsilon$-greedy on-policy learning}
     \begin{itemize}
     \item With probability $\varepsilon$ the agent's choice (i.e., the policy output) is replaced by a random action.
-    \item Probability of all non-greedy actions: \begin{equation}\varepsilon/\lvert\mathcal{U}\rvert\,.\end{equation}
+    \item Probability of all non-greedy actions:
+      \begin{equation}
+        \varepsilon/\lvert\mathcal{U}\rvert
+      \end{equation}
     \item Probability of the greedy action:
       \begin{equation}
-        1-\varepsilon+\varepsilon/\lvert\mathcal{U}\rvert\,.
+        1-\varepsilon+\varepsilon/\lvert\mathcal{U}\rvert
       \end{equation}
       where $\lvert\mathcal{U}\rvert$ is the cardinality of the action space.
     \end{itemize}
