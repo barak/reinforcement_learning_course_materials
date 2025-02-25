@@ -362,24 +362,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{$\varepsilon$-greedy as an on-policy alternative}
   \begin{itemize}
-  \item Exploration requirement:\\[1ex]
-    \begin{minipage}[b]{0.7\textwidth}
+  \item Exploration requirement:
     \begin{itemize}
     \item Visit all state-action pairs with probability
       \begin{equation}
 	\pi(u\vert x) > 0 \qquad \forall\, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}
+        \hspace*{10em}
       \end{equation}
     \item<3-> Policies with this characteristic are called: \hl{soft}.
-    \item<4-> The level of exploration can be tuned during learning.
+    \item<3-> The level of exploration can be tuned during learning.
     \end{itemize}
-    \end{minipage}
-    \hfill
-    \onslide<2->{\includegraphics[width=0.24\textwidth]{fig/lec04/never-say-never-again-poster.jpg}}
-    \onslide<5->
     \vfill
-  \item \hl{$\varepsilon$-greedy on-policy learning}
+  \item<4-> \hl{$\varepsilon$-greedy on-policy learning}
     \begin{itemize}
     \item With probability $\varepsilon$ the agent's choice (i.e., the policy output) is replaced by a random action.
+      \smallskip
     \item Probability of all non-greedy actions:
       \begin{equation}
         \varepsilon/\lvert\mathcal{U}\rvert
@@ -388,9 +385,16 @@
       \begin{equation}
         1-\varepsilon+\varepsilon/\lvert\mathcal{U}\rvert
       \end{equation}
-      where $\lvert\mathcal{U}\rvert$ is the cardinality of the action space.
+      where $\lvert\mathcal{U}\rvert$ is the number of possible actions.
     \end{itemize}
   \end{itemize}
+  % Place image at specific coordinates
+  \onslide<2->
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east]
+    at (current page.north east) % Change position as needed
+    {\rule{0em}{27ex}\includegraphics[width=0.3\textwidth]{fig/lec04/never-say-never-again-poster.jpg}\hspace*{3em}};
+  \end{tikzpicture}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
