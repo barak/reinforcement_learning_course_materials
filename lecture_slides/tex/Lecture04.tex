@@ -147,17 +147,18 @@
     \begin{itemize}
     \item Each return sample $g_J$ is independent from the others since they were drawn from separate episodes.
     \item One receives \hl{i.i.d.\ data} to estimate $\E{\hat{v}_{\pi}}$ and consequently this \hl{is bias-free}.
-    \item The estimate's variance $\Var{\hat{v}_{\pi}}$ drops with $1/n$ ($n$: available samples).
+    \item The estimate's variance $\Var{\hat{v}_{\pi}}$ drops with $1/n$ ($n = \text{\#samples}$).
   \end{itemize}}
+  \bigskip
   \onslide<2->{Every-time visit MC:
     \begin{itemize}
     \item Each return sample $g_J$ is not independent from the others since they might be obtained from same episodes.
-    \item One receives \hl{non-i.i.d.} data to estimate $\E{\hat{v}_{\pi}}$ and consequently this \hl{is biased} for any $n<\infty$.
+    \item One receives \hl{non-i.i.d.\ data} to estimate $\E{\hat{v}_{\pi}}$ and consequently this \hl{is biased} for any $n<\infty$.
     \item Only in the limit $n\rightarrow \infty$ one receives $\left(v_{\pi}(x)-\E{\hat{v}_{\pi}(x)}\right) \rightarrow 0$.
   \end{itemize}}
   \footnotesize
   \vspace{0.5cm}
-  \onslide<1->More information: S. Singh and  R. Sutton, "Reinforcement Learning with Replacing Eligibility Traces", Machine Learning, Vol. 22, pp. 123-158, 1996
+  \onslide<1->More information: S. Singh and  R. Sutton, \emph{Reinforcement Learning with Replacing Eligibility Traces}, Machine Learning \textbf{22}:123--158, 1996
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -441,7 +442,7 @@
     \end{split}
   \end{equation}
   \normalsize
-  In the inequality line, the second term is the weighted sum over action values given an $\varepsilon$-greedy policy. This weighted sum will be always smaller or equal than  $\max_{u}q_{\pi}(x,u)$.
+  In the inequality line, the second term is the weighted sum over action values given an $\varepsilon$-greedy policy. This weighted sum is bounded above by $\max_{u}q_{\pi}(x,u)$.
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -471,7 +472,7 @@
 \frame{\frametitle{MC-based control example: forest tree MDP (1)}
   \begin{figure}
     \includegraphics[height=0.65\textheight]{fig/lec04/Forest_Tree_MC_Control_eps_02.pdf}
-    \caption{Different estimates of forest tree MDP ($\alpha=0.2, \gamma=0.8$) using MC control with \hl{$\varepsilon=0.2$} over the number of episodes. Mean is red and standard deviation is light blue, both calculated based on 2000 independent uns.}
+    \caption{Different estimates of forest tree MDP ($\alpha=0.2, \gamma=0.8$) using MC control with \hl{$\varepsilon=0.2$} over the number of episodes. Mean is red and standard deviation is light blue, both calculated based on 2000 independent runs.}
     \label{fig:Forest_Tree_MC_Control_eps_02}
   \end{figure}
 }
@@ -605,18 +606,18 @@
 %% Importance Sampling %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Importance sampling}
-  Probability of observing a certain trajectory on random variables $U_k, X_{k+1}, U_{k+1}, \ldots, X_{T}$ starting in $X_{k}$ while following $\pi$:
+  Starting in $X_{k}$ and following $\pi$, the probability of observing a particular trajectory on random variables $U_k, X_{k+1}, U_{k+1}, \ldots, X_{T}$ is
   \begin{equation}
     \begin{split}
-      &\Pb{U_k, X_{k+1}, U_{k+1}, \ldots , X_{T}\vert  X_{k}, \pi}=\pi(U_k\vert X_{k})p(X_{k+1}\vert X_{k}, U_{k})\pi(U_{k+1}\vert X_{k+1})\cdots\,,\\
-      &=\prod_k^{T-1} \pi(U_k\vert X_{k})p(X_{k+1}\vert X_{k}, U_{k}).
+      \Pb{U_k, X_{k+1}, U_{k+1}, \ldots , X_{T}\vert  X_{k}, \pi}&=\pi(U_k\vert X_{k})\,p(X_{k+1}\vert X_{k}, U_{k})\,\pi(U_{k+1}\vert X_{k+1})\cdots\\
+      &=\prod_k^{T-1} \pi(U_k\vert X_{k}) \, p(X_{k+1}\vert X_{k}, U_{k}).
     \end{split}
   \end{equation}
-  Above $p$ is the state-transition probability (cf. \defref{defi:Markov_decision_process}).\pause
+  Where $p$ is the state-transition probability (cf.\ \defref{defi:Markov_decision_process}).\pause
   \begin{defi}{Importance sampling ratio}{import_sampl_ratio}
     The relative probability of a trajectory under the target and behavior policy, the importance sampling ratio, from sample step $k$ to $T$ is:
     \begin{equation}
-      \rho_{k:T}=\frac{\prod_k^{T-1} \pi(U_k\vert X_{k})p(X_{k+1}\vert X_{k}, U_{k})}{\prod_k^{T-1} b(U_k\vert X_{k})p(X_{k+1}\vert X_{k}, U_{k})}=\frac{\prod_k^{T-1} \pi(U_k\vert X_{k})}{\prod_k^{T-1} b(U_k\vert X_{k})} .
+      \rho_{k:T}=\frac{\prod_k^{T-1} \pi(U_k\vert X_{k}) \, p(X_{k+1}\vert X_{k}, U_{k})}{\prod_k^{T-1} b(U_k\vert X_{k}) \, p(X_{k+1}\vert X_{k}, U_{k})}=\frac{\prod_k^{T-1} \pi(U_k\vert X_{k})}{\prod_k^{T-1} b(U_k\vert X_{k})} .
       \label{eq:import_sampl_ratio}
     \end{equation}
   \end{defi}
@@ -653,7 +654,7 @@
   Just put everything together:
   \begin{itemize}
   \item MC-based control utilizing GPI (cf. \figref{fig:GPI_MC}),
-  \item Off-policy learning based on importance sampling (or variants like weighted importance sampling, cf. Barto/Sutton book chapter 5.5).
+  \item Off-policy learning based on importance sampling (or variants like weighted importance sampling, cf.\ Barto\&Sutton book, chapter 5.5).
   \end{itemize}
   \vspace{1cm} \pause
   Requirement for off-policy MC-based control:
