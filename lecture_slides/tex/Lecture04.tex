@@ -369,14 +369,13 @@
       \begin{equation}
 	\pi(u\vert x) > 0 \qquad \forall\, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}
       \end{equation}
-    \item Policies with this characteristic are called: \hl{soft}.
-    \item The level of exploration can be tuned during learning.
+    \item<3-> Policies with this characteristic are called: \hl{soft}.
+    \item<4-> The level of exploration can be tuned during learning.
     \end{itemize}
     \end{minipage}
     \hfill
-    \pause
-    \includegraphics[width=0.24\textwidth]{fig/lec04/never-say-never-again-poster.jpg}
-    \pause
+    \onslide<2->{\includegraphics[width=0.24\textwidth]{fig/lec04/never-say-never-again-poster.jpg}}
+    \onslide<5->
     \vfill
   \item \hl{$\varepsilon$-greedy on-policy learning}
     \begin{itemize}
@@ -416,7 +415,11 @@
 	  $n(x_k,u_k)\leftarrow n(x_k,u_k)+1$\;
 	  $\hat{q}(x_k,u_k)\leftarrow \hat{q}(x_k,u_k) + 1/n(x_k,u_k)\cdot(g-\hat{q}(x_k,u_k))$\;
 	  $\tilde{u}\leftarrow\argmax_{u}\,\, \hat{q}(x_k,u)$\;
-	  $\pi_i(u\vert x_k)\leftarrow\begin{cases}1-\varepsilon+\varepsilon/\lvert\mathcal{U}\rvert , \quad u=\tilde{u}\\ \varepsilon/\lvert\mathcal{U}\rvert , \quad u\neq\tilde{u}\end{cases}$\;
+	  $\pi_i(u\vert x_k)\leftarrow
+          \begin{cases}
+            1-\varepsilon+\varepsilon/\lvert\mathcal{U}\rvert & \text{when $u=\tilde{u}$}\\ \varepsilon/\lvert\mathcal{U}\rvert & \text{when $u\neq\tilde{u}$}
+          \end{cases}
+          $\;
 	}
       }
     }
@@ -634,7 +637,7 @@
       \label{eq:OIS}
     \end{equation}
   \end{defi}
-  Notation remark:
+  Notation:
   \begin{itemize}
   \item $\mathcal{T}(x_k)$: set of all time steps in which the state $x_k$ is visited.
   \item $T(k)$: Termination of a specific episode starting from $k$.
