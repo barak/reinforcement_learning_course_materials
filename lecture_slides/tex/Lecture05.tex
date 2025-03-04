@@ -151,7 +151,7 @@
 \frame{\frametitle{Overview of the RL methods considered so far}
   \begin{figure}
     \includegraphics[height=0.65\textheight]{fig/lec05/Compare_RL_Methods_Update.pdf}
-    \caption{Comparison of the RL methods considered so far with regard to the update rules (source: R. Sutton and G. Barto, Reinforcement learning: an introduction, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
+    \caption{Comparison of the RL methods considered so far with regard to the update rules (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
     \label{fig:Compare_RL_Methods_Update}
   \end{figure}
 }
@@ -162,7 +162,7 @@
 \frame{\frametitle{Driving home example}
   \begin{figure}
     \includegraphics[width=10cm]{fig/lec05/Driving_home_example.pdf}
-    \caption{Updates by MC (left) and TD (right) for $\alpha = 1$ (source: R. Sutton and G. Barto, Reinforcement learning: an introduction, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
+    \caption{Updates by MC (left) and TD (right) for $\alpha = 1$ (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
     \label{fig:Driving_home_example}
   \end{figure}
   \begin{itemize}
@@ -467,7 +467,7 @@
 
   \begin{figure}
     \includegraphics[height=0.6\textheight]{fig/lec05/Forest_Tree_Sarsa_alpha_0.2.png}
-    \caption{SARSA-based control with \hl{$\alpha_{\mathrm{SARSA}}=0.2$} and $\varepsilon$-greedy policy with $\varepsilon=0.2$ of forest tree MDP over the number of episodes being evaluated (mean and standard deviation are calculated based on 2000 independent runs)}
+    \caption{\\SARSA-based control with \hl{$\alpha_{\text{SARSA}}=0.2$} and $\varepsilon$-greedy policy with $\varepsilon=0.2$ of forest tree MDP over the number of episodes being evaluated (mean and standard deviation are calculated based on 2000 independent runs)}
     \label{fig:Sarsa_forest_tree_02}
   \end{figure}
 }
@@ -479,7 +479,7 @@
 
   \begin{figure}
     \includegraphics[height=0.6\textheight]{fig/lec05/Forest_Tree_Sarsa_alpha_0.1.png}
-    \caption{SARSA-based control with \hl{$\alpha_{\mathrm{SARSA}}=0.1$} and $\varepsilon$-greedy policy with $\varepsilon=0.2$ of forest tree MDP over the number of episodes being evaluated (mean and standard deviation are calculated based on 2000 independent runs)}
+    \caption{\\SARSA-based control with \hl{$\alpha_{\text{SARSA}}=0.1$} and $\varepsilon$-greedy policy with $\varepsilon=0.2$ of forest tree MDP over the number of episodes being evaluated (mean and standard deviation are calculated based on 2000 independent runs)}
     \label{fig:Sarsa_forest_tree_01}
   \end{figure}
 }
@@ -492,7 +492,7 @@
 
   \begin{figure}
     \includegraphics[height=0.6\textheight]{fig/lec05/Forest_Tree_Sarsa_alpha_adapt}
-    \caption{SARSA-based control with \hl{adaptive $\alpha_{\mathrm{SARSA}}=\frac{1}{\sqrt{j}}$} ($j=$episode) and $\varepsilon$-greedy policy with $\varepsilon=0.2$ of forest tree MDP over the number of episodes being evaluated (mean and standard deviation are calculated based on 2000 independent runs)}
+    \caption{\\SARSA-based control with \hl{adaptive $\alpha_{\text{SARSA}}=\frac{1}{\sqrt{j}}$} ($j=$episode) and $\varepsilon$-greedy policy with $\varepsilon=0.2$ of forest tree MDP over the number of episodes being evaluated (mean and standard deviation are calculated based on 2000 independent runs)}
     \label{Forest_Tree_Sarsa_alpha_adapt}
   \end{figure}
 }
@@ -569,7 +569,7 @@
       \begin{minipage}[t]{\linewidth}
 	\begin{figure}
 	  \includegraphics[width=5.0cm]{fig/lec05/Cliff_Walking.pdf}
-	  \caption{Cliff walking environment (source: R. Sutton and G. Barto, Reinforcement learning: an introduction, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
+	  \caption{Cliff walking environment (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 	  \label{fig:Cliff_Walking}
 	\end{figure}
       \end{minipage}
@@ -693,7 +693,7 @@
   \begin{figure}
     \hspace*{-1.0cm}
     \includegraphics[width=9cm]{fig/lec05/Double_Learning_Example.pdf}
-    \caption{Comparison of $Q$-learning and double $Q$-learning on a simple episodic MDP. $Q$-learning initially learns to take the left action much more often than the right action, and always takes it significantly more often than the $5 \%$ minimum probability enforced by $\varepsilon$-greedy action selection with $\varepsilon= 0.1$. In contrast, double $Q$-learning is essentially unaffected by maximization bias. These data are averaged over 10,000 runs. The initial action-value estimates were zero. (source: R. Sutton and G. Barto, Reinforcement learning: an introduction, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
+    \caption{Comparison of $Q$-learning and double $Q$-learning on a simple episodic MDP. $Q$-learning initially learns to take the left action much more often than the right action, and always takes it significantly more often than the $5 \%$ minimum probability enforced by $\varepsilon$-greedy action selection with $\varepsilon= 0.1$. In contrast, double $Q$-learning is essentially unaffected by maximization bias. These data are averaged over 10,000 runs. The initial action-value estimates were zero. (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
     \label{Double_Learning_Example}
   \end{figure}
 }
