@@ -41,9 +41,9 @@
     \label{eq:MC_non_stat_up_lec05}
   \end{equation}
   \begin{itemize}
-  \item $\alpha\in\left\{\Re|0<\alpha<1\right\}$ is the forgetting factor / step size.
+  \item $\alpha\in\left\{\Re\:\vert\:0<\alpha<1\right\}$ is the forgetting factor / step size.
   \item $g_k$ is the \hl{target} of the incremental update rule.
-  \item To execute the update \eqref{eq:MC_non_stat_up_lec05} one has to wait until the episode's termination since only then $g_k$ is available (MC requirement).
+  \item To execute the update \eqref{eq:MC_non_stat_up_lec05} one has to wait until the episode's termination since only then is $g_k$ available (MC requirement).
   \end{itemize}\pause
   \begin{block}{One-step TD / TD(0) update}
     \begin{equation}
@@ -131,7 +131,7 @@
   \onslide<1->{Let's assume that the TD(0) estimate $\hat{v}(x)$ is not changing over one episode as it would be for MC prediction:
     \begin{equation}
       \begin{split}
-        \underbrace{g_k - \hat{v}(x_k)}_{\mbox{MC-error}} &= r_{k+1} + \gamma g_{k+1} - \hat{v}(x_k)	+\gamma  \hat{v}(x_{k+1})	-\gamma  \hat{v}(x_{k+1}),\\}
+        \underbrace{g_k - \hat{v}(x_k)}_{\text{MC-error}} &= r_{k+1} + \gamma g_{k+1} - \hat{v}(x_k)	+\gamma  \hat{v}(x_{k+1})	-\gamma  \hat{v}(x_{k+1}),\\}
   \onslide<2->{&=\delta_k + \gamma(g_{k+1} - \hat{v}(x_{k+1})),\\}
   \onslide<3->{&=\delta_k + \gamma \delta_{k+1} + \gamma^2(g_{k+2} - \hat{v}(x_{k+2})),\\}
   \onslide<4->{&=\delta_k + \gamma \delta_{k+1} + \gamma^2 \delta_{k+2} +\gamma^3(g_{k+3} - \hat{v}(x_{k+3}))=\cdots ,\\}
@@ -236,7 +236,7 @@
     \item in the mean for a constant but sufficiently small step-size $\alpha$ and
     \item with probability 1 if the step-size holds the condition
       \begin{equation}
-	\sum_{k=1}^{\infty}  \alpha_k = \infty \quad \mbox{and} \quad \sum_{k=1}^{\infty}  \alpha_k^2 < \infty .
+	\sum_{k=1}^{\infty}  \alpha_k = \infty \quad \text{and} \quad \sum_{k=1}^{\infty}  \alpha_k^2 < \infty .
 	\label{eq:stoch_approx_condition}
       \end{equation}
     \end{itemize}
@@ -282,7 +282,7 @@
       \begin{minipage}[c]{\linewidth}
 	\begin{figure}
 	  \includegraphics[width=4.5cm]{fig/lec05/Batch_AB_Example.pdf}
-	  \caption{Example environment (source: R. Sutton and G. Barto, Reinforcement learning: an introduction, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
+	  \caption{Example environment (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 	  \label{fig:Batch_AB_Example}
 	\end{figure}
       \end{minipage}
@@ -299,7 +299,7 @@
       \end{minipage}
     \end{column}
   \end{columns}
-  \vspace{0.25cm}
+  \vfill
   \begin{table}
     \centering
     \begin{tabular}{M{2cm}|M{2cm}}
@@ -322,18 +322,18 @@
 \frame{\frametitle{Batch training: AB-example (2)}
   First, recap MC and TD(0) update rules:
   \begin{align*}
-    \mbox{MC}: \quad &\hat{v}(x_k) \leftarrow \hat{v}(x_k) + \alpha\left[g_k - \hat{v}(x_k)\right],\\
-    \mbox{TD}:	\quad&\hat{v}(x_k) \leftarrow \hat{v}(x_k) + \alpha\left[r_{k+1}+\gamma\hat{v}(x_{k+1}) - \hat{v}(x_k)\right] .
+    \text{MC}: \quad &\hat{v}(x_k) \leftarrow \hat{v}(x_k) + \alpha\left[g_k - \hat{v}(x_k)\right],\\
+    \text{TD}:	\quad&\hat{v}(x_k) \leftarrow \hat{v}(x_k) + \alpha\left[r_{k+1}+\gamma\hat{v}(x_{k+1}) - \hat{v}(x_k)\right] .
   \end{align*}\pause
   Then, in steady state one receives:
   \begin{align*}
-    \mbox{MC}: \quad &0=\alpha\left[g_k - \hat{v}(x_k)\right]=g_k - \hat{v}(x_k),\\
-    \mbox{TD}:	\quad&0=\alpha\left[r_{k+1}+\gamma\hat{v}(x_{k+1}) - \hat{v}(x_k)\right] =r_{k+1}+\gamma\hat{v}(x_{k+1}) - \hat{v}(x_k).
+    \text{MC}: \quad &0=\alpha\left[g_k - \hat{v}(x_k)\right]=g_k - \hat{v}(x_k),\\
+    \text{TD}:	\quad&0=\alpha\left[r_{k+1}+\gamma\hat{v}(x_{k+1}) - \hat{v}(x_k)\right] =r_{k+1}+\gamma\hat{v}(x_{k+1}) - \hat{v}(x_k).
   \end{align*}\pause
   Considering a batch learning sweep over $j=1,\ldots,J$ episodes:
   \begin{align*}
-    \mbox{MC}: \quad &0=\sum_{j=1}^J g_{k,j} - \hat{v}(x_{k,j}),\\
-    \mbox{TD}:	\quad&0=\sum_{j=1}^J r_{k+1,j}+\gamma\hat{v}(x_{k+1,j}) - \hat{v}(x_{k,j}).
+    \text{MC}: \quad &0=\sum_{j=1}^J g_{k,j} - \hat{v}(x_{k,j}),\\
+    \text{TD}:	\quad&0=\sum_{j=1}^J r_{k+1,j}+\gamma\hat{v}(x_{k+1,j}) - \hat{v}(x_{k,j}).
   \end{align*}
 }
 
@@ -343,12 +343,12 @@
 \frame{\frametitle{Batch training: AB-example (3)}
   Apply the previous equations first to state B. Since B is a terminal state, $\hat{v}(x_{k+1})=0$ and $g_{k,j}= r_{k+1,j}$ apply, i.e., the MC and TD updates are identical for B:
   \begin{alignat*}{3}
-    \mbox{MC}|_{x=\mbox{B}}: \quad &0=\sum_{j=1}^J g_{k,j} - \hat{v}(x_{k,j})\quad &&\Leftrightarrow \quad &&\hat{v}(\mbox{B})=\frac{1}{J}\sum_{j=1}^J g_{k,j},\\
-    \mbox{TD}|_{x=\mbox{B}}:	\quad&0=\sum_{j=1}^J r_{k+1,j}- \hat{v}(x_{k,j})\quad &&\Leftrightarrow \quad &&\hat{v}(\mbox{B})=\frac{1}{J}\sum_{j=1}^J g_{k,j}.
+    \text{MC}|_{x=\text{B}}: \quad &0=\sum_{j=1}^J g_{k,j} - \hat{v}(x_{k,j})\quad &&\Leftrightarrow \quad &&\hat{v}(\text{B})=\frac{1}{J}\sum_{j=1}^J g_{k,j},\\
+    \text{TD}|_{x=\text{B}}:	\quad&0=\sum_{j=1}^J r_{k+1,j}- \hat{v}(x_{k,j})\quad &&\Leftrightarrow \quad &&\hat{v}(\text{B})=\frac{1}{J}\sum_{j=1}^J g_{k,j}.
   \end{alignat*}\pause
   This is the average return of the available episodes from \tabref{tab:state_reward_AB_example} , i.e., $6\times 1$ and $2\times 0$:
   \begin{equation}
-    \hat{v}(\mbox{B})|_{\mbox{MC}}=\hat{v}(\mbox{B})|_{\mbox{TD}}=\frac{6}{8}=0.75\, .
+    \hat{v}(\text{B})|_{\text{MC}}=\hat{v}(\text{B})|_{\text{TD}}=\frac{6}{8}=0.75\, .
   \end{equation}
 }
 
@@ -362,12 +362,12 @@
   \item The TD bootstrap estimate of B is $\hat{v}(x_{k+1,j})=\hat{v}(B)=\frac{3}{4}$.
   \end{itemize}\pause
   \begin{align*}
-    \mbox{MC}: \quad &0=\sum_{j=1}^J g_{k,j} - \hat{v}(x_{k,j})=\sum_{j=1}^J g_{k,j} - \hat{v}(A),\\
-    \mbox{TD}:	\quad&0=\sum_{j=1}^J r_{k+1,j}+\gamma\hat{v}(x_{k+1,j}) - \hat{v}(x_{k,j})=\sum_{j=1}^J \gamma\hat{v}(B) - \hat{v}(A).
+    \text{MC}: \quad &0=\sum_{j=1}^J g_{k,j} - \hat{v}(x_{k,j})=\sum_{j=1}^J g_{k,j} - \hat{v}(A),\\
+    \text{TD}:	\quad&0=\sum_{j=1}^J r_{k+1,j}+\gamma\hat{v}(x_{k+1,j}) - \hat{v}(x_{k,j})=\sum_{j=1}^J \gamma\hat{v}(B) - \hat{v}(A).
   \end{align*}\pause
-  Looking at \tabref{tab:state_reward_AB_example} there is only one episode visiting state A, where the sample return is $g_{k,j}=0$. Hence, it follows:
+  Looking at \tabref{tab:state_reward_AB_example} there is only one episode visiting state A, where the sample return is $g_{k,j}=0$. Hence it follows that:
   \begin{equation*}
-    \hat{v}(\mbox{A})|_{\mbox{MC}} =0, \quad \hat{v}(\mbox{A})|_{\mbox{TD}} =\gamma\hat{v}(B)=\frac{3}{4}.
+    \hat{v}(\text{A})|_{\text{MC}} =0, \quad \hat{v}(\text{A})|_{\text{TD}} =\gamma\hat{v}(B)=\frac{3}{4}.
   \end{equation*}
   Where does this mismatch between the MC and TD estimates come from?
 }
