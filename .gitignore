@@ -28,6 +28,7 @@
 /lecture_slides/built/*.pdf
 /lecture_slides/build-*.tex
 !/lecture_slides/build-all.tex
+/lecture_slides/handout-build-*.tex
 **/fig/**/*-eps-converted-to.pdf
 
 # paper
