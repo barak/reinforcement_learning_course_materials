@@ -99,7 +99,7 @@ D_{\mathrm{KL}}\left(\mathcal{N}_0 \parallel \mathcal{N}_1\right) =  \frac{1}{2}
 	\vspace{-0.25cm}\pause
 \begin{itemize}
 	\item Hence, we want to \hl{limit the average KL divergence w.r.t. the states visited by the old policy}.\pause
-	\item The constraint $\kappa$ is a TRPO hyperparameter (typically $\kappa<<1$). \pause
+	\item The constraint $\kappa$ is a TRPO hyperparameter (typically $\kappa\ll 1$). \pause
 	\item Although \eqref{eq:TRPO_opt_prob}  does not provide any formal convergence guarantee, we at least have a link between changes in the parameter and policy distribution space. Therefore, \hl{we can use this tool to prevent erratic policy changes}.  
 \end{itemize}
 }
