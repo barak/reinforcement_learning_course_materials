@@ -71,7 +71,7 @@
     \SetKwInput{Param}{parameter}
     \Input{a policy $\pi$ to be evaluated}
     \Output{estimate of $\bm{v}_{\mathcal{X}}^{\pi}$ (i.e., value estimates for all states				 $x\in\mathcal{X}$)}
-    \Init{$\hat{v}(x)\, \forall \, x\in\mathcal{X}$ arbitrary except $v_0(x)=0$ if $x$ is terminal}
+    \Init{$\hat{v}(x)\; \forall \, x\in\mathcal{X}$ arbitrary except $v_0(x)=0$ if $x$ is terminal}
     \For{$j=1,\ldots,J$ episodes}{
       Initialize $x_{0}$\;
       \For{$k=0, 1, 2 \ldots $ time steps}{
@@ -210,7 +210,7 @@
 \frame{\frametitle{TD(0) vs. MC prediction example: forest tree MDP (1)}
   \begin{figure}
     \includegraphics[height=0.7\textheight]{fig/lec05/Forest_Tree_TD0_MC_RMS_Prediction_Zero_Init_500_eps.pdf}
-    \caption{Averaged mean of state-value estimates of forest tree MDP using TD(0) and MC over 1000 independent runs with $\hat{v}_0(x)=0\,\forall x\in\mathcal{X}$}
+    \caption{Averaged mean of state-value estimates of forest tree MDP using TD(0) and MC over 1000 independent runs with $\hat{v}_0(x)=0\;\forall x\in\mathcal{X}$}
     \label{fig:Forest_Tree_TD0_MC_RMS_Prediction_Zero_Init_500_eps}
   \end{figure}
 }
@@ -221,7 +221,7 @@
 \frame{\frametitle{TD(0) vs. MC prediction example: forest tree MDP (2)}
   \begin{figure}
     \includegraphics[height=0.7\textheight]{fig/lec05/Forest_Tree_TD0_MC_RMS_Prediction_Good_Init_200_eps.pdf}
-    \caption{Averaged mean of state-value estimates of forest tree MDP using TD(0) and MC over 1000 independent runs with \hl{$\hat{v}_0(x)\approx v(x) \,\forall x\in\mathcal{X}$}}
+    \caption{Averaged mean of state-value estimates of forest tree MDP using TD(0) and MC over 1000 independent runs with \hl{$\hat{v}_0(x)\approx v(x) \;\forall x\in\mathcal{X}$}}
     \label{fig:Forest_Tree_TD0_MC_RMS_Prediction_Good_Init_200_eps}
   \end{figure}
 }
