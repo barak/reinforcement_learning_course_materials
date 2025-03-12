@@ -54,11 +54,11 @@
     \begin{itemize}
     \item state-transition probability
       \begin{equation}
-	\bm{\mathcal{P}} = \Pb{\bm{X}_{k+1}=\bm{x}_{k+1} \vert \bm{X}_k=\bm{x}_k, \bm{U}_k=\bm{u}_k}
+	\bm{\mathcal{P}} = \Pb{\bm{X}_{k+1}=\bm{x}_{k+1} \:\vert\: \bm{X}_k=\bm{x}_k, \bm{U}_k=\bm{u}_k}
       \end{equation}
     \item and the reward probability
       \begin{equation}
-	\mathcal{R} = \Pb{R_{k+1}=r_{k+1} \vert \bm{X}_k=\bm{x}_k, \bm{U}_k=\bm{u}_k}\,.
+	\mathcal{R} = \Pb{R_{k+1}=r_{k+1} \:\vert\: \bm{X}_k=\bm{x}_k, \bm{U}_k=\bm{u}_k}\,.
       \end{equation}
     \end{itemize}\pause
   \item State space $\mathcal{X}$ and action space $\mathcal{U}$ are assumed to be known.\pause
@@ -87,8 +87,8 @@
   \item Simple tabular / look-up table approach (with $n(x,u)$ visit count):
     \begin{equation}
       \begin{split}
-	\hat{p}_{xx'}^u&=\frac{1}{n(x,u)}\sum_{k=0}^{T} 1(X_{k+1}=x' \vert X_{k}=x, U_k=u),\\
-	\hat{\mathcal{R}}_{x}^u&=\frac{1}{n(x,u)}\sum_{k=0}^{T} 1(X_{k}=x \vert U_k=u) r_{k+1}.
+	\hat{p}_{xx'}^u&=\frac{1}{n(x,u)}\sum_{k=0}^{T} 1(X_{k+1}=x' \:\vert\: X_{k}=x, U_k=u),\\
+	\hat{\mathcal{R}}_{x}^u&=\frac{1}{n(x,u)}\sum_{k=0}^{T} 1(X_{k}=x \:\vert\: U_k=u) r_{k+1}.
       \end{split}
       \label{eq:dist_model}
     \end{equation}
@@ -213,7 +213,7 @@
     \SetKwInput{Output}{output}
     \SetKwInput{Init}{init}
     \SetKwInput{Param}{parameter}
-    \Param{$\alpha\in\left\{\Re \vert 0<\alpha<1\right\}, \quad n\in\left\{\mathbb{N} \vert n \geq 1\right\}$ (planning steps per real step)}
+    \Param{$\alpha\in\left\{\Re \:\vert\: 0<\alpha<1\right\}, \quad n\in\left\{\mathbb{N} \:\vert\: n \geq 1\right\}$ (planning steps per real step)}
     \Init{$\hat{q}(x,u)$ arbitrary (except terminal) and $\hat{\mathcal{M}}(x,u)$ $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}
     \For{$j=1,2,\ldots$ episodes}{
       Initialize $x_0$\;
@@ -353,7 +353,7 @@
   \item Search heuristic: add $\kappa \sqrt{\tau}$ to regular reward.
     \begin{itemize}
     \item $\tau$: is the number of time steps a state-action transition has not been tried.
-    \item $\kappa$: is a small scaling factor $\kappa\in\left\{\Re \vert 0<\kappa\right\}$.
+    \item $\kappa$: is a small scaling factor $\kappa\in\left\{\Re \:\vert\: 0<\kappa\right\}$.
     \item Agent is encouraged to keep testing all accessible transitions.
     \end{itemize}\pause
     \vspace{0.25cm}
@@ -411,7 +411,7 @@
     \SetKwInput{Output}{output}
     \SetKwInput{Init}{init}
     \SetKwInput{Param}{parameter}
-    \Param{$\alpha\in\left\{\Re \vert 0<\alpha<1\right\}, \quad n\in\left\{\mathbb{N} \vert n \geq 1\right\}, \quad \theta\in\left\{\Re \vert \theta \geq 0\right\}$}
+    \Param{$\alpha\in\left\{\Re \:\vert\: 0<\alpha<1\right\}, \quad n\in\left\{\mathbb{N} \:\vert\: n \geq 1\right\}, \quad \theta\in\left\{\Re \:\vert\: \theta \geq 0\right\}$}
     \Init{$\hat{q}(x,u)$ arbitrary and $\hat{\mathcal{M}}(x,u)$ $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$, empty queue $\mathcal{Q}$}
     \For{$j=1,2,\ldots$ episodes}{
       Initialize $x_0$ and $k \leftarrow 0$\;
