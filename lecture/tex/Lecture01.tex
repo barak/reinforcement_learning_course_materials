@@ -28,11 +28,11 @@
 
     \bigskip
 
-  \item \href{mailto:karol.skowronski.2025@mumail.ie}{\textbf{Karol Skowronski} $\langle\texttt{karol.skowronski.2025@mumail.ie}\rangle$}
+  \item TBA
 
     \medskip
 
-    Grossly overqualified PhD student. Demonstrator. Python Expert. GPU Wrangler. Problem solver.
+    Demonstrator. Python and Deep Learning Expert. GPU Wrangler. Problem solver.
   \end{itemize}
 \end{frame}
 
@@ -41,26 +41,42 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Assessment}
-  \begin{block}{Final exam}       % (40\%)
+  \begin{block}{Final exam}
     \begin{itemize}
     \item Two hours.
     \end{itemize}
   \end{block}
   \pause
-  \begin{block}{Course Conference} % (60\%)
-    \begin{itemize}[<+->]
-    \item Each student does RL-related project; development in git.
-    \item Submit manuscript describing project to class conference.
-    \item Abstracts (one ¶) have early deadline. Code also submitted (supplementary material).
-    \item Manuscripts: rigid format (\LaTeX\ style/template), sections, page limit, deadline.
-    \item Submissions and review process will be double-blind.
-    \item Each student is a reviewer. There will be reviews, responses, discussion, revisions, meta-reviews, decisions. BP is the program \& publication chair.
-    \item All submissions accepted as posters. Selected: oral spotlights, best paper award, most fun.
-    \item The poster session will be open to the public.
+  \begin{block}{HW0: Deep Learning Exercise}
+    \begin{itemize}
+    \item Each student will get a training set and an unlabeled test set
+    \item Submit test set labels \& what-I-did documentation
+    \item Bakeoff: who did best?
     \end{itemize}
   \end{block}
   \pause
-  Proposal: Cancel written exam, poster presentations \emph{are} final exam. Objections?
+  \begin{block}{RL Project}
+    \begin{itemize}[<+->]
+      \item Do some RL and write it up.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{MURL-2026}
+  \begin{block}{Course Conference called MURL-2026}
+    \begin{itemize}[<+->]
+    \item Each student does RL-related project; development in git.
+    \item Submit blinded manuscript describing project to MURL-2026 (HotCRP web site)
+    \item Abstracts (one ¶) have early deadline.
+    \item Code also submitted (supplementary material).
+    \item Manuscripts: rigid format (\LaTeX\ style/template), sections, page limit, deadline.
+    \item Submissions and review process will be double-blind. Each student is a reviewer. There will be reviews, responses, discussion, revisions, meta-reviews, decisions.
+    \item BP is the program \& publication chair.
+    \item All submissions accepted as posters. Optional: oral spotlights, best paper award, most fun project award.
+    \item The poster session will be open to the public.
+    \end{itemize}
+  \end{block}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -420,7 +436,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{The reward function hassle}
   \begin{itemize}
-  \item ``Be careful what you wish for - you might get it'' (pro-verb)
+  \item ``Be careful what you wish for --- you might get it'' (proverb)
   \item ``...it grants what you ask for, not what you should have asked for or what you intend.'' (Norbert Wiener, American mathematician)
   \end{itemize}
   \begin{figure}
@@ -437,7 +453,7 @@
   \hlh{Episodic tasks}
   \begin{itemize}
   \item A problem which naturally breaks into subsequences (\hl{finite horizon}).
-  \item Examples: most games, maze,...
+  \item Examples: most games, maze, ...
   \item The \hl{return} becomes a finite sum:
     \begin{equation}
       g_k = r_{k+1} + r_{k+2} + \cdots + r_{N}\, .
@@ -454,7 +470,8 @@
       \label{eq:return_disc}
       g_k = r_{k+1} + \gamma r_{k+2} + \gamma^2 r_{k+3} + \cdots = \sum_{i=0}^\infty \gamma^i r_{k+i+1}\, .
     \end{equation}
-  \item Here, $\gamma\in\left\{\Re \vert 0 \leq \gamma \leq 1\right\}$ is the \hl{discount rate}.
+    where $0\leq\gamma<1$ is the \hl{discount rate}.
+    \item Equation for $g_k$ chosen for mathematical convenience.
   \end{itemize}
 }
 
@@ -532,7 +549,14 @@
   \item Continuous or discrete quantity
   \end{itemize}
 }
-
+\frame{
+  \frametitle{State (3)}
+  \begin{block}{WARNING}
+    \begin{Large}
+      When building systems, think really hard about what to use for the state. Does it have all the necessary information? Are you leaving out something important? Are you making it too big, so hard to learn?
+    \end{Large}
+  \end{block}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% History and Imformation State%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
