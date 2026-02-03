@@ -24,11 +24,11 @@
 *.dvi
 *.fdb_latexmk
 *.fls
-/lecture_slides/*.pdf
-/lecture_slides/built/*.pdf
-/lecture_slides/build-*.tex
-!/lecture_slides/build-all.tex
-/lecture_slides/handout-build-*.tex
+/lecture/*.pdf
+/lecture/built/*.pdf
+/lecture/build-*.tex
+!/lecture/build-all.tex
+/lecture/handout-build-*.tex
 **/fig/**/*-eps-converted-to.pdf
 
 # paper
