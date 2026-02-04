@@ -375,8 +375,8 @@
   \begin{itemize}
   \item Flipping a pancake:
     \begin{itemize}
-    \item Pos. reward: catching the $\unit{180}{^\circ}$ rotated pancake
-    \item Neg. reward: droping the pancake on the floor
+    \item Positive reward: catching the $\unit{180}{^\circ}$ rotated pancake
+    \item Negative reward: droping the pancake on the floor
     \end{itemize}
     \pause
   \item Stock trading:
@@ -407,12 +407,12 @@
 %% Reward characteristics %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Reward characteristics}
-  Rewards can have many different flavors and are highly depending on the given problem:
+  Rewards can have many different flavors and are highly dependant on the given problem:
   \begin{itemize}
   \item Actions may have short and/or long term consequences.
     \begin{itemize}
     \item The reward for a certain action may be delayed.
-    \item Examples: Stock trading, strategic board games,...
+    \item Examples: Stock trading, strategic board games, ...
     \end{itemize}
     \pause
   \item Rewards can be positive and negative values.
@@ -426,7 +426,7 @@
     \end{itemize}
   \end{itemize}
   \pause
-  \begin{block}{Remark on reward}
+  \begin{block}{Remark on rewards}
     The RL agent's learning process is heavily linked with the reward distribution over time. Designing expedient rewards functions is therefore crucially important for successfully applying RL. And often there is no predefined way on how to design the ``best reward function''.
   \end{block}
 }
@@ -437,7 +437,7 @@
 \frame{\frametitle{The reward function hassle}
   \begin{itemize}
   \item ``Be careful what you wish for --- you might get it'' (proverb)
-  \item ``...it grants what you ask for, not what you should have asked for or what you intend.'' (Norbert Wiener, American mathematician)
+  \item ``... it grants what you ask for, not what you should have asked for or what you intend.'' (Norbert Wiener, American mathematician)
   \end{itemize}
   \begin{figure}
     \includegraphics[width=6cm]{fig/lec01/Midas.jpg}
@@ -471,7 +471,7 @@
       g_k = r_{k+1} + \gamma r_{k+2} + \gamma^2 r_{k+3} + \cdots = \sum_{i=0}^\infty \gamma^i r_{k+i+1}\, .
     \end{equation}
     where $0\leq\gamma<1$ is the \hl{discount rate}.
-    \item Equation for $g_k$ chosen for mathematical convenience.
+    \item Why this form? Mathematical convenience!
   \end{itemize}
 }
 
@@ -524,7 +524,7 @@
     \pause
   \item  Fully, limited or not at all visible by the agent
     \begin{itemize}
-    \item Sometimes even 'foggy' or uncertain
+    \item Sometimes even `foggy' or uncertain
     \item In general: $\bm{Y}_k = \bm{f}(\bm{X}_k)$ as the measurable outputs of the environment
     \end{itemize}
     \pause
@@ -551,9 +551,19 @@
 }
 \frame{
   \frametitle{State (3)}
-  \begin{block}{WARNING}
+  \begin{block}{\centerline{\LARGE WARNING}}
     \begin{Large}
-      When building systems, think really hard about what to use for the state. Does it have all the necessary information? Are you leaving out something important? Are you making it too big, so hard to learn?
+      When building systems, think really hard about what to use for the state.
+      \begin{itemize}
+      \item Does it have all the necessary information?
+
+        Are you leaving out something important?
+
+        The state is \emph{now} but might need to include past information.
+
+        If you leave out something critical the task can become impossible!
+      \item Are you making it too big, so hard to learn?
+      \end{itemize}
     \end{Large}
   \end{block}
 }
@@ -928,7 +938,7 @@
 %% Problem Statement MPC/Rl%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Problem reconsideration}
-  The reward hypothesis in \theoref{theo:reward_hypo} is basically an (discounted) \hl{infinite-horizon optimal control} problem (with $r_k$ interpreted as costs):
+  The reward hypothesis in \theoref{theo:reward_hypo} is basically a (discounted) \hl{infinite-horizon optimal control} problem (with $r_k$ interpreted as costs):
   \begin{equation}
     v_k^*(\bm{x}_k) = \min_{\bm{u}_k} \sum_{i=0}^\infty \gamma^i r_{k+i+1} (\bm{x}_{k+i}, \bm{u}_{k+i})\,.
   \end{equation}
