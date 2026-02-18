@@ -258,7 +258,7 @@ Limited selection from a broad field:
 \frame{\frametitle{Reward}
 \begin{itemize}
 	\item A \hl{reward} is a scalar \hl{random variable} $R_k$ with \hl{realizations} $r_k$.
-	\item Often it is considered a real-number $r_k\in\mathbb{R}$ or an integer $r_k\in\mathbb{Z}$.\pause
+	\item Often it is considered a real-number $r_k\in\Re$ or an integer $r_k\in\mathbb{Z}$.\pause
 	\item The reward function (interpreter) may be naturally given or is a design degree of freedom (i.e., can be manipulated).\pause 
 	\item It fully indicates how well an RL agent is doing at step $k$. \pause
 	\item The agent's task is to \hl{maximize its reward over time}.
@@ -374,7 +374,7 @@ The RL agent's learning process is heavily linked with the reward distribution o
 	\label{eq:return_disc}
 	g_k = r_{k+1} + \gamma r_{k+2} + \gamma^2 r_{k+3} + \cdots = \sum_{i=0}^\infty \gamma^i r_{k+i+1}\, .  	
 	\end{equation}
-	\item Here, $\gamma\in\left\{\mathbb{R}|0 \leq \gamma \leq 1\right\}$ is the \hl{discount rate}.
+	\item Here, $\gamma\in\left\{\Re|0 \leq \gamma \leq 1\right\}$ is the \hl{discount rate}.
 \end{itemize}
 }
 
@@ -538,10 +538,10 @@ Nonlinear time-invariant state-space model:
 	\pause
 	\item Major distinction:
 	\begin{itemize}
-		\item \hl{Finite action set} (FAS): $\bm{u}_k\in\left\{\bm{u}_{k,1},\bm{u}_{k,2},\ldots\right\}\in\mathbb{R}^m$
-		\item \hl{Continuous action set} (CAS): Infinite number of actions: $\bm{u}_k\in\mathbb{R}^m$ \pause
+		\item \hl{Finite action set} (FAS): $\bm{u}_k\in\left\{\bm{u}_{k,1},\bm{u}_{k,2},\ldots\right\}\in\Re^m$
+		\item \hl{Continuous action set} (CAS): Infinite number of actions: $\bm{u}_k\in\Re^m$ \pause
 		\item Deterministic $\bm{u}_k$ or random $\bm{U}_k$ variable
-		\item Often state-dependent and potentially constrained:$\bm{u}_k\in\mathcal{U}(\bm{x}_k)\subseteq\mathbb{R}^m$  \pause
+		\item Often state-dependent and potentially constrained:$\bm{u}_k\in\mathcal{U}(\bm{x}_k)\subseteq\Re^m$  \pause
 	\end{itemize}
 	\item Examples:
 	\begin{itemize}

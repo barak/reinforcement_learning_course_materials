@@ -70,7 +70,7 @@ Machine learning (ML) and especially the field of supervised learning (SL) is ex
 	\begin{itemize}
 		\item Goodness of fit can be measured by a manifold of \hl{metrics} \\(e.g., mean squared error, classification accuracy, etc.).\pause
 		\item Reducing the look-up-table-like mapping $f^\ast$ to a parameterized function $f_{\bm w}$ degrades any metric on the data set but enables efficient interpolation to unseen data.\pause
-		\item The dimension $\xi$ of model parameters $\bm w \in \mathbb R^\xi$ is adjustable in many model families, which trades off \hl{bias} with \hl{variance} (among other factors, leading to so-called under- and overfitting).\pause
+		\item The dimension $\xi$ of model parameters $\bm w \in \Re^\xi$ is adjustable in many model families, which trades off \hl{bias} with \hl{variance} (among other factors, leading to so-called under- and overfitting).\pause
 		\item On top of $\bm w$, an ML model might also have hyperparameters that can be optimized (e.g., number of layers in a neural network).
 	\end{itemize}
 }
@@ -195,7 +195,7 @@ Several different data types can be utilized for ML:
 \begin{itemize}
 	\item Binary: 1 or 0 (true or false).\pause
 	\item Integer: $\mathbb{N}$ (e.g., number of rooms in a building).\pause
-	\item Real-valued: $\mathbb{R}$ (e.g., temperature).\pause
+	\item Real-valued: $\Re$ (e.g., temperature).\pause
 	\item Categorical: like \{blue, green, red\}\pause
 	\item Ordinal: categoricals that can be ordered, e.g., educational experience (from elementary school to Ph.D.)
 \end{itemize}
@@ -229,7 +229,7 @@ How to normalize categorical data?\pause
 \frame{\frametitle{Typical feature engineering schemes}
 	Feature design is often of the following form (tricks of the trade):
 	
-	Given $K$ feature vectors $\bm x_k \in \mathbb R^P$ with, e.g., $P=3$ (two real-valued regressors and a categorical independent variable $\bm x_k = (x_{k,r_1}, x_{k,r_2}, x_{k,c})$):\pause
+	Given $K$ feature vectors $\bm x_k \in \Re^P$ with, e.g., $P=3$ (two real-valued regressors and a categorical independent variable $\bm x_k = (x_{k,r_1}, x_{k,r_2}, x_{k,c})$):\pause
 	\begin{itemize}
 		\item $\tilde x_{k} = x_{k,r_1} + x_{k,r_2}$ (or any other combination, e.g., product, division, subtraction, also cf. \figref{fig:fe_example}),\pause
 		\item $\tilde x_k = x_{k,r} - \frac{1}{|\mathcal B|}\sum_{i \in \mathcal B} x_{i,r}\quad\forall r = \{r_1, r_2\}$ with $\mathcal B = \{i: x_{i,c} = x_{k, c}\}$,\pause
@@ -290,7 +290,7 @@ a}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \frame{\frametitle{Linear regression (1)}
-Linear models assume a linear relationship between $\bm x_k = (1, x_{k,1}, x_{k,2},\dots,x_{k,P})$ and $y_k$ via trainable coefficients $\bm w \in \mathbb{R}^{P+1}$:
+Linear models assume a linear relationship between $\bm x_k = (1, x_{k,1}, x_{k,2},\dots,x_{k,P})$ and $y_k$ via trainable coefficients $\bm w \in \Re^{P+1}$:
 \begin{align}
 	f(\bm x_k) &= \hat y_k = w_0 + \sum_{p=1}^P x_{k,p}w_p, \\
 	\hat{\bm y}&= \bm{\Xi}\bm w,
@@ -385,7 +385,7 @@ Among other methods, $\bm w$ can be estimated from $K$ samples by minimizing the
 	\end{minipage}
 	\end{column}
 	\end{columns}\pause
-	Weight matrix $\bm{\mathcal{W}}^{(l)} \in \mathbb{R}^{H^{(l-1)}\times H^{(l)}}$ and (broadcasted) bias matrix $\bm{b}^{(l)} \in \mathbb{R}^{K\times H^{(l)}}$ are iteratively optimized and denote the full set of parameters $\bm w$.
+	Weight matrix $\bm{\mathcal{W}}^{(l)} \in \Re^{H^{(l-1)}\times H^{(l)}}$ and (broadcasted) bias matrix $\bm{b}^{(l)} \in \Re^{K\times H^{(l)}}$ are iteratively optimized and denote the full set of parameters $\bm w$.
 }
 
 \frame{\frametitle{Activation functions}
@@ -476,7 +476,7 @@ Several iterations over the data set $\bm{\mathcal D}$ are called \hl{epochs}.
 \frame{\frametitle{Training neural networks (3)}
 	\textbf{How to retrieve the gradients:}
 	
-	Recall chain rule for vector derivatives, e.g., with $\bm y = g(\bm x)$ and $z = f(\bm y)$ where $g: \mathbb{R}^m \rightarrow \mathbb{R}^n$ and $f: \mathbb{R}^n \rightarrow \mathbb{R}$:
+	Recall chain rule for vector derivatives, e.g., with $\bm y = g(\bm x)$ and $z = f(\bm y)$ where $g: \Re^m \rightarrow \Re^n$ and $f: \Re^n \rightarrow \Re$:
 	\begin{equation}
 		\nabla_{\bm x}z = \frac{\partial z}{\partial \bm x} = {\underbrace{\bigg( \frac{\partial \bm y}{\partial \bm x}\bigg)}_{\text{Jacobian of g }}}\T\cdot \underbrace{\frac{\partial z}{\partial\bm y}}_\text{gradient} = \sum_{j} \frac{\partial y_j}{\partial \bm x}\cdot\frac{\partial z}{\partial y_j}.
 	\end{equation}\pause
@@ -516,7 +516,7 @@ Several iterations over the data set $\bm{\mathcal D}$ are called \hl{epochs}.
 
 \frame{\frametitle{Error backpropagation example (1)}
 Assume $\bm x_0 = [2, 5, 7], y_0 = 2.5$, and a two-layered ANN with the MSE cost, and sigmoid activation functions $\sigma(z) = \frac{1}{1+e^{-z}}$.
-The hidden layer contains two neurons with output $\bm h^{(1)} \in \mathbb{R}^2$, while the weight vectors are initialized with $\bm{\mathcal W}^{(1)} = \big[\begin{smallmatrix} 0.1& -0.3 & 0.2\\
+The hidden layer contains two neurons with output $\bm h^{(1)} \in \Re^2$, while the weight vectors are initialized with $\bm{\mathcal W}^{(1)} = \big[\begin{smallmatrix} 0.1& -0.3 & 0.2\\
 												0.0& 0.4 & -0.9 \\\end{smallmatrix} \big]\T, \bm b^{(1)} = [0.05, -0.03]$,  and $\bm{\mathcal W}^{(2)} = [ 0.2, -0.8]\T, \bm b^{(2)} = [0.1]$.\pause
 			
 Applying SGD, we start with forward propagation:
