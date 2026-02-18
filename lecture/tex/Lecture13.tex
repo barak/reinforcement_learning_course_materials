@@ -12,7 +12,7 @@
 \frame{\frametitle{Reinterpreting the stochastic policy gradient (1)}
 \vspace{-0.2cm}
 \begin{itemize}
-	\item In the following we will \hl{focus on stochastic policies} $\pi(\bm{u}|\bm{x})$ .\pause
+	\item In the following we will \hl{focus on stochastic policies} $\pi(\bm{u} \vert \bm{x})$ .\pause
 	\item First, we rewrite the performance metric \eqref{eq:performance_metric_episodic} to obtain
 		\begin{equation}
 		J_{\pi} =\El{\sum_{k=0}^\infty \gamma^k R_k}{\pi}.
@@ -81,7 +81,7 @@ D_{\mathrm{KL}}\left(\mathcal{N}_0 \parallel \mathcal{N}_1\right) =  \frac{1}{2}
 	\label{eq:TRPO_opt_prob}
 	\begin{split}
 		 &\max_{\bm{\theta}}  \, \mathcal{L}_{\bm{\theta}_k}(\bm{\theta}),\\
-		 \mbox{s.t.} \quad\quad  & \overline{D}_{\mathrm{KL}}(\bm{\theta}_k, \bm{\theta})\leq\kappa
+		 \text{s.t.} \quad\quad  & \overline{D}_{\mathrm{KL}}(\bm{\theta}_k, \bm{\theta})\leq\kappa
 	\end{split}
 	\end{equation}\pause
 	with 
@@ -141,7 +141,7 @@ D_{\mathrm{KL}}\left(\mathcal{N}_0 \parallel \mathcal{N}_1\right) =  \frac{1}{2}
 	\label{eq:TRPO_opt_prob_sample}
 	\begin{split}
 		 &\bm{\theta}_{k+1} = \argmax_{\bm{\theta}} \,\El{\frac{\pi_{\bm{\theta}}(\bm{U}|\bm{X})}{\pi_{\bm{\theta}_k}(\bm{U}|\bm{X})}a_{\pi_k}(\bm{X},\bm{U})}{\pi_{\bm{\theta}_k}},\\
-		 \mbox{s.t.} \quad\quad  & \El{D_{\mathrm{KL}}(\pi_{\bm{\theta}_k}(\cdot|\bm{X}) \parallel \pi_{\bm{\theta}}(\cdot|\bm{X}))}{{\pi_{\bm{\theta}_k}}}\leq\kappa.
+		 \text{s.t.} \quad\quad  & \El{D_{\mathrm{KL}}(\pi_{\bm{\theta}_k}(\cdot|\bm{X}) \parallel \pi_{\bm{\theta}}(\cdot|\bm{X}))}{{\pi_{\bm{\theta}_k}}}\leq\kappa.
 	\end{split}
 	\end{equation}
 	\vspace{-0.25cm}
@@ -214,7 +214,7 @@ We will not provide any specific TRPO implementation suggestion at this point, s
 		\begin{equation*}
 	\begin{split}
 		 &\bm{\theta}_{k+1} = \argmax_{\bm{\theta}} \,\El{\frac{\pi_{\bm{\theta}}(\bm{U}|\bm{X})}{\pi_{\bm{\theta}_k}(\bm{U}|\bm{X})}a_{\pi_k}(\bm{X},\bm{U})}{\pi_{\bm{\theta}_k}},\\
-		 \mbox{s.t.} \quad\quad  & \El{D_{\mathrm{KL}}(\pi_{\bm{\theta}_k}(\cdot|\bm{X}) \parallel \pi_{\bm{\theta}}(\cdot|\bm{X}))}{{\pi_{\bm{\theta}_k}}}\leq\kappa.
+		 \text{s.t.} \quad\quad  & \El{D_{\mathrm{KL}}(\pi_{\bm{\theta}_k}(\cdot|\bm{X}) \parallel \pi_{\bm{\theta}}(\cdot|\bm{X}))}{{\pi_{\bm{\theta}_k}}}\leq\kappa.
 	\end{split}
 	\end{equation*}
 based on related unconstrained problems. 
@@ -337,12 +337,12 @@ based on related unconstrained problems.
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Input{diff. stochastic policy fct. $\pi(\bm{u}|\bm{x},\bm{\theta})$ and value fct. $\hat{v}(\bm{x},\bm{w})$}
-\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re|0<\alpha\right\}$}
+\Input{diff. stochastic policy fct. $\pi(\bm{u} \vert \bm{x},\bm{\theta})$ and value fct. $\hat{v}(\bm{x},\bm{w})$}
+\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re \vert 0<\alpha\right\}$}
 \Init{weights $\bm{w}\in\Re^{\zeta}$ and $\bm{\theta}\in\Re^d$ arbitrarily, memory $\bm{\mathcal{D}}$}\pause
  \For{$j=1,2,\ldots,$ (sub-)episodes}{
 		initialize $\bm{x}_0$ (if new episode)\; 
-		collect a set of tuples $\left\langle \bm{x}_k, \bm{u}_k, r_{k+1}, \bm{x}_{k+1}\right\rangle$ by a rollout using $\pi(\bm{u}|\bm{x},\bm{\theta}_j)$\;\pause
+		collect a set of tuples $\left\langle \bm{x}_k, \bm{u}_k, r_{k+1}, \bm{x}_{k+1}\right\rangle$ by a rollout using $\pi(\bm{u} \vert \bm{x},\bm{\theta}_j)$\;\pause
 		store them in $\bm{\mathcal{D}}$\;\pause
 		estimate the advantage $\hat{a}_{\pi_j}(\bm{x},\bm{u})$ based on $\hat{v}(\bm{x},\bm{w}_j)$ and $\bm{\mathcal{D}}$ (e.g., GAE)\;\pause
 		$\bm{\theta}_{j+1}\leftarrow$ policy gradient update based on the PPO variant \eqref{eq:PPO_CSO} or \eqref{eq:PPO_AKP}\;\pause

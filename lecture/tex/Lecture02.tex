@@ -113,7 +113,7 @@ with $p_{ij}\in\left\{\Re|0 \leq p_{ij} \leq 1 \right\}$ being the specific prob
 \onslide<5->{
 \begin{align*}
    x&\in\left\{1,2,3,4\right\}\\
-				 &=\left\{\mbox{small},\mbox{medium},\mbox{large},\mbox{gone}\right\}\\[1em]
+				 &=\left\{\text{small},\text{medium},\text{large},\text{gone}\right\}\\[1em]
 	\bm{\mathcal{P}} &= \begin{bmatrix}0 & 1-\alpha & 0 & \alpha  \\ 0 & 0 &1-\alpha & \alpha \\ 0 & 0 &1-\alpha & \alpha \\ 0 & 0 & 0 & 1\end{bmatrix}
 \end{align*}}
 \end{minipage}
@@ -157,7 +157,7 @@ A \hl{finite Markov reward process (MRP)} is a tuple $\left\langle\mathcal{X}, \
 	\item $\mathcal{X}$ being a finite set of discrete-time states $X_k\in\mathcal{X}$, 
 	\item $\bm{\mathcal{P}}=\bm{\mathcal{P}}_{xx'}=\Pb{X_{k+1}=x'|X_{k}=x}$ is the state transition probability,
 	\item \hl{$\mathcal{R}$ is a reward function, $\mathcal{R}=\mathcal{R}_x=\E{R_{k+1}|X_k=x_k}$ and} 
-	\item \hl{$\gamma$ is a discount factor, $\gamma\in\left\{\Re|0 \leq \gamma \leq 1\right\}$}.
+	\item \hl{$\gamma$ is a discount factor, $\gamma\in\left\{\Re \vert 0 \leq \gamma \leq 1\right\}$}.
 \end{itemize}
 \end{defi}
 \pause
@@ -216,7 +216,7 @@ terminating at step $N$ while it is an infinite series for \hl{continuing tasks}
 \begin{defi}{Value function in MRP}{value_function_MRP}
 The \hl{state-value function} $v(x_k)$ of an MRP is the expected return starting from state $x_k$
 \begin{equation}
-	v(x_k) = \E{G_k|X_k=x_k} .
+	v(x_k) = \E{G_k \vert X_k=x_k} .
 \end{equation}
 \end{defi}
 \begin{itemize}
@@ -257,7 +257,7 @@ Problem: How to calculate all state values in closed form?\\
 \onslide<3->{
 \label{eq:Bellman_MRP}
 \begin{split}
-		v(x_k) &= \E{G_k|X_k=x_k}}\\
+		v(x_k) &= \E{G_k \vert X_k=x_k}}\\
 							&	\onslide<4->{= \E{R_{k+1} + \gamma R_{k+2} + \gamma^2 R_{k+3}+\ldots|X_k=x_k}}\\
 							&\onslide<5->{= \E{R_{k+1} + \gamma \left(R_{k+2} + \gamma R_{k+3}+\ldots\right)|X_k=x_k}}\\
 							&\onslide<6->{= \E{R_{k+1} + \gamma G_{k+1}|X_k=x_k}}\\
@@ -350,7 +350,7 @@ A \hl{finite Markov decision process (MDP)} is a tuple $\left\langle\mathcal{X},
 	\item \hl{$\mathcal{U}$ as a finite set of discrete-time actions $U_k\in\mathcal{U}$,} 
 	\item $\bm{\mathcal{P}}=\bm{\mathcal{P}}_{xx'}^{\hl{u}}$ is the state transition probability $\bm{\mathcal{P}}=\Pb{X_{k+1}=x'|X_{k}=x_k, \hl{U_{k}=u_k}}$,
 	\item $\mathcal{R}$ is a reward function, $\mathcal{R}=\mathcal{R}_x^{\hl{u}}=\E{R_{k+1}|X_k=x_k, \hl{U_{k}=u_k}}$ and 
-	\item $\gamma$ is a discount factor, $\gamma\in\left\{\Re|0 \leq \gamma \leq 1\right\}$.
+	\item $\gamma$ is a discount factor, $\gamma\in\left\{\Re \vert 0 \leq \gamma \leq 1\right\}$.
 \end{itemize}
 \end{defi}
 \pause
@@ -403,7 +403,7 @@ For the previous example the state transition probability matrix and reward func
 In an MDP environment, a \hl{policy} is a distribution over actions given states:
 \begin{equation}
 \label{eq:Policy_MDP}
-	\pi(u_k|x_k)=\Pb{U_k=u_k  | X_k=x_k}\, .
+	\pi(u_k \vert x_k)=\Pb{U_k=u_k   \vert  X_k=x_k}\, .
 \end{equation}
 \end{defi}
 }
@@ -428,11 +428,11 @@ Given a finite MDP $\left\langle\mathcal{X}, \mathcal{U}, \bm{\mathcal{P}}, \mat
 \begin{itemize}
 	\item The state sequence $X_k, X_{k+1},\ldots$ is a Markov chain $\left\langle\mathcal{X}, \bm{\mathcal{P}}^{\pi} \right\rangle$ since the state transition probability is only depending on the state:
 	\begin{equation}
-		\bm{\mathcal{P}}_{xx'}^{\pi}=\sum_{u_k\in\mathcal{U}}\bm{\pi}(u_k|x_k)\bm{\mathcal{P}}_{xx'}^{u}\, .
+		\bm{\mathcal{P}}_{xx'}^{\pi}=\sum_{u_k\in\mathcal{U}}\bm{\pi}(u_k \vert x_k)\bm{\mathcal{P}}_{xx'}^{u}\, .
 	\end{equation}\pause
 	\item Consequently, the sequence $X_k, R_{k+1}, X_{k+1},R_{k+2},\ldots$ of states and rewards is a Markov reward process $\left\langle\mathcal{X}, \bm{\mathcal{P}}^{\pi}, \mathcal{R}^{\pi}, \gamma \right\rangle$:
 	\begin{equation}
-		\mathcal{R}_{xx'}^{\pi}=\sum_{u_k\in\mathcal{U}}\bm{\pi}(u_k|x_k)\mathcal{R}_{x}^{u}\, .
+		\mathcal{R}_{xx'}^{\pi}=\sum_{u_k\in\mathcal{U}}\bm{\pi}(u_k \vert x_k)\mathcal{R}_{x}^{u}\, .
 	\end{equation}
 \end{itemize}
 }
@@ -445,14 +445,14 @@ Given a finite MDP $\left\langle\mathcal{X}, \mathcal{U}, \bm{\mathcal{P}}, \mat
 \begin{defi}{State-value function}{state_value_MDP}
 The state-value function of an MDP is the expected return starting in $x_k$ following policy $\pi$:
 \begin{equation*}
-		v_\pi(x_k) = \El{G_k|X_k=x_k}{\pi}=\El{\left. \sum_{i=0}^\infty \gamma^i R_{k+i+1}\right|X_k}{\pi}\,.
+		v_\pi(x_k) = \El{G_k \vert X_k=x_k}{\pi}=\El{\left. \sum_{i=0}^\infty \gamma^i R_{k+i+1}\right|X_k}{\pi}\,.
 	\end{equation*}
 \end{defi}
 \pause
 \begin{defi}{Action-value function}{action_value_MDP}
 The action-value function of an MDP is the expected return starting in $x_k$ taking action $u_k$ following policy $\pi$:
 \begin{equation*}
-		q_\pi(x_k,u_k) = \El{G_k|X_k=x_k, U_k=u_k}{\pi}=\El{\left.\sum_{i=0}^\infty \gamma^i R_{k+i+1}\right|X_k, U_k}{\pi}\, .
+		q_\pi(x_k,u_k) = \El{G_k \vert X_k=x_k, U_k=u_k}{\pi}=\El{\left.\sum_{i=0}^\infty \gamma^i R_{k+i+1}\right|X_k, U_k}{\pi}\, .
 	\end{equation*}
 \end{defi}
 }
@@ -469,7 +469,7 @@ Analog to \eqref{eq:Bellman_MRP}, the state value of an MDP can be decomposed in
 In finite MDPs, the state value can be directly linked to the action value (cf.~\figref{fig:Back_Up_Value_MDP}):
 \begin{equation}
 \label{eq:v_MDP_finite}
-	v_\pi(x_k)	= \sum_{u_k\in\mathcal{U}}\pi(u_k|x_k)q_\pi(x_k,u_k) \, .
+	v_\pi(x_k)	= \sum_{u_k\in\mathcal{U}}\pi(u_k \vert x_k)q_\pi(x_k,u_k) \, .
 \end{equation}
 \pause
 \vspace{0.5cm}
@@ -512,12 +512,12 @@ In finite MDPs, the action value can be directly linked to the state value (cf.~
 Inserting \eqref{eq:q_MDP_finite} into \eqref{eq:v_MDP_finite} directly results in:
 \begin{equation}
 \label{eq:Bellman_MDP_linear_non_matrix}
-	v_\pi(x_k)	= \sum_{u_k\in\mathcal{U}}\pi(u_k|x_k)\left(\mathcal{R}^u_x + \gamma\sum_{x_{k+1}\in\mathcal{X}}p_{xx'}^u v_\pi(x_{k+1})\right) \, .
+	v_\pi(x_k)	= \sum_{u_k\in\mathcal{U}}\pi(u_k \vert x_k)\left(\mathcal{R}^u_x + \gamma\sum_{x_{k+1}\in\mathcal{X}}p_{xx'}^u v_\pi(x_{k+1})\right) \, .
 \end{equation}
 \pause
 Conversely, the action value becomes:
 \begin{equation}
-	q_\pi(x_k,u_k)	= \mathcal{R}^u_x + \gamma\sum_{x_{k+1}\in\mathcal{X}}p_{xx'}^u \left(\sum_{u_{k+1}\in\mathcal{U}}\pi(u_{k+1}|x_{k+1})q_\pi(x_{k+1},u_{k+1})\right) \, .
+	q_\pi(x_k,u_k)	= \mathcal{R}^u_x + \gamma\sum_{x_{k+1}\in\mathcal{X}}p_{xx'}^u \left(\sum_{u_{k+1}\in\mathcal{U}}\pi(u_{k+1} \vert x_{k+1})q_\pi(x_{k+1},u_{k+1})\right) \, .
 \end{equation}
 }
 
@@ -545,7 +545,7 @@ Here, $\bm{r}_{\mathcal{X}}^{\pi}$ and $\bm{\mathcal{P}}_{xx'}^{\pi}$ are the re
 \frame{\frametitle{Bellman expectation equation \& forest tree example (1)}
 Let's assume following very simple policy ('\textit{fifty-fifty}')
 \begin{equation*}
-\pi(u = \mbox{cut}|x) = 0.5, \quad \pi(u = \mbox{wait}|x) = 0.5 \quad\forall x\in\mathcal{X} \, .
+\pi(u = \text{cut} \vert x) = 0.5, \quad \pi(u = \text{wait} \vert x) = 0.5 \quad\forall x\in\mathcal{X} \, .
 \end{equation*}
 \pause
 Applied to the given environment behavior
@@ -627,7 +627,7 @@ The optimal action-value function of an MDP is the maximum action-value function
 \frame{\frametitle{Optimal policy in an MDP}
 Define a partial ordering over polices
 \begin{equation}
-	\pi \geq \pi' \quad \mbox{if} \quad v_{\pi}(x) \geq v_{\pi'}(x) \quad \forall x\in\mathcal{X} \,.
+	\pi \geq \pi' \quad \text{if} \quad v_{\pi}(x) \geq v_{\pi'}(x) \quad \forall x\in\mathcal{X} \,.
 \end{equation}
 \pause
 \begin{theo}{Optimal policies in MDPs}{Optimal_policies_MDP}
@@ -657,7 +657,7 @@ For any finite MDP
 \begin{equation}
 \begin{split}
 		v^*(x_k) &= \max_{u} q_{\pi^*}(x_k, u)\, }\\
-									&\onslide<5->{= \max_{u} \El{G_k|X_k=x_k, U=u}{\pi^*}\, }\\
+									&\onslide<5->{= \max_{u} \El{G_k \vert X_k=x_k, U=u}{\pi^*}\, }\\
 									&\onslide<6->{= \max_{u} \El{R_{k+1} + \gamma G_{k+1}|X_k=x_k, U=u}{\pi^*}\, }\\
 									&\onslide<7->{= \max_{u} \E{R_{k+1} + \gamma v^*(X_{k+1})|X_k=x_k, U=u}\, .}
 \end{split}

@@ -89,7 +89,7 @@ $l(x)\leftarrow$ an empty list for every $x\in\mathcal{X}$}
 			$g \leftarrow \gamma g + r_{k+1}$\;
 			\If{$x_{k}\notin \left\langle x_{0}, x_{1}, \ldots, x_{k-1}\right\rangle$}{
 					Append $g$ to list $l(x_k)$\;
-					$\hat{v}(x_k)\leftarrow \mbox{average}(\,l(x_k)\,)$\;}
+					$\hat{v}(x_k)\leftarrow \text{average}(\,l(x_k)\,)$\;}
 		}
 	}
 \caption{MC state-value prediction (first visit)}
@@ -115,7 +115,7 @@ $l(x)\leftarrow$ an empty list for every $x\in\mathcal{X}$}
 \end{equation} 
 \onslide<7->{
 \begin{itemize}
-	\item \hl{If a given decision problem is non-stationary} or to reduce the memory demand storing the episode number $J$, using a forgetting factor $\alpha\in\left\{\Re|0<\alpha<1\right\}$ allows for continuous learning: 
+	\item \hl{If a given decision problem is non-stationary} or to reduce the memory demand storing the episode number $J$, using a forgetting factor $\alpha\in\left\{\Re \vert 0<\alpha<1\right\}$ allows for continuous learning: 
 \end{itemize}
 \begin{equation}
 	\mu_J = \mu_{J-1} + \alpha\left[g_J-\mu_{J-1}\right] .
@@ -342,7 +342,7 @@ $n(x,u)\leftarrow$ an empty list for state-action visits $\forall \, \left\{x\in
 	\begin{itemize}
 		\item Visit all state-action pairs with probability:
 		\begin{equation}
-			 \pi(u|x) > 0 \quad \forall\, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}\, .
+			 \pi(u \vert x) > 0 \quad \forall\, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}\, .
 		\end{equation}
 		\item<2-> Policies with this characteristic are called: \hl{soft}.
 		\item<3-> Level of exploration can be tuned during the learning process.
@@ -369,7 +369,7 @@ $n(x,u)\leftarrow$ an empty list for state-action visits $\forall \, \left\{x\in
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Output{Optimal $\varepsilon$-greedy policy $\pi^*(u|x)$, \hspace{0.5cm}\textbf{parameter:} $\varepsilon\in\left\{\Re|0<\varepsilon\ll 1\right\}$}%\Param{}
+\Output{Optimal $\varepsilon$-greedy policy $\pi^*(u|x)$, \hspace{0.5cm}\textbf{parameter:} $\varepsilon\in\left\{\Re \vert 0<\varepsilon\ll 1\right\}$}%\Param{}
 \Init{$\pi_{i=0}(u|x)$ arbitrarily soft $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$\newline
 $\hat{q}(x,u)$ arbitrarily $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$\newline 
 $n(x,u)\leftarrow$ an empty list counting state-action visits $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}
@@ -405,7 +405,7 @@ Given an MDP, for any $\varepsilon$-greedy policy $\pi$ the $\varepsilon$-greedy
 	\begin{split}
 		\onslide<2->{q_{\pi}(x,\pi'(x)) &= \sum_{u}\pi'(u|x)q_{\pi}(x,u)}\\
 											&\onslide<3->{= \frac{\varepsilon}{|\mathcal{U}|}\sum_{u}q_{\pi}(x,u) + (1-\varepsilon)\max_{u}q_{\pi}(x,u)}\\
-											&\onslide<4->{\geq \frac{\varepsilon}{|\mathcal{U}|}\sum_{u}q_{\pi}(x,u) + (1-\varepsilon)\sum_{u}\frac{\pi(u|x)-\frac{\varepsilon}{|\mathcal{U}|}}{1-\varepsilon}q_{\pi}(x,u).}
+											&\onslide<4->{\geq \frac{\varepsilon}{|\mathcal{U}|}\sum_{u}q_{\pi}(x,u) + (1-\varepsilon)\sum_{u}\frac{\pi(u \vert x)-\frac{\varepsilon}{|\mathcal{U}|}}{1-\varepsilon}q_{\pi}(x,u).}
 \end{split}
 \end{equation} 
 \normalsize
@@ -420,9 +420,9 @@ Continuation:
 \small
 \begin{equation}
 	\begin{split}
-		q_{\pi}(x,\pi'(x)) &\geq \frac{\varepsilon}{|\mathcal{U}|}\sum_{u}q_{\pi}(x,u) + (1-\varepsilon)\sum_{u}\frac{\pi(u|x)-\frac{\varepsilon}{|\mathcal{U}|}}{1-\varepsilon}q_{\pi}(x,u)\\
-											&\onslide<2->{= \frac{\varepsilon}{|\mathcal{U}|}\sum_{u}\left(q_{\pi}(x,u) - q_{\pi}(x,u)\right) + \sum_{u}\pi(u|x)q_{\pi}(x,u)}\\
-											&\onslide<3->{=\sum_{u}\pi(u|x)q_{\pi}(x,u)}\\
+		q_{\pi}(x,\pi'(x)) &\geq \frac{\varepsilon}{|\mathcal{U}|}\sum_{u}q_{\pi}(x,u) + (1-\varepsilon)\sum_{u}\frac{\pi(u \vert x)-\frac{\varepsilon}{|\mathcal{U}|}}{1-\varepsilon}q_{\pi}(x,u)\\
+											&\onslide<2->{= \frac{\varepsilon}{|\mathcal{U}|}\sum_{u}\left(q_{\pi}(x,u) - q_{\pi}(x,u)\right) + \sum_{u}\pi(u \vert x)q_{\pi}(x,u)}\\
+											&\onslide<3->{=\sum_{u}\pi(u \vert x)q_{\pi}(x,u)}\\
 											&\onslide<4->{=v_{\pi}(x).}
 	\end{split}
 \end{equation} 
@@ -530,7 +530,7 @@ Idea off-policy learning:
 	\item Use two separated policies:
 	\begin{itemize}
 		\item \hl{Behavior policy} $b(u|x)$: explores in order to generate experience.
-		\item \hl{Target policy} $\pi(u|x)$: learns from that experience to become the optimal policy.
+		\item \hl{Target policy} $\pi(u \vert x)$: learns from that experience to become the optimal policy.
 	\end{itemize}\pause
 	\item Use cases:
 	\begin{itemize}
@@ -556,7 +556,7 @@ Requirement:
 \begin{itemize}
 	\item \hl{Coverage}: every action taken under $\pi$ must be (at least occasionally) taken under $b$, too. Hence, it follows:
 	\begin{equation}
-		\pi(u|x) > 0 \Rightarrow b(u|x) > 0 \quad \forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\} .
+		\pi(u \vert x) > 0 \Rightarrow b(u|x) > 0 \quad \forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\} .
 	\end{equation}\pause
 	\item Consequences of that:
 	\begin{itemize}
@@ -573,15 +573,15 @@ Requirement:
 Probability of observing a certain trajectory on random variables $U_k, X_{k+1}, U_{k+1}, \ldots, X_{T}$ starting in $X_{k}$ while following $\pi$:
 \begin{equation}
 \begin{split}
-	\Pb{U_k, X_{k+1}, U_{k+1}, \ldots , X_{T}| X_{k}, \pi}&=\pi(U_k|X_{k})p(X_{k+1}|X_{k}, U_{k})\pi(U_{k+1}|X_{k+1})\cdots\\
-	&=\prod_k^{T-1} \pi(U_k|X_{k})p(X_{k+1}|X_{k}, U_{k}).
+	\Pb{U_k, X_{k+1}, U_{k+1}, \ldots , X_{T}| X_{k}, \pi}&=\pi(U_k \vert X_{k})p(X_{k+1}|X_{k}, U_{k})\pi(U_{k+1} \vert X_{k+1})\cdots\\
+	&=\prod_k^{T-1} \pi(U_k \vert X_{k})p(X_{k+1}|X_{k}, U_{k}).
 	\end{split}
 \end{equation}
 Above $p$ is the state-transition probability (cf. \defref{defi:Markov_decision_process}).\pause
 \begin{defi}{Importance sampling ratio}{import_sampl_ratio}
 The relative probability of a trajectory under the target and behavior policy, the importance sampling ratio, from sample step $k$ to $T$ is:
 \begin{equation}
-	\rho_{k:T}=\frac{\prod_k^{T-1} \pi(U_k|X_{k})p(X_{k+1}|X_{k}, U_{k})}{\prod_k^{T-1} b(U_k|X_{k})p(X_{k+1}|X_{k}, U_{k})}=\frac{\prod_k^{T-1} \pi(U_k|X_{k})}{\prod_k^{T-1} b(U_k|X_{k})} .
+	\rho_{k:T}=\frac{\prod_k^{T-1} \pi(U_k \vert X_{k})p(X_{k+1}|X_{k}, U_{k})}{\prod_k^{T-1} b(U_k|X_{k})p(X_{k+1}|X_{k}, U_{k})}=\frac{\prod_k^{T-1} \pi(U_k \vert X_{k})}{\prod_k^{T-1} b(U_k|X_{k})} .
 	\label{eq:import_sampl_ratio}
 \end{equation}
 \end{defi}

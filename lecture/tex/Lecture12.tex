@@ -82,7 +82,7 @@ Given a metric $J(\bm{\theta})$ for the undiscounted episodic \eqref{eq:performa
 \SetKwInput{Param}{parameter}
 \Input{a differentiable deterministic policy function $\mu(\bm{x},\bm{\theta})$}
 \Input{a differentiable action-value function $\hat{q}(\bm{x},\bm{u},\bm{w})$}
-\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re|0<\alpha<1\right\}$}
+\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re \vert 0<\alpha<1\right\}$}
 \Init{parameter vectors $\bm{w}\in\Re^{\zeta}$ and $\bm{\theta}\in\Re^d$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
 		initialize $\bm{x}_0$\; 
@@ -257,7 +257,7 @@ given a behavior policy $b(\bm{u}|\bm{x})$.
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{diff. deterministic policy function $\bm{\mu}(\bm{x},\bm{\theta})$ and action-value function $\hat{q}(\bm{x},\bm{u},\bm{w})$}
-\Param{step sizes and filter constant $\{\alpha_{w}, \alpha_{\theta}, \tau\}\in\left\{\Re|0<\alpha, \tau<1\right\}$}
+\Param{step sizes and filter constant $\{\alpha_{w}, \alpha_{\theta}, \tau\}\in\left\{\Re \vert 0<\alpha, \tau<1\right\}$}
 \Init{weights $\bm{w}=\bm{w}^{-}\in\Re^{\zeta}$ and $\bm{\theta}=\bm{\theta}^{-}\in\Re^d$ arbitrarily, memory $\bm{\mathcal{D}}$}\pause
  \For{$j=1,2,\ldots,$ episodes}{
 		initialize $\bm{x}_0$\; 
@@ -471,7 +471,7 @@ then \eqref{eq:approx_q_TD3} and \eqref{eq:true_q_TD3} imply
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{diff. deterministic policy function $\bm{\mu}(\bm{x},\bm{\theta})$ and action-value function $\hat{q}(\bm{x},\bm{u},\bm{w})$}
-\Param{step sizes and filter constant $\{\alpha_{w}, \alpha_{\theta}, \tau\}\in\left\{\Re|0<\alpha, \tau<1\right\}$, policy update rate $k_w\in\left\{\mathbb{N}|1\leq k_w\right\}$, target noise $\bm{\Sigma}\in\Re^{m \times m}$ and $\bm{c}\in\Re^{m}$}
+\Param{step sizes and filter constant $\{\alpha_{w}, \alpha_{\theta}, \tau\}\in\left\{\Re \vert 0<\alpha, \tau<1\right\}$, policy update rate $k_w\in\left\{\mathbb{N}|1\leq k_w\right\}$, target noise $\bm{\Sigma}\in\Re^{m \times m}$ and $\bm{c}\in\Re^{m}$}
 \Init{weights $\{\bm{w}_{1}=\bm{w}_{1}^{-}$, $\bm{w}_{2}=\bm{w}_{2}^{-}\}\in\Re^{\zeta}$,  $\bm{\theta}=\bm{\theta}^{-}\in\Re^d$ arbitrarily, memory $\bm{\mathcal{D}}$}\pause
  \For{$j=1,2,\ldots,$ episodes}{
 		initialize $\bm{x}_0$\; 

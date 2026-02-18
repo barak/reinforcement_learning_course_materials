@@ -97,7 +97,7 @@ Due to the usage of function approximation one incremental learning step changes
 \begin{defi}{Mean squared value error}{VE}
 The RL prediction objective is defined as the mean squared value error
 \begin{equation}
-	\overline{\mbox{VE}}(\bm{w}) = \int_{\mathcal{X}}\mu(\bm{x})\left[v_{\pi}(\bm{x}) - \hat{v}(\tilde{\bm{x}}, \bm{w})\right]^2
+	\overline{\text{VE}}(\bm{w}) = \int_{\mathcal{X}}\mu(\bm{x})\left[v_{\pi}(\bm{x}) - \hat{v}(\tilde{\bm{x}}, \bm{w})\right]^2
 \label{eq:VE}
 \end{equation}
 with $\mu(\bm{x})\in\left\{\Re|\mu(\bm{x})\geq 0\right\}$ being a state distribution weight with $\int_{\mathcal{X}}\mu=1$. 
@@ -118,7 +118,7 @@ with $\mu(\bm{x})\in\left\{\Re|\mu(\bm{x})\geq 0\right\}$ being a state distribu
 \end{itemize}
 \vspace{0.5cm}
 \begin{equation}
-	\overline{\mbox{VE}}(\bm{w}) \approx J(\bm{w})= \sum_k \left[v_{\pi}(\bm{x}_k) - \hat{v}(\tilde{\bm{x}}_k, \bm{w})\right]^2 .
+	\overline{\text{VE}}(\bm{w}) \approx J(\bm{w})= \sum_k \left[v_{\pi}(\bm{x}_k) - \hat{v}(\tilde{\bm{x}}_k, \bm{w})\right]^2 .
 \label{eq:VE_J}
 \end{equation}\pause
 \vspace{0.25cm}
@@ -298,7 +298,7 @@ Nevertheless, the true update target $v_\pi(\bm{x}_k)$ is often unknown due to
 \SetKwInput{Param}{parameter}
 \Input{a policy $\pi$ to be evaluated, a feature representation $\tilde{\bm{x}}=\bm{f}(\bm{x})$}
 \Input{a differentiable function $\hat{v}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$}
-\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$}
+\Param{step size $\alpha\in\left\{\Re \vert 0<\alpha<1\right\}$}
 \Init{value-function weights $\bm{w}\in\Re^\zeta$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
 		generate an episode following $\pi$: $x_{0}, u_{0}, r_{1},\ldots,x_{T}$ \;
@@ -358,7 +358,7 @@ The semi-gradient of $J(\bm{w})$ for TD(0) from prev. slide is then
 \SetKwInput{Param}{parameter}
 \Input{a policy $\pi$ to be evaluated, a feature representation $\tilde{\bm{x}}=\bm{f}(\bm{x})$}
 \Input{a differentiable function $\hat{v}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$ with $\hat{v}(\tilde{\bm{x}}_T, \cdot)=0$}
-\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$}
+\Param{step size $\alpha\in\left\{\Re \vert 0<\alpha<1\right\}$}
 \Init{value-function weights $\bm{w}\in\Re^\zeta$ arbitrarily}
  \For{$j=1,2,\ldots$ episodes}{
 		initialize $\bm{x}_{0}$\;
@@ -387,7 +387,7 @@ The semi-gradient of $J(\bm{w})$ for TD(0) from prev. slide is then
 \SetKwInput{Param}{parameter}
 \Input{a policy $\pi$ to be evaluated, a feature representation $\tilde{\bm{x}}= \bm{f}(\bm{x})$}
 \Input{a differentiable function $\hat{v}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$ with $\hat{v}(\tilde{\bm{x}}_T, \cdot)=0$}
-\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$, prediction steps $n\in\mathbb{Z}^+$}
+\Param{step size $\alpha\in\left\{\Re \vert 0<\alpha<1\right\}$, prediction steps $n\in\mathbb{Z}^+$}
 \Init{value-function weights $\bm{w}\in\Re^\zeta$ arbitrarily}
  \For{$j=1,2\ldots$ episodes}{
 		initialize and store $\bm{x}_{0}$\;
@@ -533,7 +533,7 @@ Depending on the policy $\pi$ the rows in $\bm{\Xi}$ might be linearly correlate
 	\item Counter measure: add Tikhonov regularization (ridge regression with penalty term $\epsilon$, cf. \eqref{eq:ridge}):
 \end{itemize}
 \begin{equation}
-	\bm{w}_{\mbox{Ridge}}^* = (\bm{\Xi}\T\bm{\Xi}+\epsilon\bm{I})^{-1}\bm{\Xi}\T\bm{y} .
+	\bm{w}_{\text{Ridge}}^* = (\bm{\Xi}\T\bm{\Xi}+\epsilon\bm{I})^{-1}\bm{\Xi}\T\bm{y} .
 	\label{eq:Ridge_LSTD}
 \end{equation}
 }
@@ -581,7 +581,7 @@ The RLS update rule is then
 \end{equation}
 with
 \begin{itemize}
-	\item $\lambda_k\in\left\{\Re|0<\lambda \leq 1\right\}$ is an optional forgetting factor, 
+	\item $\lambda_k\in\left\{\Re \vert 0<\lambda \leq 1\right\}$ is an optional forgetting factor, 
 	\item $\bm{P}_k$ is the covariance matrix and
 	\item $\bm{c}_k$ is an adaptive correction to reduce the error $\left(y_{k+1}-\bm{\xi}\T_k \bm{w}_{k+1}\right)$.
 \end{itemize}
@@ -600,7 +600,7 @@ with
 \SetKwInput{Param}{parameter}
 \Input{a policy $\pi$ to be evaluated}
 \Input{a feature representation $\tilde{\bm{x}}$ with $\tilde{\bm{x}}_T=0$ (i.e., $\hat{v}(\tilde{\bm{x}}_T,\cdot)=0$)}
-\Param{forgetting factor $\lambda\in\left\{\Re|0 < \lambda \leq 1\right\}$}
+\Param{forgetting factor $\lambda\in\left\{\Re \vert 0 < \lambda \leq 1\right\}$}
 \Init{weights $\bm{w}\in\Re^\zeta$ arbitrarily, covariance $\bm{P}>0$ (e.g., $\bm{P}=\beta\bm{I}$)}
  \For{$j=1,2,\ldots$ episodes}{
 		initialize $\bm{x}_{0}$\;

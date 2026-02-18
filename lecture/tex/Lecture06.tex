@@ -196,7 +196,7 @@ The worst error of the expected $n$-step return is always less than or equal to 
 	\item For on-policy control by SARSA action-value estimates are required. 
 	\item Recap the one-step action-value update as required for 'SARSA(0)':
 	\begin{equation}
-		\hat{q}(x_k, u_k) \leftarrow \hat{q}(x_k, u_k) + \alpha\left[\underbrace{r_{k+1}+\gamma\hat{q}(x_{k+1}, u_{k+1})}_{\mbox{\footnotesize target }\normalsize g} - \hat{q}(x_k, u_k)\right] .
+		\hat{q}(x_k, u_k) \leftarrow \hat{q}(x_k, u_k) + \alpha\left[\underbrace{r_{k+1}+\gamma\hat{q}(x_{k+1}, u_{k+1})}_{\text{\footnotesize target }\normalsize g} - \hat{q}(x_k, u_k)\right] .
 	\end{equation}
 	\end{itemize}\pause
 \begin{block}{$n$-step state-action value prediction target}
@@ -221,7 +221,7 @@ Analog to $n$-step TD, the state-action value target is rewritten as:
 \begin{itemize}
 	\item For $n$-step \hl{expected SARSA}, the update is similar but the state-action value estimate at step $k+n$ becomes the \hl{expected approximate value of $x$} under the target policy valid at time step $k$:
 		\begin{equation}
-		g_{k:k+n} = r_{k+1}+\gamma r_{k+2}+\cdots+\gamma^{n-1} r_{k+n}+\gamma^{n} \hl{\sum_u \pi(u|x)\hat{q}_k(x,u) }.
+		g_{k:k+n} = r_{k+1}+\gamma r_{k+2}+\cdots+\gamma^{n-1} r_{k+n}+\gamma^{n} \hl{\sum_u \pi(u \vert x)\hat{q}_k(x,u) }.
 		\end{equation}\pause
 \item Finally, the modified $n$-step targets can be directly integrated to the state-action value estimate update rule of SARSA:
 \end{itemize}		
@@ -255,23 +255,23 @@ Analog to $n$-step TD, the state-action value target is rewritten as:
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 %\Output{estimate $\hat{q}_\pi$ or $\hat{q}^*$}
-\Param{$\alpha\in(0,1]$, $n\in\mathbb{Z}^+$, $\varepsilon\in\left\{\Re|0<\varepsilon\ll 1\right\}$}
+\Param{$\alpha\in(0,1]$, $n\in\mathbb{Z}^+$, $\varepsilon\in\left\{\Re \vert 0<\varepsilon\ll 1\right\}$}
 \Init{$\hat{q}(x,u)$ arbitrarily (except terminal states) $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}
 \Init{$\pi$ to be $\varepsilon$-greedy with respect to $\hat{q}$ or to a given, fixed policy}
  \For{$j=1,\ldots,J$ episodes}{
-		initialize $x_{0}$ and action $u_0 \sim \pi(\cdot | x_0)$ and store them\;
+		initialize $x_{0}$ and action $u_0 \sim \pi(\cdot  \vert  x_0)$ and store them\;
 		$T\leftarrow\infty$\;
 		\Repeat( $k=0, 1, 2, \ldots$){$\tau=T-1$}{
 			\If{$k<T$}{
 				take action $u_k$, observe and store $x_{k+1}$ and $r_{k+1}$\;
-				\leIf{$x_{k+1}$ is terminal}{$T\leftarrow k+1$}{store $u_{k+1} \sim \pi(\cdot | x_{k+1})$}
+				\leIf{$x_{k+1}$ is terminal}{$T\leftarrow k+1$}{store $u_{k+1} \sim \pi(\cdot  \vert  x_{k+1})$}
 			}
 			$\tau\leftarrow k-n+1$ ($\tau$ time index for estimate update)\;
 			\If{$\tau \geq 0$}{
 				$g\leftarrow \sum_{i=\tau+1}^{\min(\tau + n, T)}\gamma^{i-\tau-1} r_i$\;
 				if $\tau+n < T$: $g\leftarrow g + \gamma^n \hat{q}(x_{\tau+n}, u_{\tau+n})$\;
 				$\hat{q}(x_{\tau},u_{\tau}) \leftarrow \hat{q}(x_{\tau},u_{\tau}) + \alpha\left[g - \hat{q}(x_{\tau}, u_{\tau})\right]$\;
-				if $\pi\approx\pi^*$ is being learned, ensure $\pi(\cdot|x_\tau)$ is $\varepsilon$-greedy w.r.t $\hat{q}$\;
+				if $\pi\approx\pi^*$ is being learned, ensure $\pi(\cdot \vert x_\tau)$ is $\varepsilon$-greedy w.r.t $\hat{q}$\;
 			}
 		}
 	}
@@ -308,16 +308,16 @@ Analog to $n$-step TD, the state-action value target is rewritten as:
 Consider two separate policies in order to break the on-policy optimality trade-off:
 	\begin{itemize}
 		\item \hl{Behavior policy} $b(u|x)$: Explores in order to generate experience.
-		\item \hl{Target policy} $\pi(u|x)$: Learns from that experience to become the optimal policy.\pause
+		\item \hl{Target policy} $\pi(u \vert x)$: Learns from that experience to become the optimal policy.\pause
 		\item Important requirement is \hl{coverage}: Every action taken under $\pi$ must be (at least occasionally) taken under $b$, too. Hence, it follows:
 	\begin{equation}
-		\pi(u|x) > 0 \Rightarrow b(u|x) > 0 \quad \forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\} .
+		\pi(u \vert x) > 0 \Rightarrow b(u|x) > 0 \quad \forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\} .
 	\end{equation}
 	\end{itemize}\pause
 \begin{block}{Importance sampling ratio (revision from \defref{defi:import_sampl_ratio})}
 The relative probability of a trajectory under the target and behavior policy, the importance sampling ratio, from sample step $k$ to $T$ is:
 \begin{equation}
-	\rho_{k:T}=\frac{\prod_k^{T-1} \pi(u_k|x_{k})p(x_{k+1}|x_{k}, u_{k})}{\prod_k^{T-1} b(u_k|x_{k})p(x_{k+1}|x_{k}, u_{k})}=\frac{\prod_k^{T-1} \pi(u_k|x_{k})}{\prod_k^{T-1} b(u_k|x_{k})} .
+	\rho_{k:T}=\frac{\prod_k^{T-1} \pi(u_k \vert x_{k})p(x_{k+1}|x_{k}, u_{k})}{\prod_k^{T-1} b(u_k|x_{k})p(x_{k+1}|x_{k}, u_{k})}=\frac{\prod_k^{T-1} \pi(u_k \vert x_{k})}{\prod_k^{T-1} b(u_k|x_{k})} .
 \end{equation}
 \end{block}
 }
@@ -329,7 +329,7 @@ The relative probability of a trajectory under the target and behavior policy, t
 For a straightforward \hl{$n$-step off-policy TD-style update}, just weight the update by the importance sampling ratio:
 \begin{align}
 	\hat{v}_{k+n}(x_k) &= \hat{v}_{k+n-1}(x_k) + \alpha \hl{\rho_{k:k+n-1}}\left[g_{k:k+n} - \hat{v}_{k+n-1}(x_k)\right], \quad 0\leq k < T, \notag \\
-										\rho_{k:h}&=	\prod_k^{\min (h,T-1)}\frac{\pi(u_k|x_{k})}{b(u_k|x_{k})} .\label{eq:rho_off_policy_TD}
+										\rho_{k:h}&=	\prod_k^{\min (h,T-1)}\frac{\pi(u_k \vert x_{k})}{b(u_k|x_{k})} .\label{eq:rho_off_policy_TD}
 \end{align}
 \begin{itemize}
 	\item $\rho_{k:k+n-1}$ is the relative probability under the two polices taking $n$ actions from $u_k$ to $u_{k+n}$.
@@ -368,7 +368,7 @@ Analog, an \hl{$n$-step off-policy SARSA-style update} exists:
 				}
 			$\tau\leftarrow k-n+1$ ($\tau$ time index for estimate update)\;
 			\If{$\tau \geq 0$}{
-				\hl{$\rho \leftarrow \prod_{i=\tau }^{\min (\tau + n - 2,T-1)}\frac{\pi(u_i|x_{k})}{b(u_i|x_{i})}$}\;
+				\hl{$\rho \leftarrow \prod_{i=\tau }^{\min (\tau + n - 2,T-1)}\frac{\pi(u_i \vert x_{k})}{b(u_i|x_{i})}$}\;
 				$g\leftarrow \sum_{i=\tau+1}^{\min(\tau + n, T)}\gamma^{i-\tau-1} r_i$\;
 				if $\tau+n < T$: $g\leftarrow g + \gamma^n \hat{v}(x_{\tau+n})$\;
 				$\hat{v}(x_{\tau}) \leftarrow \hat{v}(x_{\tau}) + \alpha \hl{\rho}\left[g - \hat{v}(x_{\tau})\right]$\;
@@ -393,7 +393,7 @@ Analog, an \hl{$n$-step off-policy SARSA-style update} exists:
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{an arbitrary behavior policy $b$ with $b(u|x)>0 \, \forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}
-\Param{$\alpha\in(0,1]$, $n\in\mathbb{Z}^+$, $\varepsilon\in\left\{\Re|0<\varepsilon\ll 1\right\}$}
+\Param{$\alpha\in(0,1]$, $n\in\mathbb{Z}^+$, $\varepsilon\in\left\{\Re \vert 0<\varepsilon\ll 1\right\}$}
 \Init{$\hat{q}(x,u)$ $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$ and a policy $\pi$ to be greedy with respect to $\hat{q}$ or to a given, fixed policy}
  \For{$j=1,\ldots,J$ episodes}{
 		initialize $x_{0}$ and action $u_0 \sim b(\cdot | x_0)$ and store them, set also $T\leftarrow\infty$\;
@@ -404,11 +404,11 @@ Analog, an \hl{$n$-step off-policy SARSA-style update} exists:
 			}
 			$\tau\leftarrow k-n+1$ ($\tau$ time index for estimate update)\;
 			\If{$\tau \geq 0$}{
-				\hl{$\rho \leftarrow \prod_{i=\tau +1}^{\min (\tau + n -1,T-1)}\frac{\pi(u_i|x_{i})}{b(u_i|x_{i})}$}\;
+				\hl{$\rho \leftarrow \prod_{i=\tau +1}^{\min (\tau + n -1,T-1)}\frac{\pi(u_i \vert x_{i})}{b(u_i|x_{i})}$}\;
 				$g\leftarrow \sum_{i=\tau+1}^{\min(\tau + n, T)}\gamma^{i-\tau-1} r_i$\;
 				if $\tau+n < T$: $g\leftarrow g + \gamma^n \hat{q}(x_{\tau+n}, u_{\tau+n})$\;
 				$\hat{q}(x_{\tau},u_{\tau}) \leftarrow \hat{q}(x_{\tau},u_{\tau}) + \alpha \hl{\rho} \left[g - \hat{q}(x_{\tau}, u_{\tau})\right]$\;
-				if $\pi\approx\pi^*$ is being learned, ensure $\pi(\cdot|x_\tau)$ is $\varepsilon$-greedy w.r.t to $\hat{q}$\;
+				if $\pi\approx\pi^*$ is being learned, ensure $\pi(\cdot \vert x_\tau)$ is $\varepsilon$-greedy w.r.t to $\hat{q}$\;
 			}
 		}
 	}
@@ -478,7 +478,7 @@ Analog, an \hl{$n$-step off-policy SARSA-style update} exists:
 		g_k^\lambda = (1-\lambda)\sum_{n=1}^{\infty}\lambda^{(n-1)}g_{k:k+n}\,.
 		\label{eq:lambda_return}
 	\end{equation}
-	\item Parameter is $\lambda\in\left\{\Re|0\leq \lambda \leq 1\right\}$.
+	\item Parameter is $\lambda\in\left\{\Re \vert 0\leq \lambda \leq 1\right\}$.
 	\item Geometric series of weights is one:
 	\begin{equation*}
 		(1-\lambda)\sum_{n=1}^{\infty}\lambda^{(n-1)} = 1
@@ -570,7 +570,7 @@ The \hl{eligibility trace $z_k(x)\in\Re$} is defined and tracked for each state 
 	\begin{equation}
 \begin{split}
 	z_{0}(x)&=0,\\
-	z_k(x) &=\gamma\lambda z_{k-1}(x)+\begin{cases}0, \quad\mbox{if } x_k \neq x, \\ 1, \quad \mbox{if } x_k = x.\end{cases}
+	z_k(x) &=\gamma\lambda z_{k-1}(x)+\begin{cases}0, \quad\text{if } x_k \neq x, \\ 1, \quad \text{if } x_k = x.\end{cases}
 \end{split}	
 \label{eq:Elig_trace}
 \end{equation}
@@ -619,19 +619,19 @@ Already known prediction and control methods can be modified accordingly. In con
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 %\Output{estimate $\hat{q}_\pi$ or $\hat{q}^*$}
-\Param{$\alpha\in(0,1]$, $\lambda\in(0,1]$, $\varepsilon\in\left\{\Re|0<\varepsilon\ll 1\right\}$}
+\Param{$\alpha\in(0,1]$, $\lambda\in(0,1]$, $\varepsilon\in\left\{\Re \vert 0<\varepsilon\ll 1\right\}$}
 \Init{$\hat{q}(x,u)$ arbitrarily (except terminal states) $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$}
 \Init{$\pi$ to be $\varepsilon$-greedy with respect to $\hat{q}$ or to a given, fixed policy}
  \For{$j=1,\ldots,J$ episodes}{
-		initialize $x_{0}$ and action $u_0 \sim \pi(\cdot | x_0)$\;
+		initialize $x_{0}$ and action $u_0 \sim \pi(\cdot  \vert  x_0)$\;
 		initialize $z_0(x, u) = 0$ $\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$
 
 		\Repeat{$x_k$ is terminal}{
 
 			take action $u_k$, observe $x_{k+1}$ and $r_{k+1}$\;
-			choose $u_{k+1} \sim \pi(\cdot | x_{k+1})$
+			choose $u_{k+1} \sim \pi(\cdot  \vert  x_{k+1})$
 
-			$z_k(x, u) \leftarrow \gamma\lambda z_{k-1}(x, u)+\begin{cases}0, \quad\mbox{if } x_k \neq x \mbox{ or } u_k \neq u, \\ 1, \quad \mbox{if } x_k = x \mbox{ and } u_k = u.\end{cases}$ 
+			$z_k(x, u) \leftarrow \gamma\lambda z_{k-1}(x, u)+\begin{cases}0, \quad\text{if } x_k \neq x \text{ or } u_k \neq u, \\ 1, \quad \text{if } x_k = x \text{ and } u_k = u.\end{cases}$ 
 			$\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$
 			
 			$\delta \leftarrow r_{k+1}+\gamma\hat{q}(x_{k+1}, u_{k+1}) - \hat{q}(x_k, u_k) $

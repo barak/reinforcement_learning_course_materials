@@ -337,7 +337,7 @@ The RL agent's learning process is heavily linked with the reward distribution o
 	\label{eq:return_disc}
 	g_k = r_{k+1} + \gamma r_{k+2} + \gamma^2 r_{k+3} + \cdots = \sum_{i=0}^\infty \gamma^i r_{k+i+1}\, .  	
 	\end{equation}
-	\item Here, $\gamma\in\left\{\Re|0 \leq \gamma \leq 1\right\}$ is the \hl{discount rate}.
+	\item Here, $\gamma\in\left\{\Re \vert 0 \leq \gamma \leq 1\right\}$ is the \hl{discount rate}.
 \end{itemize}
 }
 
@@ -531,7 +531,7 @@ Evaluating the state and action spaces (e.g., finite vs. continuous) of a new RL
 \pause
 \item Stochastic policies: maps a probability of the action given a state:
 \begin{equation}
-	\bm{\pi}(\bm{U}_k|\bm{X}_k)=\Pb{\bm{U}_k | \bm{X}_k}\, .
+	\bm{\pi}(\bm{U}_k \vert \bm{X}_k)=\Pb{\bm{U}_k | \bm{X}_k}\, .
 \end{equation}
 \pause
 \item RL is all about changing $\bm{\pi}$ over time in order to maximize the expected return.
@@ -546,7 +546,7 @@ Evaluating the state and action spaces (e.g., finite vs. continuous) of a new RL
 \begin{itemize}
 	\onslide<2->\item Agent's behavior is explicitly determined by $\{K_\mathrm{p}, K_\mathrm{i}, K_\mathrm{d}\}$.
 	\onslide<3->\item	Reference value is part of the environment state: $\bm{x}_k = \begin{bmatrix}y_k & y^*_k\end{bmatrix}\T$.
-	\onslide<4->\item Control output is the agent's action: $\bm{u}_k = \bm{\pi}(\bm{x}_k|K_\mathrm{p}, K_\mathrm{i}, K_\mathrm{d})$.
+	\onslide<4->\item Control output is the agent's action: $\bm{u}_k = \bm{\pi}(\bm{x}_k \vert K_\mathrm{p}, K_\mathrm{i}, K_\mathrm{d})$.
 \end{itemize}
 
 \onslide<1->\begin{figure}
@@ -584,7 +584,7 @@ Evaluating the state and action spaces (e.g., finite vs. continuous) of a new RL
 	\item Assuming an MDP problem structure the state-value function is
 	\begin{equation}
 	\label{eq:state_value_lec01}
-		v_\pi(\bm{x}_k) = \El{G_k|\bm{X}_k=\bm{x}_k}{\pi}=\El{\left. \sum_{i=0}^\infty \gamma^i R_{k+i+1}\right|\bm{x}_k}{\pi}.
+		v_\pi(\bm{x}_k) = \El{G_k \vert \bm{X}_k=\bm{x}_k}{\pi}=\El{\left. \sum_{i=0}^\infty \gamma^i R_{k+i+1}\right|\bm{x}_k}{\pi}.
 	\end{equation}
 	\pause
 \item The \hl{action-value function} is the expected return being in state $\bm{x}_k$ taken an action $\bm{u}_k$ and, thereafter, following a policy $\bm{\pi}$: $q_\pi(\bm{x}_k, \bm{u}_k)$.
@@ -592,7 +592,7 @@ Evaluating the state and action spaces (e.g., finite vs. continuous) of a new RL
 	\item Assuming an MDP problem structure the action-value function is
 \end{itemize}
 	\begin{equation}
-		q_\pi(\bm{x}_k,\bm{u}_k) = \El{G_k|\bm{X}_k=\bm{x}_k, \bm{U}_k=\bm{u}_k}{\pi}=\El{\left.\sum_{i=0}^\infty \gamma^i R_{k+i+1}\right|\bm{x}_k, \bm{u}_k}{\pi}.
+		q_\pi(\bm{x}_k,\bm{u}_k) = \El{G_k \vert \bm{X}_k=\bm{x}_k, \bm{U}_k=\bm{u}_k}{\pi}=\El{\left.\sum_{i=0}^\infty \gamma^i R_{k+i+1}\right|\bm{x}_k, \bm{u}_k}{\pi}.
 	\end{equation}\pause
 \begin{itemize}
 	\item A key task in RL is to estimate $v_\pi(\bm{x}_k)$ and $q_\pi(\bm{x}_k,\bm{u}_k)$ based on sampled data.

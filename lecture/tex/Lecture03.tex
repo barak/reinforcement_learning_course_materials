@@ -116,7 +116,7 @@ In both applications \hl{DP requires full knowledge of the MDP} structure.
 	\item Problem: evaluate a given policy $\pi$ to predict $v_\pi$. \pause
 	\item Recap: Bellman expectation equation for $x_k\in\mathcal{X}$ is given as
 	\begin{align*}
-	v_\pi(x_k) &= \El{G_k|X_k=x_k}{\pi}\\
+	v_\pi(x_k) &= \El{G_k \vert X_k=x_k}{\pi}\\
 									&= \El{R_{k+1}+ \gamma G_{k+1}|X_k=x_k}{\pi}\\
 									&= \El{R_{k+1}+ \gamma v_\pi(X_{k+1})|X_k=x_k}{\pi}.
 	\end{align*}\vspace{-0.5cm}\pause
@@ -139,7 +139,7 @@ In both applications \hl{DP requires full knowledge of the MDP} structure.
 	\item Problem: directly calculating $v_\pi$ is numerically costly for high-dimensional state spaces (e.g., by matrix inversion). \pause
 	\item General idea: \hl{apply iterative approximations} $\hat{v}_{i}(x_{k})=v_{i}(x_{k})$ of $v_\pi(x_{k})$ with decreasing errors:
 	\begin{equation}
-	\left\|v_{i}(x_{k}) - v_\pi\right\|_{\infty}\rightarrow 0 \quad \mbox{for} \quad i=1,2,3,\ldots
+	\left\|v_{i}(x_{k}) - v_\pi\right\|_{\infty}\rightarrow 0 \quad \text{for} \quad i=1,2,3,\ldots
 \end{equation}\pause
 	\item The Bellman equation in matrix form can be rewritten as:
 	\begin{equation}
@@ -212,7 +212,7 @@ follows. Hence, \hl{when discounting the Richardson iteration always converges f
 \frame{\frametitle{Iterative policy evaluation by Richardson iteration (1)}
 Applying the Richardson iteration \eqref{eq:richardson_general} with $w=1$ to the Bellman equation \eqref{eq:Bellman_MDP_linear_non_matrix} for any $x_k\in\mathcal{X}$ at iteration $i$ results in:
 \begin{equation}
-	v_{i+1}(x_k)	= \sum_{u_k\in\mathcal{U}}\bm{\pi}(u_k|x_k)\left(\mathcal{R}^u_x + \gamma\sum_{x_{k+1}\in\mathcal{X}}p_{xx'}^u v_{i}(x_{k+1})\right)\, .
+	v_{i+1}(x_k)	= \sum_{u_k\in\mathcal{U}}\bm{\pi}(u_k \vert x_k)\left(\mathcal{R}^u_x + \gamma\sum_{x_{k+1}\in\mathcal{X}}p_{xx'}^u v_{i}(x_{k+1})\right)\, .
 \end{equation}\pause
 Matrix form based on \eqref{eq:Bellman_MDP_linear} then is:
 \begin{equation}
@@ -289,7 +289,7 @@ Instead of applying \eqref{eq:iterative_policy_eval_matrix} to the entire vector
 		$\Delta \leftarrow 0 $\;
 		\For{$\forall \, x_k\in\mathcal{X}$}{
 			$\tilde{v}\leftarrow \hat{v}(x_k)$\;
-			$\hat{v}(x_k)\leftarrow  \sum_{u_k\in\mathcal{U}}\pi(u_k|x_k)\left(\mathcal{R}^u_x + \gamma\sum_{x_{k+1}\in\mathcal{X}}p_{xx'}^u \hat{v}(x_{k+1})\right)$\;
+			$\hat{v}(x_k)\leftarrow  \sum_{u_k\in\mathcal{U}}\pi(u_k \vert x_k)\left(\mathcal{R}^u_x + \gamma\sum_{x_{k+1}\in\mathcal{X}}p_{xx'}^u \hat{v}(x_{k+1})\right)$\;
 			$\Delta \leftarrow \max\left(\Delta, |\tilde{v}-\hat{v}(x_k)|\right)$\;
 		}
 	}
@@ -421,7 +421,7 @@ applies, then the policy $\pi'$ must be as good as or better than $\pi$. Hence, 
 \end{equation}\pause
 \begin{itemize}
 	\item This is the Bellman optimality equation, which guarantees that $\pi'=\pi$ must be optimal policies.\pause
-	\item Although proof for policy improvement theorem was presented for deterministic policies, transfer to stochastic policies $\pi(u_k|x_k)$ is possible.\pause
+	\item Although proof for policy improvement theorem was presented for deterministic policies, transfer to stochastic policies $\pi(u_k \vert x_k)$ is possible.\pause
 	\item Takeaway message: \hl{policy improvement theorem guarantees finding optimal policies in finite MDPs} (e.g., by DP).
 \end{itemize}	
 }
@@ -470,13 +470,13 @@ applies, then the policy $\pi'$ must be as good as or better than $\pi$. Hence, 
 \frame{\frametitle{Policy iteration example: forest tree MDP (2)}
 Assume $\alpha=0.2$ and $\gamma=0.8$ and start with \hl{'tree hater' initial policy}:\pause
 \begin{enumerate}
-	\item $\pi_0=\pi(u_k =\mbox{c}|x_k) \quad \,\forall x_k\in\mathcal{X}$.\pause
+	\item $\pi_0=\pi(u_k =\text{c} \vert x_k) \quad \,\forall x_k\in\mathcal{X}$.\pause
 	\item Policy evaluation: $v_\mathcal{X}^{\pi_0}=\begin{bmatrix}1 & 2 & 3 & 0\end{bmatrix}\T$\pause
 	\item Greedy policy improvement: 
 	\begin{equation*}
 	\begin{split}
 		\pi_1(x_{k})& = \argmax_{u_k\in\mathcal{U}} \E{R_{k+1} + \gamma 	v_{\pi_0}(X_{k+1})|X_{k}=x_{k},U_{k}=u_{k}}\\
-										& = \left\{\pi(u_k =\mbox{w}|x_k=1), \pi(u_k =\mbox{c}|x_k=2), \pi(u_k =\mbox{c}|x_k=3)\right\}
+										& = \left\{\pi(u_k =\text{w} \vert x_k=1), \pi(u_k =\text{c} \vert x_k=2), \pi(u_k =\text{c} \vert x_k=3)\right\}
 	\end{split}
 \end{equation*}\pause
 \item Policy evaluation: $v_\mathcal{X}^{\pi_1}=\begin{bmatrix}1.28 & 2 & 3 & 0\end{bmatrix}\T$\pause
@@ -484,7 +484,7 @@ Assume $\alpha=0.2$ and $\gamma=0.8$ and start with \hl{'tree hater' initial pol
 	\begin{equation*}
 	\begin{split}
 		\pi_2(x_{k})& = \argmax_{u_k\in\mathcal{U}} \E{R_{k+1} + \gamma 	v_{\pi_1}(X_{k+1})|X_{k}=x_{k},U_{k}=u_{k}}\\
-										& = \left\{\pi(u_k =\mbox{w}|x_k=1), \pi(u_k =\mbox{c}|x_k=2), \pi(u_k =\mbox{c}|x_k=3)\right\},\\
+										& = \left\{\pi(u_k =\text{w} \vert x_k=1), \pi(u_k =\text{c} \vert x_k=2), \pi(u_k =\text{c} \vert x_k=3)\right\},\\
 										& = \pi_1(x_{k})\\
 										& = \pi^*
 	\end{split}
@@ -498,13 +498,13 @@ Assume $\alpha=0.2$ and $\gamma=0.8$ and start with \hl{'tree hater' initial pol
 \frame{\frametitle{Policy iteration example: forest tree MDP (3)}
 Assume $\alpha=0.2$ and $\gamma=0.8$ and start with \hl{'tree lover' initial policy}:\pause
 \begin{enumerate}
-	\item $\pi_0=\pi(u_k =\mbox{w}|x_k) \quad \,\forall x_k\in\mathcal{X}$.\pause
+	\item $\pi_0=\pi(u_k =\text{w} \vert x_k) \quad \,\forall x_k\in\mathcal{X}$.\pause
 	\item Policy evaluation: $v_\mathcal{X}^{\pi_0}=\begin{bmatrix}1.14 & 1.78 & 2.78 & 0\end{bmatrix}\T$\pause
 	\item Greedy policy improvement: 
 	\begin{equation*}
 	\begin{split}
 		\pi_1(x_{k})& = \argmax_{u_k\in\mathcal{U}} \E{R_{k+1} + \gamma 	v_{\pi_0}(X_{k+1})|X_{k}=x_{k},U_{k}=u_{k}}\\
-										& = \left\{\pi(u_k =\mbox{w}|x_k=1), \pi(u_k =\mbox{c}|x_k=2), \pi(u_k =\mbox{c}|x_k=3)\right\}
+										& = \left\{\pi(u_k =\text{w} \vert x_k=1), \pi(u_k =\text{c} \vert x_k=2), \pi(u_k =\text{c} \vert x_k=3)\right\}
 	\end{split}
 \end{equation*}\pause
 \item Policy evaluation: $v_\mathcal{X}^{\pi_1}=\begin{bmatrix}1.28 & 2 & 3 & 0\end{bmatrix}\T$\pause
@@ -512,7 +512,7 @@ Assume $\alpha=0.2$ and $\gamma=0.8$ and start with \hl{'tree lover' initial pol
 	\begin{equation*}
 	\begin{split}
 		\pi_2(x_{k})& = \argmax_{u_k\in\mathcal{U}} \E{R_{k+1} + \gamma 	v_{\pi_1}(X_{k+1})|X_{k}=x_{k},U_{k}=u_{k}}\\
-										& = \left\{\pi(u_k =\mbox{w}|x_k=1), \pi(u_k =\mbox{c}|x_k=2), \pi(u_k =\mbox{c}|x_k=3)\right\}\\
+										& = \left\{\pi(u_k =\text{w} \vert x_k=1), \pi(u_k =\text{c} \vert x_k=2), \pi(u_k =\text{c} \vert x_k=3)\right\}\\
 										& = \pi_1(x_{k})\\
 										& = \pi^*
 	\end{split}

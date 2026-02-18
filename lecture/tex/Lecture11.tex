@@ -11,7 +11,7 @@ Shift from (indirect) value-based approaches
 \end{equation}
 to (direct) policy-based solutions:
 \begin{equation}
-	\bm{\pi}(\bm{u}|\bm{x})=\Pb{\bm{U} = \bm{u} | \bm{X} = \bm{x}}\approx\bm{\pi}(\bm{u}|\bm{x}, \bm{\theta})\, .
+	\bm{\pi}(\bm{u} \vert \bm{x})=\Pb{\bm{U} = \bm{u} | \bm{X} = \bm{x}}\approx\bm{\pi}(\bm{u} \vert \bm{x}, \bm{\theta})\, .
 \end{equation}\pause
 \begin{itemize}
 	\item Above, $\bm{\theta}\in \Re^d$ is the policy parameter vector.
@@ -70,7 +70,7 @@ A typical policy function is:
 \begin{itemize}
 	\item \hl{Soft-max in action preferences}
 	\begin{equation}
-		\pi(u|\bm{x},\bm{\theta}) = \frac{e^{h(\bm{x},u,\bm{\theta})}}{\sum_i e^{h(\bm{x},i,\bm{\theta})}}
+		\pi(u \vert \bm{x},\bm{\theta}) = \frac{e^{h(\bm{x},u,\bm{\theta})}}{\sum_i e^{h(\bm{x},i,\bm{\theta})}}
 		\label{eq:soft_max_preference}
 	\end{equation}
 	with $h(\bm{x},u,\bm{\theta}):\mathcal{X}\times\mathcal{U}\times\Re^d \rightarrow \Re$ being the numerical preference per state-action pair.\pause
@@ -95,7 +95,7 @@ A typical policy function is:
 \begin{itemize}
 	\item \hl{Gaussian probability density}
 	\begin{equation}
-		\pi(u|\bm{x},\bm{\theta}) = \frac{1}{\sigma(\bm{x},\bm{\theta})\sqrt{2\pi}}\exp\left(-\frac{(u-\mu(\bm{x},\bm{\theta}))^2}{2\sigma(\bm{x},\bm{\theta})^2}\right)
+		\pi(u \vert \bm{x},\bm{\theta}) = \frac{1}{\sigma(\bm{x},\bm{\theta})\sqrt{2\pi}}\exp\left(-\frac{(u-\mu(\bm{x},\bm{\theta}))^2}{2\sigma(\bm{x},\bm{\theta})^2}\right)
 		\label{eq:gaussian_action}
 	\end{equation}
 	with mean $\mu(\bm{x},\bm{\theta}):\mathcal{X}\times\Re^d \rightarrow \Re$ and standard deviation $\sigma(\bm{x},\bm{\theta}):\mathcal{X}\times\Re^d \rightarrow \Re$ given by parametric function approximation.\pause
@@ -135,7 +135,7 @@ A typical policy function is:
 \begin{itemize}
 	\item \hl{Multivariate Gaussian probability density}
 	\begin{equation}
-		\pi(\bm{u}|\bm{x},\bm{\theta}) = \frac{1}{\sqrt{(2\pi)^m\det(\bm{\Sigma})}}\exp\left(-\frac{1}{2}(\bm{u}-\bm{\mu})\T\bm{\Sigma}^{-1}(\bm{u}-\bm{\mu})\right)
+		\pi(\bm{u} \vert \bm{x},\bm{\theta}) = \frac{1}{\sqrt{(2\pi)^m\det(\bm{\Sigma})}}\exp\left(-\frac{1}{2}(\bm{u}-\bm{\mu})\T\bm{\Sigma}^{-1}(\bm{u}-\bm{\mu})\right)
 		\label{eq:gaussian_action_multivariate}
 	\end{equation}
 	with mean $\bm{\mu}(\bm{x},\bm{\theta}):\mathcal{X}\times\Re^d \rightarrow \Re^m$ and covariance matrix $\bm{\Sigma}(\bm{x},\bm{\theta}):\mathcal{X}\times\Re^d \rightarrow \Re^{m \times m }$ given by parametric function approximation. \pause
@@ -152,7 +152,7 @@ A typical policy function is:
 	\item Below we find an example for 
 \end{itemize}
 \begin{equation*}
-	\bm{\mu}=\begin{bmatrix}-0.4 & 0.3\end{bmatrix}\T \quad \mbox{and} \quad \bm{\Sigma}=\begin{bmatrix}0.04 & 0\\ 0 & 0.02 \end{bmatrix} .
+	\bm{\mu}=\begin{bmatrix}-0.4 & 0.3\end{bmatrix}\T \quad \text{and} \quad \bm{\Sigma}=\begin{bmatrix}0.04 & 0\\ 0 & 0.02 \end{bmatrix} .
 \end{equation*}
 \begin{figure}
 \includegraphics[width=6.5cm]{fig/lec11/Gaussian_Policy_Multivariate.pdf}
@@ -166,7 +166,7 @@ A typical policy function is:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Policy objective function}
 \begin{itemize}
-	\item Goal: find optimal $\bm{\theta}^*$ given the policy $\bm{\pi}(\bm{u}|\bm{x}, \bm{\theta})$. \pause
+	\item Goal: find optimal $\bm{\theta}^*$ given the policy $\bm{\pi}(\bm{u} \vert \bm{x}, \bm{\theta})$. \pause
 	\item Problem: which measure of optimality should we use? \pause
 \end{itemize}
 \vspace{0.5cm}
@@ -174,12 +174,12 @@ Possible optimality metrics:
 \begin{itemize}
 	\item \hl{Start state value} (in episodic tasks):
 	\begin{equation}
-		J(\bm{\theta}) = v_{\pi_{\bm{\theta}}}(\bm{x}_0)=\E{v|\bm{X}=\bm{x}_0, \bm{\theta}}
+		J(\bm{\theta}) = v_{\pi_{\bm{\theta}}}(\bm{x}_0)=\E{v \vert \bm{X}=\bm{x}_0, \bm{\theta}}
 		\label{eq:performance_metric_episodic}
 	\end{equation}\pause
 	\item \hl{Average reward} (in continuing tasks):
 	\begin{equation}
-		J(\bm{\theta}) = \overline{r}_{\pi_{\bm{\theta}}} = \int_\mathcal{X}\mu_\pi(\bm{x})\int_\mathcal{U}\pi(\bm{u}|\bm{x}, \bm{\theta})\int_{\mathcal{X},\mathcal{R}}p(\bm{x}', r|\bm{x},\bm{u})r
+		J(\bm{\theta}) = \overline{r}_{\pi_{\bm{\theta}}} = \int_\mathcal{X}\mu_\pi(\bm{x})\int_\mathcal{U}\pi(\bm{u} \vert \bm{x}, \bm{\theta})\int_{\mathcal{X},\mathcal{R}}p(\bm{x}', r|\bm{x},\bm{u})r
 		\label{eq:performance_metric_continuing}
 	\end{equation}
 	\begin{itemize}
@@ -249,9 +249,9 @@ Possible optimality metrics:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Policy gradient theorem}
 \begin{theo}{Policy Gradient}{policy_gradient}
-Given a metric $J(\bm{\theta})$ for the undiscounted episodic \eqref{eq:performance_metric_episodic} or continuing tasks \eqref{eq:performance_metric_continuing} and a parameterizable policy $\pi(\bm{u}|\bm{x},\bm{\theta})$ the policy gradient is
+Given a metric $J(\bm{\theta})$ for the undiscounted episodic \eqref{eq:performance_metric_episodic} or continuing tasks \eqref{eq:performance_metric_continuing} and a parameterizable policy $\pi(\bm{u} \vert \bm{x},\bm{\theta})$ the policy gradient is
 \begin{equation}
-	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{q_{\pi}(\bm{x},\bm{u})\frac{\nabla_{\bm{\theta}}\pi(\bm{u}|\bm{x},\bm{\theta})}{\pi(\bm{u}|\bm{x},\bm{\theta})}}{\pi}.
+	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{q_{\pi}(\bm{x},\bm{u})\frac{\nabla_{\bm{\theta}}\pi(\bm{u} \vert \bm{x},\bm{\theta})}{\pi(\bm{u} \vert \bm{x},\bm{\theta})}}{\pi}.
 	\label{eq:policy_gradient_theo}
 \end{equation}
 \end{theo}\pause
@@ -259,9 +259,9 @@ Given a metric $J(\bm{\theta})$ for the undiscounted episodic \eqref{eq:performa
  \item Having samples $\left\langle\bm{x}_i, \bm{u}_i \right\rangle$, an estimate of $q_{\pi}$ and the policy function $\pi(\bm{\theta})$ available we receive an \hl{analytical solution for the policy gradient!} \pause
 \item Using identity $\nabla \ln a = \frac{\nabla a}{a}$ we can re-write to
 \begin{equation}
-	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{q_{\pi}(\bm{x},\bm{u})\nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})}{\pi}
+	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{q_{\pi}(\bm{x},\bm{u})\nabla_{\bm{\theta}}\ln \pi(\bm{u} \vert \bm{x},\bm{\theta})}{\pi}
 \end{equation}
- with $\nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})$ also called the \hl{score function}.\pause
+ with $\nabla_{\bm{\theta}}\ln \pi(\bm{u} \vert \bm{x},\bm{\theta})$ also called the \hl{score function}.\pause
 	\item Derivation available in chapter 13.2 / 13.6 in the lecture book of Barto and Sutton.
 \end{itemize}
 }
@@ -274,7 +274,7 @@ Given a metric $J(\bm{\theta})$ for the undiscounted episodic \eqref{eq:performa
 	\item Inserting the policy gradient theorem into gradient ascent approach: 
 \end{itemize}
 \begin{equation*}
-	\bm{\theta} \leftarrow \bm{\theta} + \alpha \El{\textcolor{blue}{q_{\pi}(\bm{x},\bm{u})} \frac{\textcolor{blue}{\nabla_{\bm{\theta}}\pi(\bm{u}|\bm{x},\bm{\theta})}}{\textcolor{red}{\pi(\bm{u}|\bm{x},\bm{\theta})}}}{\pi}.
+	\bm{\theta} \leftarrow \bm{\theta} + \alpha \El{\textcolor{blue}{q_{\pi}(\bm{x},\bm{u})} \frac{\textcolor{blue}{\nabla_{\bm{\theta}}\pi(\bm{u} \vert \bm{x},\bm{\theta})}}{\textcolor{red}{\pi(\bm{u} \vert \bm{x},\bm{\theta})}}}{\pi}.
 \end{equation*}
 \begin{itemize}
 	\item \textcolor{blue}{Move in the direction that favor actions that yield an increased value}.\pause
@@ -295,16 +295,16 @@ Also note:
 \onslide<1->{Soft-max policy with linear function approximation:
 \begin{equation*}
 \begin{split}
-	\pi(u|\bm{x},\bm{\theta}) &= \frac{e^{\bm{\theta}\T\tilde{\bm{x}}(\bm{x}, u)}}{\sum_i e^{\bm{\theta}\T\tilde{\bm{x}}(\bm{x}, i)}}\\}
-	\onslide<2->{\Leftrightarrow\quad \nabla_{\bm{\theta}}\ln \pi(u|\bm{x},\bm{\theta}) &= \nabla_{\bm{\theta}}\left(\bm{\theta}\T\tilde{\bm{x}}(\bm{x}, u) - \ln\left(\sum_i e^{\bm{\theta}\T\tilde{\bm{x}}(\bm{x}, i)}\right)\right)\\}
+	\pi(u \vert \bm{x},\bm{\theta}) &= \frac{e^{\bm{\theta}\T\tilde{\bm{x}}(\bm{x}, u)}}{\sum_i e^{\bm{\theta}\T\tilde{\bm{x}}(\bm{x}, i)}}\\}
+	\onslide<2->{\Leftrightarrow\quad \nabla_{\bm{\theta}}\ln \pi(u \vert \bm{x},\bm{\theta}) &= \nabla_{\bm{\theta}}\left(\bm{\theta}\T\tilde{\bm{x}}(\bm{x}, u) - \ln\left(\sum_i e^{\bm{\theta}\T\tilde{\bm{x}}(\bm{x}, i)}\right)\right)\\}
 			\onslide<3->{ & = \tilde{\bm{x}}(\bm{x},\bm{u}) - \El{\tilde{\bm{x}}(\bm{x},\cdot)}{\pi}}
 \end{split}
 \end{equation*}
 \onslide<4->{Univariate Gaussian policy with linear function approximation and given $\sigma$:
 \begin{equation*}
 \begin{split}
-	\pi(u|\bm{x},\bm{\theta}) &= \frac{1}{\sigma \sqrt{2\pi}}\exp\left(-\frac{(u-\bm{\theta}\T\tilde{\bm{x}}(\bm{x}, u))^2}{2\sigma^2}\right)\\}
-	\onslide<5->{\Leftrightarrow\quad \nabla_{\bm{\theta}}\ln \pi(u|\bm{x},\bm{\theta}) &= \nabla_{\bm{\theta}}\left(\ln\left(\frac{1}{\sigma \sqrt{2\pi}}\right) -\frac{(u-\bm{\theta}\T\tilde{\bm{x}}(\bm{x}, u))^2}{2\sigma^2}\right)\\}
+	\pi(u \vert \bm{x},\bm{\theta}) &= \frac{1}{\sigma \sqrt{2\pi}}\exp\left(-\frac{(u-\bm{\theta}\T\tilde{\bm{x}}(\bm{x}, u))^2}{2\sigma^2}\right)\\}
+	\onslide<5->{\Leftrightarrow\quad \nabla_{\bm{\theta}}\ln \pi(u \vert \bm{x},\bm{\theta}) &= \nabla_{\bm{\theta}}\left(\ln\left(\frac{1}{\sigma \sqrt{2\pi}}\right) -\frac{(u-\bm{\theta}\T\tilde{\bm{x}}(\bm{x}, u))^2}{2\sigma^2}\right)\\}
 			\onslide<6->{& = \frac{\left(u - \bm{\theta}\T\tilde{\bm{x}}(\bm{x}, u)\right)\tilde{\bm{x}}(\bm{x}, u)}{\sigma^2}}
 \end{split}
 \end{equation*}
@@ -345,10 +345,10 @@ Mutual hassle:
 \frame{\frametitle{Basic concept}
 Initial situation:
 \begin{itemize}
-	\item Score function $\nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})$ can be calculated analytically using suitable policy and chain rule (e.g., by algorithmic differentiation).
+	\item Score function $\nabla_{\bm{\theta}}\ln \pi(\bm{u} \vert \bm{x},\bm{\theta})$ can be calculated analytically using suitable policy and chain rule (e.g., by algorithmic differentiation).
 	\item Open question: how to retrieve $q_{\pi}(\bm{x},\bm{u})$ in 
 	\begin{equation*}
-	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{q_{\pi}(\bm{x},\bm{u})\nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})}{\pi} \,\,\mbox{?}
+	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{q_{\pi}(\bm{x},\bm{u})\nabla_{\bm{\theta}}\ln \pi(\bm{u} \vert \bm{x},\bm{\theta})}{\pi} \,\,\text{?}
 \end{equation*}
 \end{itemize}
 \vspace{0.5cm}\pause
@@ -358,7 +358,7 @@ Monte Carlo policy gradient:
 		\begin{equation*}
 		\begin{split}
 			 q_{\pi}(\bm{x},\bm{u}) &\approx g_k\\
-			\bm{\theta}_{k+1} &= \bm{\theta}_k + \alpha\gamma^k g_k \nabla_{\bm{\theta}}\ln \pi(\bm{u}_k|\bm{x}_k,\bm{\theta}_k).
+			\bm{\theta}_{k+1} &= \bm{\theta}_k + \alpha\gamma^k g_k \nabla_{\bm{\theta}}\ln \pi(\bm{u}_k \vert \bm{x}_k,\bm{\theta}_k).
 		\end{split}
 		\end{equation*}\pause\vspace{-0.3cm}
 		\item The discounting of the policy gradient is introduced as an extension to \theoref{theo:policy_gradient} (which assumed an undiscounted episodic task).\pause
@@ -384,14 +384,14 @@ Monte Carlo policy gradient:
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Input{a differentiable policy function $\pi(\bm{u}|\bm{x},\bm{\theta})$}
-\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$}
+\Input{a differentiable policy function $\pi(\bm{u} \vert \bm{x},\bm{\theta})$}
+\Param{step size $\alpha\in\left\{\Re \vert 0<\alpha<1\right\}$}
 \Init{parameter vector $\bm{\theta}\in\Re^d$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
-		generate an episode following $\pi(\cdot|\cdot,\bm{\theta})$: $\bm{x}_{0}, \bm{u}_{0}, r_{1},\ldots,\bm{x}_{T}$ \;  
+		generate an episode following $\pi(\cdot \vert \cdot,\bm{\theta})$: $\bm{x}_{0}, \bm{u}_{0}, r_{1},\ldots,\bm{x}_{T}$ \;  
 		\For{$k=0,1,\ldots, T-1$ time steps}{
 			$g\leftarrow \sum_{i=k+1}^T\gamma^{i-k-1}r_i$\;
-			$\bm{\theta} \leftarrow \bm{\theta} + \alpha \gamma^k g \nabla_{\bm{\theta}}\ln \pi(\bm{u}_k|\bm{x}_k,\bm{\theta})$\; 
+			$\bm{\theta} \leftarrow \bm{\theta} + \alpha \gamma^k g \nabla_{\bm{\theta}}\ln \pi(\bm{u}_k \vert \bm{x}_k,\bm{\theta})$\; 
 		}
 	}
 \caption{Monte Carlo policy gradient (output: parameter vector $\bm{\theta}^*$ for $\pi^*(\bm{u}|\bm{x},\bm{\theta}^*)$)}
@@ -406,7 +406,7 @@ Monte Carlo policy gradient:
 \begin{itemize}
 	\onslide<1->\item Gridworld style problem with two actions: left (l), right (r)
 	\onslide<2->\item Second-left state's action execution is reversed
-	\onslide<3->\item Feature representation: $\tilde{x}(x, u=\mbox{r})=\begin{bmatrix}1 & 0\end{bmatrix}\T$, $\tilde{x}(x, u=\mbox{l})=\begin{bmatrix}0 & 1\end{bmatrix}\T$   
+	\onslide<3->\item Feature representation: $\tilde{x}(x, u=\text{r})=\begin{bmatrix}1 & 0\end{bmatrix}\T$, $\tilde{x}(x, u=\text{l})=\begin{bmatrix}0 & 1\end{bmatrix}\T$   
 	\onslide<4->\item A policy-based approach searches for the optimal probability split
 \end{itemize}
 \onslide<1->\begin{figure}
@@ -436,7 +436,7 @@ Monte Carlo policy gradient:
 	\item Introduce the \hl{baseline $b(\bm{x})$}:
 \end{itemize}
 \begin{equation}
-	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{\left(q_{\pi}(\bm{x},\bm{u})\hl{-b(\bm{x})}\right)\nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})}{\pi}.
+	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{\left(q_{\pi}(\bm{x},\bm{u})\hl{-b(\bm{x})}\right)\nabla_{\bm{\theta}}\ln \pi(\bm{u} \vert \bm{x},\bm{\theta})}{\pi}.
 \end{equation}\pause
 \vspace{-0.3cm}
 \begin{itemize}
@@ -444,13 +444,13 @@ Monte Carlo policy gradient:
 \end{itemize}
 \vspace{0.3cm}
 \begin{equation*}
-	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{q_{\pi}(\bm{x},\bm{u})\nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})}{\pi}- \underbrace{\El{b(\bm{x})\nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})}{\pi}}_{=0}.
+	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{q_{\pi}(\bm{x},\bm{u})\nabla_{\bm{\theta}}\ln \pi(\bm{u} \vert \bm{x},\bm{\theta})}{\pi}- \underbrace{\El{b(\bm{x})\nabla_{\bm{\theta}}\ln \pi(\bm{u} \vert \bm{x},\bm{\theta})}{\pi}}_{=0}.
 \end{equation*}\pause
 \begin{itemize}
 	\item Consequently, the Monte Carlo policy parameter update yields:
 \end{itemize}
 		\begin{equation*}
-			\bm{\theta}_{k+1} = \bm{\theta}_k + \alpha\gamma^k \left(g_k-b(\bm{x}_k)\right) \nabla_{\bm{\theta}}\ln \pi(\bm{u}_k|\bm{x}_k,\bm{\theta}_k).
+			\bm{\theta}_{k+1} = \bm{\theta}_k + \alpha\gamma^k \left(g_k-b(\bm{x}_k)\right) \nabla_{\bm{\theta}}\ln \pi(\bm{u}_k \vert \bm{x}_k,\bm{\theta}_k).
 		\end{equation*}
 }
 
@@ -462,7 +462,7 @@ Monte Carlo policy gradient:
 	\item Intuitive choice of the baseline is the state value $b(\bm{x})=v_{\pi}(\bm{x})$.
 	\item The resulting policy gradient becomes
 	\begin{equation}
-	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{\left(q_{\pi}(\bm{x},\bm{u})-v_{\pi}(\bm{x})\right)\nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})}{\pi}.
+	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{\left(q_{\pi}(\bm{x},\bm{u})-v_{\pi}(\bm{x})\right)\nabla_{\bm{\theta}}\ln \pi(\bm{u} \vert \bm{x},\bm{\theta})}{\pi}.
 \end{equation}\pause
 \item Here, the difference between action and state value is the \hl{advantage function}
 	\begin{equation}
@@ -471,7 +471,7 @@ Monte Carlo policy gradient:
 \item Interpretation: value difference taking (arbitrary) action $\bm{u}$ and thereafter following policy $\pi$ compared to the state value following same policy (i.e., choosing $\bm{u}\sim\pi$) given the state.\pause
 \item Hence, we might rewrite to:
 	\begin{equation}
-	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{a_\pi(\bm{x},\bm{u})\nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})}{\pi}.
+	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{a_\pi(\bm{x},\bm{u})\nabla_{\bm{\theta}}\ln \pi(\bm{u} \vert \bm{x},\bm{\theta})}{\pi}.
 \end{equation}
 \end{itemize}
 }
@@ -492,16 +492,16 @@ Monte Carlo policy gradient:
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Input{a differentiable policy function $\pi(\bm{u}|\bm{x},\bm{\theta})$ and state-value function $\hat{v}(\bm{x},\bm{w})$}
-\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re|0<\alpha<1\right\}$}
+\Input{a differentiable policy function $\pi(\bm{u} \vert \bm{x},\bm{\theta})$ and state-value function $\hat{v}(\bm{x},\bm{w})$}
+\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re \vert 0<\alpha<1\right\}$}
 \Init{parameter vectors $\bm{w}\in\Re^{\zeta}$ and $\bm{\theta}\in\Re^d$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
-		generate an episode following $\pi(\cdot|\cdot,\bm{\theta})$: $\bm{x}_{0}, \bm{u}_{0}, r_{1},\ldots,\bm{x}_{T}$ \;  
+		generate an episode following $\pi(\cdot \vert \cdot,\bm{\theta})$: $\bm{x}_{0}, \bm{u}_{0}, r_{1},\ldots,\bm{x}_{T}$ \;  
 		\For{$k=0,1,\ldots, T-1$ time steps}{
 			$g\leftarrow \sum_{i=k+1}^T\gamma^{i-k-1}r_i$\;
 			$\delta \leftarrow g - \hat{v}(\bm{x}_k, \bm{w})$\;
 			$\bm{w} \leftarrow \bm{w}+\alpha_w\delta\nabla_{\bm{w}}\hat{v}(\bm{x}_k,\bm{w})$\;
-			$\bm{\theta} \leftarrow \bm{\theta} + \alpha_{\theta} \gamma^k \delta \nabla_{\bm{\theta}}\ln \pi(\bm{u}_k|\bm{x}_k,\bm{\theta})$\; 
+			$\bm{\theta} \leftarrow \bm{\theta} + \alpha_{\theta} \gamma^k \delta \nabla_{\bm{\theta}}\ln \pi(\bm{u}_k \vert \bm{x}_k,\bm{\theta})$\; 
 		}
 	}
 \caption{Monte Carlo policy gradient with baseline (output: parameter vector $\bm{\theta}^*$ for $\pi^*(\bm{u}|\bm{x},\bm{\theta}^*)$) and $\bm{w}^*$ for $\hat{v}^*(\bm{x}, \bm{w}^*))$}
@@ -563,14 +563,14 @@ Alternative: use an additional function approximator, the so-called \hl{critic},
 \item In expectation the TD error is equivalent to the advantage function
 \begin{equation}
 \begin{split}
-	\El{\delta_\pi|\bm{x}, \bm{u}}{\pi} &= \El{r + \gamma v_\pi(\bm{x}')|\bm{x}, \bm{u}}{\pi} - v_\pi(\bm{x})\\ 
+	\El{\delta_\pi \vert \bm{x}, \bm{u}}{\pi} &= \El{r + \gamma v_\pi(\bm{x}')|\bm{x}, \bm{u}}{\pi} - v_\pi(\bm{x})\\ 
 																			&= q_\pi(\bm{x},\bm{u})- v_\pi(\bm{x})\\
 																			&= a_\pi(\bm{x},\bm{u}) .
 \end{split}
 \end{equation}\pause
 \item Hence, the TD error can be used to calculate the policy gradient:
 	\begin{equation}
-	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{\delta_\pi \nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})}{\pi}.
+	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{\delta_\pi \nabla_{\bm{\theta}}\ln \pi(\bm{u} \vert \bm{x},\bm{\theta})}{\pi}.
 \end{equation} \pause\vspace{-0.3cm}
 \item This results in requiring only one function parameter set:
 	\begin{equation}
@@ -607,16 +607,16 @@ Alternative: use an additional function approximator, the so-called \hl{critic},
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Input{a differentiable policy function $\pi(\bm{u}|\bm{x},\bm{\theta})$ and state-value function $\hat{v}(\bm{x},\bm{w})$}
-\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re|0<\alpha<1\right\}$}
+\Input{a differentiable policy function $\pi(\bm{u} \vert \bm{x},\bm{\theta})$ and state-value function $\hat{v}(\bm{x},\bm{w})$}
+\Param{step sizes $\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re \vert 0<\alpha<1\right\}$}
 \Init{parameter vectors $\bm{w}\in\Re^{\zeta}$ and $\bm{\theta}\in\Re^d$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
 		initialize $\bm{x}_0$\; 
 		\For{$k=0,1,\ldots, T-1$ time steps}{
-			apply $\bm{u}_k \sim \pi(\cdot|\bm{x}_k, \bm{\theta})$ and observe $\bm{x}_{k+1}$ and $r_{k+1}$\;
+			apply $\bm{u}_k \sim \pi(\cdot \vert \bm{x}_k, \bm{\theta})$ and observe $\bm{x}_{k+1}$ and $r_{k+1}$\;
 			$\delta \leftarrow r_{k+1} + \gamma \hat{v}(\bm{x}_{k+1}, \bm{w})- \hat{v}(\bm{x}_k, \bm{w})$\;
 			$\bm{w} \leftarrow \bm{w}+\alpha_w\delta\nabla_{\bm{w}}\hat{v}(\bm{x}_k,\bm{w})$\;
-			$\bm{\theta} \leftarrow \bm{\theta} + \alpha_{\theta} \gamma^k \delta \nabla_{\bm{\theta}}\ln \pi(\bm{u}_k|\bm{x}_k,\bm{\theta})$\; 
+			$\bm{\theta} \leftarrow \bm{\theta} + \alpha_{\theta} \gamma^k \delta \nabla_{\bm{\theta}}\ln \pi(\bm{u}_k \vert \bm{x}_k,\bm{\theta})$\; 
 		}
 	}
 \caption{Actor-critic for episodic tasks using TD(0) targets (output: parameter vector $\bm{\theta}^*$ for $\pi^*(\bm{u}|\bm{x},\bm{\theta}^*)$) and $\bm{w}^*$ for $\hat{v}^*(\bm{x}, \bm{w}^*))$}
@@ -661,17 +661,17 @@ Alternative: use an additional function approximator, the so-called \hl{critic},
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Input{a differentiable policy function $\pi(\bm{u}|\bm{x},\bm{\theta})$}
+\Input{a differentiable policy function $\pi(\bm{u} \vert \bm{x},\bm{\theta})$}
 \Input{a differentiable state-value function $\hat{v}(\bm{x},\bm{w})$}
-\Param{$\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re|0<\alpha<1\right\}$, $\{\lambda_{w}, \lambda_{\theta}\}\in\left\{\Re|0 \leq \lambda \leq 1\right\}$}
+\Param{$\{\alpha_{w}, \alpha_{\theta}\}\in\left\{\Re \vert 0<\alpha<1\right\}$, $\{\lambda_{w}, \lambda_{\theta}\}\in\left\{\Re \vert 0 \leq \lambda \leq 1\right\}$}
 \Init{parameter vectors $\bm{w}\in\Re^{\zeta}$ and $\bm{\theta}\in\Re^d$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
 		initialize $\bm{x}_0$, $\bm{z}_w=0$, $\bm{z}_{\theta}=0$\; 
 		\For{$k=0,1,\ldots, T-1$ time steps}{
-			apply $\bm{u}_k \sim \pi(\cdot|\bm{x}_k, \bm{\theta})$ and observe $\bm{x}_{k+1}$ and $r_{k+1}$\;
+			apply $\bm{u}_k \sim \pi(\cdot \vert \bm{x}_k, \bm{\theta})$ and observe $\bm{x}_{k+1}$ and $r_{k+1}$\;
 			$\delta \leftarrow r_{k+1} + \gamma \hat{v}(\bm{x}_{k+1}, \bm{w})- \hat{v}(\bm{x}_k, \bm{w})$\;
 			$\bm{z}_w \leftarrow \gamma\lambda_w\bm{z}_w + \nabla_{\bm{w}}\hat{v}(\bm{x}_k,\bm{w})$\;
-			$\bm{z}_{\theta} \leftarrow \gamma\lambda_d\bm{z}_{\theta} + \gamma^k \nabla_{\bm{\theta}}\ln \pi(\bm{u}_k|\bm{x}_k,\bm{\theta})$\;
+			$\bm{z}_{\theta} \leftarrow \gamma\lambda_d\bm{z}_{\theta} + \gamma^k \nabla_{\bm{\theta}}\ln \pi(\bm{u}_k \vert \bm{x}_k,\bm{\theta})$\;
 			$\bm{w} \leftarrow \bm{w}+\alpha_w\delta\bm{z}_w$\;
 			$\bm{\theta} \leftarrow \bm{\theta} + \alpha_{\theta} \delta \bm{z}_{\theta}$\; 
 		}
