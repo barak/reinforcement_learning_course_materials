@@ -141,7 +141,7 @@ Today's focus:
 \SetKwInput{Param}{parameter}
 \Input{a differentiable function $\hat{q}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$}
 \Input{a policy $\pi$ (only if estimating $q_\pi$)}
-\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$, $\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}$}
+\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$, $\varepsilon\in\left\{\Re|0<\varepsilon \ll 1\right\}$}
 \Init{parameter vector $\bm{w}\in\Re^\zeta$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
 		generate episode following $\pi$ or $\varepsilon$-greedy on $\hat{q}$: $x_{0}, u_{0}, r_{1},\ldots,x_{T}$ \;
@@ -168,7 +168,7 @@ Today's focus:
 \SetKwInput{Param}{parameter}
 \Input{a differentiable function $\hat{q}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$}
 \Input{a policy $\pi$ (only if estimating $q_\pi$)}
-\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$, $\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}$}
+\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$, $\varepsilon\in\left\{\Re|0<\varepsilon \ll 1\right\}$}
 \Init{parameter vector $\bm{w}\in\Re^\zeta$ arbitrarily}
  \For{$j=1,2,\ldots$ episodes}{
 		initialize $\bm{x}_{0}$\;
@@ -259,7 +259,7 @@ Today's focus:
 \SetKwInput{Param}{parameter}
 \Input{a differentiable function $\hat{q}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$}
 \Input{a policy $\pi$ (only if estimating $q_\pi$)}
-\Param{$\alpha\in\left\{\Re|0<\alpha<1\right\}$, $\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}$, $n\in\mathbb{Z}^+$}
+\Param{$\alpha\in\left\{\Re|0<\alpha<1\right\}$, $\varepsilon\in\left\{\Re|0<\varepsilon \ll 1\right\}$, $n\in\mathbb{Z}^+$}
 \Init{parameter vector $\bm{w}\in\Re^\zeta$ arbitrarily}
  \For{$j=1,2\ldots$ episodes}{
 		initialize and store $\bm{x}_{0}$\;
@@ -479,7 +479,7 @@ $\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$ (greedy choices based on $\
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{a feature representation $\tilde{\bm{x}}$ with $\tilde{\bm{x}}_T=0$ (i.e., $\hat{q}(\tilde{\bm{x}}_T,\cdot, \cdot)=0$)}
-\Param{forgetting factor $\lambda\in\left\{\Re|0 < \lambda \leq 1\right\}$, $\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}$, update factor $k_w\in\left\{\mathbb{N}|1\leq k_w\right\}$}
+\Param{forgetting factor $\lambda\in\left\{\Re|0 < \lambda \leq 1\right\}$, $\varepsilon\in\left\{\Re|0<\varepsilon \ll 1\right\}$, update factor $k_w\in\left\{\mathbb{N}|1\leq k_w\right\}$}
 \Init{weights $\bm{w}\in\Re^\zeta$ arbitrarily, policy $\pi$ being $\varepsilon$-greedy w.r.t. $\hat{q}(\bm{w})$, covariance $\bm{P}>0$}
  \For{$j=1,2,\ldots$ episodes}{
 		initialize $\bm{x}_{0}$ and set $u_0\sim\pi(\bm{x}_{0})$\;
@@ -591,7 +591,7 @@ Motivation behind:
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{a differentiable function $\hat{q}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$ (including feature eng.)}
-\Param{$\varepsilon\in\left\{\Re|0<\varepsilon<<1\right\}$, update factor $k_w\in\left\{\mathbb{N}|1\leq k_w\right\}$}
+\Param{$\varepsilon\in\left\{\Re|0<\varepsilon \ll 1\right\}$, update factor $k_w\in\left\{\mathbb{N}|1\leq k_w\right\}$}
 \Init{weights $\bm{w}=\bm{w}^-\in\Re^\zeta$ arbitrarily, memory $\bm{\mathcal{D}}$ with certain capacity}
  \For{$j=1,2,\ldots$ episodes}{
 		initialize $\bm{x}_{0}$\;
