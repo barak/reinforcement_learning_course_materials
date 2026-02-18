@@ -21,18 +21,21 @@
 *.tcp
 *.toc
 *.tps
+lecture/*.pdf
+!lecture/built/*.pdf
+**/fig/**/*-eps-converted-to.pdf
 *.dvi
 *.fdb_latexmk
 *.fls
-/lecture/*.pdf
-/lecture/built/*.pdf
-/lecture/build-*.tex
-!/lecture/build-all.tex
-/lecture/handout-build-*.tex
-**/fig/**/*-eps-converted-to.pdf
+*.glg
+*.glo
+*.gls
+*.ist
+*.nom
+*.nomc
+*.synctex(busy)
+*.xmpi
 
-# paper
-/paper/paper.pdf
 
 # misc.
 *.db
