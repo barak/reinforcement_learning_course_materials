@@ -404,7 +404,7 @@ Some remarks:
 \Init{linear approximation function weights $\bm{w}\in\Re^\zeta$ arbitrarily}
 
 $\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$ (greedy choices based on $\hat{q}(\bm{w})$)\;
-\Repeat{$||\bm{w}'-\bm{w}||<\Delta$}{
+\Repeat{$\lVert\bm{w}'-\bm{w}\rVert<\Delta$}{
 		$\bm{w}' \leftarrow \bm{w}$\;
 		$\bm{w}\leftarrow\mbox{LS-SARSA}(\bm{\mathcal{D}}, u_{i+1}\sim\pi)$\;
 		$\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$\;
