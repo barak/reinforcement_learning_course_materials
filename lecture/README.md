@@ -12,6 +12,8 @@ The slides are written in LaTeX and can be built either via the provided Python 
 - `fig/` — figures used in the slides.  
   Each subfolder corresponds to a chapter.
 - `tex/` — individual `.tex` files for each chapter/section of the course.
+  - `tex/Lecture01_intro_MU_CS637.tex` — Maynooth University version of course intro (Lecture 01)
+  - `tex/Lecture01_intro_Paderborn.tex` — Paderborn/Siegen version of course intro (Lecture 01)
 
 ---
 
@@ -60,6 +62,25 @@ To build the slides, you need:
 
 - If compilation fails due to missing packages, install the required LaTeX packages through your distribution’s package manager.
 - The `build.py` script is recommended because it keeps the folder clean and ensures consistent output.
+
+### Switching Between Course Versions
+
+The introductory slides for Lecture 01 come in two versions:
+- **Maynooth University version** (`Lecture01_intro_MU_CS637.tex`) — includes Maynooth-specific course information
+- **Paderborn/Siegen version** (`Lecture01_intro_Paderborn.tex`) — includes original course-specific information
+
+To switch between versions, edit `tex/Lecture01.tex` and comment/uncomment the appropriate `\input` line:
+
+```latex
+% For Maynooth version (standalone structure):
+\input{tex/Lecture01_intro_MU_CS637master}
+%\input{tex/Lecture01_intro_Paderborn}
+
+% For Paderborn/Siegen version (combined structure):
+%\input{tex/Lecture01_intro_MU_CS637master}
+\input{tex/Lecture01_intro_Paderborn}
+```
+
 
 ---
 

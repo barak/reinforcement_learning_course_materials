@@ -1,134 +1,47 @@
-\part{Lecture 01: Introduction to Reinforcement Learning}
-\title[RL Lecture 01]{Lecture 01: Introduction to Reinforcement Learning}
-\date{}
-\frame{\titlepage}
-\frame{\frametitle{Table of contents}\tableofcontents}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Course framework}
+\section{Introduction to Reinforcement Learning: Course Framework}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Teaching team %%
+%% Course-specific introductory material
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Teaching Team}
-  \begin{itemize}
-  \item \href{mailto:barak.pearlmutter@mu.ie}{\textbf{Barak A. Pearlmutter} $\langle \texttt{barak.pearlmutter@mu.ie} \rangle$}
+% Select one of the following two files to input:
+% - Lecture01_intro_master.tex (Maynooth University CS637 version)
+% - Lecture01_intro_upmaster.tex (Paderborn/Siegen version)
+%\input{tex/Lecture01_intro_Paderborn}
+\input{tex/Lecture01_intro_MU_CS637}
 
-    \medskip
-
-    Professor, Dept of Computer Science. Working on neural networks since the second time they were cool. AI Doomer. Also into theoretical neurobiology and science fiction and functional programming languages and robust first-class automatic differentiation as an enabling technology for building adaptive systems.
-
-    \medskip
-
-    Office: 132 Eolas.
-
-    Office hours: drop by anytime (especially Wed/Fri afternoons), or by appointment.
-
-    \bigskip
-
-  \item TBA
-
-    \medskip
-
-    Demonstrator. Python and Deep Learning Expert. GPU Wrangler. Problem solver.
-  \end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Examination Regulations %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Assessment}
-  \begin{block}{Final exam}
-    \begin{itemize}
-    \item Two hours.
-    \end{itemize}
-  \end{block}
-  \pause
-  \begin{block}{HW0: Deep Learning Exercise}
-    \begin{itemize}
-    \item Each student will get a training set and an unlabeled test set
-    \item Submit test set labels \& what-I-did documentation
-    \item Bakeoff: who did best?
-    \end{itemize}
-  \end{block}
-  \pause
-  \begin{block}{RL Project}
-    \begin{itemize}[<+->]
-      \item Do some RL and write it up.
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}
-  \frametitle{MURL-2026}
-  \begin{block}{Course Conference called MURL-2026}
-    \begin{itemize}[<+->]
-    \item Each student does RL-related project; development in git.
-    \item Submit blinded manuscript describing project to MURL-2026 (HotCRP web site)
-    \item Abstracts (one ¶) have early deadline.
-    \item Code also submitted (supplementary material).
-    \item Manuscripts: rigid format (\LaTeX\ style/template), sections, page limit, deadline.
-    \item Submissions and review process will be double-blind. Each student is a reviewer. There will be reviews, responses, discussion, revisions, meta-reviews, decisions.
-    \item BP is the program \& publication chair.
-    \item All submissions accepted as posters. Optional: oral spotlights, best paper award, most fun project award.
-    \item The poster session will be open to the public.
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Course Outline %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-  \frametitle{Course outline}
-  The course will cover the following content:
-  \medskip\pause
-  \begin{itemize}[<+->]
-  \item Conceptual basics and historical overview
-  \item Markov decision processes
-  \item Dynamic programming
-  \item Monte Carlo learning
-  \item Temporal difference learning
-  \item Multi-step bootstrapping
-  \item Planning and model-based RL
-  \item Function approximation and (deep) learning
-  \item Policy gradient methods
-  \item Contemporary (deep) RL algorithms
-  \item Further practical RL challenges (meta learning, safety, ...)
-  \end{itemize}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Textbooks %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \frametitle{Recommended textbooks}
-  \begin{block}{Reinforcement Learning: An Introduction}
+  \begin{itemize}[<+->]
+  \item Reinforcement Learning: An Introduction
     \begin{itemize}
     \item Richard Sutton and Andy Barto
     \item MIT Press, 2nd edition, 2018
     \item Available at \url{https://www.incompleteideas.net/book/the-book.html}
     \end{itemize}
-  \end{block}
 
-  \begin{block}{Reinforcement Learning: The Silver Lectures}
+    \bigskip
+
+  \item Reinforcement Learning: The Silver Lectures
     \begin{itemize}
     \item David Silver
-    \item Slide available at \url{https://www.davidsilver.uk/teaching/}
+    \item Slides available at \url{https://www.davidsilver.uk/teaching/}
     \item Lecture videos at \url{https://www.youtube.com/watch?v=2pWv7GOvuf0}
     \end{itemize}
-  \end{block}
 
-  \begin{block}{Reinforcement Learning and Optimal Control}
+    \bigskip
+
+  \item Reinforcement Learning and Optimal Control
     \begin{itemize}
     \item D. Bertsekas
     \item Athena Scientific, 2019
     \item Available wherever fine books are carried
     \end{itemize}
-  \end{block}
+  \end{itemize}
 \end{frame}
 
 
