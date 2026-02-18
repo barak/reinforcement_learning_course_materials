@@ -10,5 +10,5 @@ gymnasium==1.1.1
 pygame==2.6.1
 scikit-learn==1.6.1
 torch==2.6.0
-stable-baselines3 == 2.6.0
+stable-baselines3==2.6.0
 Box2D==2.3.10
