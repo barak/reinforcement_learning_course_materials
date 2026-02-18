@@ -66,17 +66,19 @@ To build the slides, you need:
 ### Switching Between Course Versions
 
 The introductory slides for Lecture 01 come in two versions:
-- **Maynooth University version** (`Lecture01_intro_master.tex`) — includes Maynooth-specific course information
-- **Paderborn/Siegen version** (`Lecture01_intro_upmaster.tex`) — includes original course information
+- **Maynooth University version** (`Lecture01_intro_master.tex`) — includes Maynooth-specific course information with standalone lecture structure (includes `\part`, `\title`, individual titlepage)
+- **Paderborn/Siegen version** (`Lecture01_intro_upmaster.tex`) — includes original course information using combined document structure (relies on main.tex for overall structure)
+
+**Note**: These two versions have different LaTeX structures and are not directly interchangeable. The master version was designed for standalone compilation of individual lectures, while the up-master version is designed to work with the current main.tex structure where all lectures are compiled together.
 
 To switch between versions, edit `tex/Lecture01.tex` and comment/uncomment the appropriate `\input` line:
 
 ```latex
-% For Maynooth version:
+% For Maynooth version (standalone structure):
 \input{tex/Lecture01_intro_master}
 %\input{tex/Lecture01_intro_upmaster}
 
-% For Paderborn/Siegen version:
+% For Paderborn/Siegen version (combined structure):
 %\input{tex/Lecture01_intro_master}
 \input{tex/Lecture01_intro_upmaster}
 ```
