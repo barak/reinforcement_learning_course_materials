@@ -411,7 +411,11 @@ GPI concept is directly applied to the TD framework using action values:
 	\item In contrast to MC: continuous online updates of policy evaluation and improvement.\pause
 	\item On-policy approach requires exploration, e.g., by an $\varepsilon$-greedy policy:
 	\begin{equation}
-		\pi_i(u|x)\leftarrow\begin{cases}1-\varepsilon+\varepsilon/|\mathcal{U}|, \quad u=\tilde{u},\\ \varepsilon/|\mathcal{U}|, \quad u\neq\tilde{u}.\end{cases}
+		\pi_i(u|x)\leftarrow
+                \begin{cases}
+                  1-\varepsilon+\varepsilon/\lvert\mathcal{U}\rvert & (u=\tilde{u})\\
+                  \varepsilon/\lvert\mathcal{U}\rvert & (u\neq\tilde{u})\text{.}
+                \end{cases}
 	\end{equation}
 \end{itemize}
 }
@@ -482,7 +486,7 @@ GPI concept is directly applied to the TD framework using action values:
 
 \begin{figure}		
 	\includegraphics[height=0.6\textheight]{fig/lec05/Forest_Tree_Sarsa_alpha_adapt}
-	\caption{SARSA-based control with \hl{adaptive $\alpha_{\mathrm{SARSA}}=\frac{1}{\sqrt{j}}$} ($j=$episode) and $\varepsilon$-greedy policy with $\varepsilon=0.2$ of forest tree MDP over the number of episodes being evaluated (mean and standard deviation are calculated based on 2000 independent runs)}
+	\caption{SARSA-based control with \hl{adaptive $\alpha_{\mathrm{SARSA}}=\frac{1}{\sqrt{j}}$} ($j=\text{episode}$) and $\varepsilon$-greedy policy with $\varepsilon=0.2$ of forest tree MDP over the number of episodes being evaluated (mean and standard deviation are calculated based on 2000 independent runs)}
 	\label{Forest_Tree_Sarsa_alpha_adapt}
 \end{figure}
 }

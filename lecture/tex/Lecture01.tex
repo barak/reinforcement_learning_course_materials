@@ -279,8 +279,8 @@ All goals can be described by the maximization of the expected cumulative reward
 \begin{itemize}
 	\item Flipping a pancake:
 	\begin{itemize}
-		\item Pos. reward: catching the $\unit{180}{^\circ}$ rotated pancake 
-		\item Neg. reward: droping the pancake on the floor
+		\item Pos.\ reward: catching the $\unit{180}{^\circ}$ rotated pancake 
+		\item Neg.\ reward: droping the pancake on the floor
 	\end{itemize}
 	\pause
 	\item Stock trading:
@@ -295,14 +295,14 @@ All goals can be described by the maximization of the expected cumulative reward
 	\pause
 	\item Driving an autonomous car:
 	\begin{itemize}
-		\item Pos. reward: getting save from A to B without crashing
-		\item Neg. reward: hitting another car,  pedestrian, bicycle,...
+		\item Pos.\ reward: getting save from A to B without crashing
+		\item Neg.\ reward: hitting another car, pedestrian, bicycle, ...
 	\end{itemize}
 	\pause
-	\item Classical control task (e.g., electric drive, inverted pendulum,...):
+	\item Classical control task (e.g., electric drive, inverted pendulum, ...):
 	\begin{itemize}
-		\item Pos. reward: following a given reference trajectory precisely
-		\item Neg. reward: violating system constraints and/or large control error
+		\item Pos.\ reward: following a given reference trajectory precisely
+		\item Neg.\ reward: violating system constraints and/or large control error
 	\end{itemize}
 \end{itemize}
 }
@@ -311,7 +311,7 @@ All goals can be described by the maximization of the expected cumulative reward
 %% Reward characteristics %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Reward characteristics}
-Rewards can have many different flavors and are highly depending on the given problem:
+Rewards can have many different flavors and are highly dependant on the given problem:
 \begin{itemize}
 	\item Actions may have short and/or long term consequences.
 	\begin{itemize}
@@ -375,6 +375,7 @@ The RL agent's learning process is heavily linked with the reward distribution o
 	g_k = r_{k+1} + \gamma r_{k+2} + \gamma^2 r_{k+3} + \cdots = \sum_{i=0}^\infty \gamma^i r_{k+i+1}\, .  	
 	\end{equation}
 	\item Here, $\gamma\in\left\{\Re|0 \leq \gamma \leq 1\right\}$ is the \hl{discount rate}.
+        \item Why this form? Mathematical convenience!
 \end{itemize}
 }
 
@@ -427,7 +428,7 @@ The RL agent's learning process is heavily linked with the reward distribution o
 	\pause
 	\item  Fully, limited or not at all visible by the agent
 	\begin{itemize}
-		\item Sometimes even 'foggy' or uncertain
+		\item Sometimes even `foggy' or uncertain
 		\item In general: $\bm{Y}_k = \bm{f}(\bm{X}_k)$ as the measurable outputs of the environment
 	\end{itemize}
 	\pause
@@ -456,6 +457,23 @@ The RL agent's learning process is heavily linked with the reward distribution o
 	\item Continuous or discrete quantity
 \end{itemize}
 }
+
+\frame{
+  \frametitle{State (3)}
+  \begin{block}{\centerline{\LARGE WARNING}}
+    \begin{Large}
+      When building systems, think really hard about what to use for the state.
+      \begin{itemize}
+      \item Does it have all the necessary information?
+      \item Are you leaving out something important?
+      \item The state is \emph{now} but might need to include past information.
+      \item If you leave out something critical the task can become impossible!
+      \item Are you making it too big, so hard to learn?
+      \end{itemize}
+    \end{Large}
+  \end{block}
+}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% History and Imformation State%%
@@ -822,7 +840,7 @@ Can one of these extreme cases lead alone to an efficient and optimal solution?
 %% Problem Statement MPC/Rl%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Problem reconsideration}
-The reward hypothesis in \theoref{theo:reward_hypo} is basically an (discounted) \hl{infinite-horizon optimal control} problem (with $r_k$ interpreted as costs):
+The reward hypothesis in \theoref{theo:reward_hypo} is basically a (discounted) \hl{infinite-horizon optimal control} problem (with $r_k$ interpreted as costs):
 \begin{equation}
 	v_k^*(\bm{x}_k) = \min_{\bm{u}_k} \sum_{i=0}^\infty \gamma^i r_{k+i+1} (\bm{x}_{k+i}, \bm{u}_{k+i})\,.
 \end{equation}
@@ -874,7 +892,7 @@ While in RL the desired system behavior must be solely represented by $r_k$, MPC
 			\onslide<7->Stability theory						& mature \cmark 									&	immature \xmark \\
 			\bottomrule
 		\end{tabular}
-	\onslide<1->\caption{Key differences on MPC vs. RL\\(inspired from D. GÃ¶rges, \textit{Relations between Model Predictive Control and Reinforcement Learning}, IFAC PapersOnine 50-1, pp. 4920-4928, 2017)}
+	\onslide<1->\caption{Key differences on MPC vs. RL\\(inspired from D. Görges, \textit{Relations between Model Predictive Control and Reinforcement Learning}, IFAC PapersOnine 50-1, pp. 4920--4928, 2017)}
 	\label{tab:KeyDifferences}
 \end{table}
 }
