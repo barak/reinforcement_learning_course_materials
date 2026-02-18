@@ -53,7 +53,7 @@ Today's focus:
 \begin{equation}
 	\hat{q}(\bm{x}, u, \bm{w}) = \hat{q}\left(\bm{f}\left(\bm{x}, u\right), \bm{w}\right) .
 \end{equation}
-	\item Above, $\bm{f}(\bm{x},u)\in\mathbb{R}^\kappa$ is the FE function.\pause
+	\item Above, $\bm{f}(\bm{x},u)\in\Re^\kappa$ is the FE function.\pause
 	\item \hl{For sake of notation simplicity we write $\hat{q}(\bm{x}, u, \bm{w})$ and understand that FE has already been considered (i.e., is a part of $\hat{q}$).}
 \end{itemize}
 }
@@ -139,10 +139,10 @@ Today's focus:
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Input{a differentiable function $\hat{q}:\mathbb{R}^\kappa\times\mathbb{R}^\zeta\rightarrow\mathbb{R}$}
+\Input{a differentiable function $\hat{q}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$}
 \Input{a policy $\pi$ (only if estimating $q_\pi$)}
-\Param{step size $\alpha\in\left\{\mathbb{R}|0<\alpha<1\right\}$, $\varepsilon\in\left\{\mathbb{R}|0<\varepsilon<<1\right\}$}
-\Init{parameter vector $\bm{w}\in\mathbb{R}^\zeta$ arbitrarily}
+\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$, $\varepsilon\in\left\{\Re|0<\varepsilon\ll 1\right\}$}
+\Init{parameter vector $\bm{w}\in\Re^\zeta$ arbitrarily}
  \For{$j=1,2,\ldots,$ episodes}{
 		generate episode following $\pi$ or $\varepsilon$-greedy on $\hat{q}$: $x_{0}, u_{0}, r_{1},\ldots,x_{T}$ \;
 		calculate every-visit return $g_k$\;  
@@ -166,10 +166,10 @@ Today's focus:
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Input{a differentiable function $\hat{q}:\mathbb{R}^\kappa\times\mathbb{R}^\zeta\rightarrow\mathbb{R}$}
+\Input{a differentiable function $\hat{q}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$}
 \Input{a policy $\pi$ (only if estimating $q_\pi$)}
-\Param{step size $\alpha\in\left\{\mathbb{R}|0<\alpha<1\right\}$, $\varepsilon\in\left\{\mathbb{R}|0<\varepsilon<<1\right\}$}
-\Init{parameter vector $\bm{w}\in\mathbb{R}^\zeta$ arbitrarily}
+\Param{step size $\alpha\in\left\{\Re|0<\alpha<1\right\}$, $\varepsilon\in\left\{\Re|0<\varepsilon\ll 1\right\}$}
+\Init{parameter vector $\bm{w}\in\Re^\zeta$ arbitrarily}
  \For{$j=1,2,\ldots$ episodes}{
 		initialize $\bm{x}_{0}$\;
 		\For{$k=0, 1, 2 \ldots $ time steps}{
@@ -257,10 +257,10 @@ Today's focus:
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Input{a differentiable function $\hat{q}:\mathbb{R}^\kappa\times\mathbb{R}^\zeta\rightarrow\mathbb{R}$}
+\Input{a differentiable function $\hat{q}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$}
 \Input{a policy $\pi$ (only if estimating $q_\pi$)}
-\Param{$\alpha\in\left\{\mathbb{R}|0<\alpha<1\right\}$, $\varepsilon\in\left\{\mathbb{R}|0<\varepsilon<<1\right\}$, $n\in\mathbb{Z}^+$}
-\Init{parameter vector $\bm{w}\in\mathbb{R}^\zeta$ arbitrarily}
+\Param{$\alpha\in\left\{\Re|0<\alpha<1\right\}$, $\varepsilon\in\left\{\Re|0<\varepsilon\ll 1\right\}$, $n\in\mathbb{Z}^+$}
+\Init{parameter vector $\bm{w}\in\Re^\zeta$ arbitrarily}
  \For{$j=1,2\ldots$ episodes}{
 		initialize and store $\bm{x}_{0}$\;
 		select and store $u_0\sim\pi(\bm{x}_0)$ or $\varepsilon$-greedy w.r.t. $\hat{q}(\bm{x}_0, \cdot, \bm{w})$\;
@@ -400,11 +400,11 @@ Some remarks:
 \SetKwInput{Param}{parameter}
 \Input{a feature representation $\tilde{\bm{x}}$ with $\tilde{\bm{x}}_T=0$ (i.e., $\hat{q}(\tilde{\bm{x}}_T,\cdot)=0$)}
 \Input{a data set $\left\langle \bm{x}_i, u_i, r_{i+1}, \bm{x}_{i+1}\right\rangle\sim\bm{\mathcal{D}}$ with $i=1,\ldots, b$ samples}
-\Param{an accuracy threshold $\Delta\in\left\{\mathbb{R}|0<\Delta\right\}$}
-\Init{linear approximation function weights $\bm{w}\in\mathbb{R}^\zeta$ arbitrarily}
+\Param{an accuracy threshold $\Delta\in\left\{\Re|0<\Delta\right\}$}
+\Init{linear approximation function weights $\bm{w}\in\Re^\zeta$ arbitrarily}
 
 $\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$ (greedy choices based on $\hat{q}(\bm{w})$)\;
-\Repeat{$||\bm{w}'-\bm{w}||<\Delta$}{
+\Repeat{$\lVert\bm{w}'-\bm{w}\rVert<\Delta$}{
 		$\bm{w}' \leftarrow \bm{w}$\;
 		$\bm{w}\leftarrow\mbox{LS-SARSA}(\bm{\mathcal{D}}, u_{i+1}\sim\pi)$\;
 		$\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$\;
@@ -479,8 +479,8 @@ $\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$ (greedy choices based on $\
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
 \Input{a feature representation $\tilde{\bm{x}}$ with $\tilde{\bm{x}}_T=0$ (i.e., $\hat{q}(\tilde{\bm{x}}_T,\cdot, \cdot)=0$)}
-\Param{forgetting factor $\lambda\in\left\{\mathbb{R}|0 < \lambda \leq 1\right\}$, $\varepsilon\in\left\{\mathbb{R}|0<\varepsilon<<1\right\}$, update factor $k_w\in\left\{\mathbb{N}|1\leq k_w\right\}$}
-\Init{weights $\bm{w}\in\mathbb{R}^\zeta$ arbitrarily, policy $\pi$ being $\varepsilon$-greedy w.r.t. $\hat{q}(\bm{w})$, covariance $\bm{P}>0$}
+\Param{forgetting factor $\lambda\in\left\{\Re|0 < \lambda \leq 1\right\}$, $\varepsilon\in\left\{\Re|0<\varepsilon\ll 1\right\}$, update factor $k_w\in\left\{\mathbb{N}|1\leq k_w\right\}$}
+\Init{weights $\bm{w}\in\Re^\zeta$ arbitrarily, policy $\pi$ being $\varepsilon$-greedy w.r.t. $\hat{q}(\bm{w})$, covariance $\bm{P}>0$}
  \For{$j=1,2,\ldots$ episodes}{
 		initialize $\bm{x}_{0}$ and set $u_0\sim\pi(\bm{x}_{0})$\;
 		\For{$k=0, 1, 2 \ldots $ time steps}{
@@ -590,9 +590,9 @@ Motivation behind:
 \SetKwInput{Output}{output}
 \SetKwInput{Init}{init}
 \SetKwInput{Param}{parameter}
-\Input{a differentiable function $\hat{q}:\mathbb{R}^\kappa\times\mathbb{R}^\zeta\rightarrow\mathbb{R}$ (including feature eng.)}
-\Param{$\varepsilon\in\left\{\mathbb{R}|0<\varepsilon<<1\right\}$, update factor $k_w\in\left\{\mathbb{N}|1\leq k_w\right\}$}
-\Init{weights $\bm{w}=\bm{w}^-\in\mathbb{R}^\zeta$ arbitrarily, memory $\bm{\mathcal{D}}$ with certain capacity}
+\Input{a differentiable function $\hat{q}:\Re^\kappa\times\Re^\zeta\rightarrow\Re$ (including feature eng.)}
+\Param{$\varepsilon\in\left\{\Re|0<\varepsilon\ll 1\right\}$, update factor $k_w\in\left\{\mathbb{N}|1\leq k_w\right\}$}
+\Init{weights $\bm{w}=\bm{w}^-\in\Re^\zeta$ arbitrarily, memory $\bm{\mathcal{D}}$ with certain capacity}
  \For{$j=1,2,\ldots$ episodes}{
 		initialize $\bm{x}_{0}$\;
 		\For{$k=0, 1, 2 \ldots $ time steps}{
