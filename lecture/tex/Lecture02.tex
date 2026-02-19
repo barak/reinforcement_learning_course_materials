@@ -18,16 +18,16 @@
 \hfill
 \onslide<3->\begin{table}
 	\centering
-		\begin{tabular}{M{0.5cm}M{1cm}M{3cm}M{3cm}}
+		\begin{tabular}{M{0.5cm}M{1cm}M{5cm}M{5cm}}
 		%\cline{3-4}
 			\multicolumn{2}{c}{\multirow{2}{*}{}}& \multicolumn{2}{c}{All states observable?}\\
 			%\cline{3-4}
 			\multicolumn{2}{c}{} & Yes & No\\
-			\cline{3-4}
-			 \multirow{2}{*}{\rotatebox{90}{Actions?}} & No & Markov chain &Hidden Markov model\\
+			\cmidrule{3-4}
+			 \multirow{2}{*}{\rotatebox{90}{Actions?}} & No & Markov Chain &Hidden Markov Model (HMM)\\[2ex]
 			%\cline{2-4}
-			& Yes & Markov decision process (MDP) & Partially observable MDP\\
-			\cline{3-4}
+			& Yes & Markov Decision Process (MDP) & Partially observable MDP (POMDP)\\
+			\cmidrule{3-4}
 		\end{tabular}
 	\caption{Different Markov models}
 	\label{tab:DifferentMarkovModels}
@@ -73,7 +73,7 @@ A \hl{finite Markov chain} is a tuple $\left\langle\mathcal{X}, \bm{\mathcal{P}}
 	\onslide<2->\item Specific stochastic process model
 	\onslide<2->\item Sequence of random variables $X_k, X_{k+1},\ldots$
 	\onslide<2->\item `Memoryless', i.e., system properties are time invariant
-	\onslide<3->\item In continuous-time framework: Markov process\only<3->{\footnote[1]{However, this results in a literature nomenclature inconsistency with Markov decision/reward `processes'.}} 
+	\onslide<3->\item In continuous-time framework: Markov process\only<3->{\footnote[1]{This results in a nomenclature inconsistency with Markov decision/reward `processes' in the literature.}} 
 \end{itemize}
 }
 
@@ -83,7 +83,7 @@ A \hl{finite Markov chain} is a tuple $\left\langle\mathcal{X}, \bm{\mathcal{P}}
 \frame{\frametitle{State transition matrix}
 
 \begin{defi}{State transition matrix}{STM}
-Given a Markov state $X_k=x$ and its successor $X_{k+1}=x'$ , the \hl{state transition probability} $\forall \left\{x,x'\right\}\in \mathcal{X}$ is defined by the matrix
+Given a Markov state $X_k=x$ and its successor $X_{k+1}=x'$, the \hl{state transition probability} $\forall \left\{x,x'\right\}\in \mathcal{X}$ is defined by the matrix
 \begin{equation}
 	\bm{\mathcal{P}}_{xx'}=\Pb{X_{k+1}=x'|X_{k}=x} .
 \end{equation}
@@ -93,7 +93,7 @@ Here,  $\bm{\mathcal{P}}_{xx'}\in\Re^{n\times n}$ has the form
 \begin{equation*}
 	\bm{\mathcal{P}}_{xx'} = \begin{bmatrix} p_{11} & p_{12} & \cdots & p_{1n}\\ p_{21} &  &  & \vdots\\ \vdots & & & \vdots\\ p_{n1} & \cdots & \cdots & p_{nn}\end{bmatrix}
 \end{equation*}
-with $p_{ij}\in\left\{\Re|0 \leq p_{ij} \leq 1 \right\}$ being the specific probability to go from state $x=X_i$ to state $x'=X_j$. Obviously, $\sum_{j} p_{ij}=1 \, \forall i$ must hold.
+with $p_{ij}\in\left\{\Re|0 \leq p_{ij} \leq 1 \right\}$ being the specific probability to go from state $x=X_i$ to state $x'=X_j$. Since this is a probability distribution, $\sum_{j} p_{ij}=1$ must hold $\forall i$.
 }
 
 
@@ -184,7 +184,7 @@ A \hl{finite Markov reward process (MRP)} is a tuple $\left\langle\mathcal{X}, \
 		\item appreciated by hikers and
 		\item useful for wood production.
 	\end{itemize}
-	\item<2-> Loosing a tree due to a hazard is unrewarded.
+	\item<2-> Losing a tree due to a hazard is unrewarded.
 \end{itemize}
 }
 
@@ -204,7 +204,9 @@ terminating at step $N$ while it is an infinite series for \hl{continuing tasks}
 \end{equation}
 \end{block}
 \begin{itemize}
-	\item The discount $\gamma$ represents the value of future rewards.
+	\item The discount $\gamma$ characterizes the decrease in present value of future rewards.
+          \pause
+        \item \emph{``Buy me a hamburger today and I will gladly repay you ... \hl{on Tuesday}.''}
 \end{itemize}
 }
 
@@ -426,7 +428,7 @@ In an MDP environment, a \hl{policy} is a distribution over actions given states
 \onslide<1->{
 \begin{figure}		
 	\includegraphics[height=0.35\textheight]{fig/lec02/monopoly}
-	\caption{What is you best Monopoly policy? (source: Ylanite Koppens on \href{https://www.pexels.com/de-de/foto/begrifflich-brettspiel-drinnen-farben-776654/}{Pexels})}
+	\caption{What is the best Monopoly policy? (source: Ylanite Koppens on \href{https://www.pexels.com/de-de/foto/begrifflich-brettspiel-drinnen-farben-776654/}{Pexels})}
 \end{figure}
 }
 }
@@ -554,7 +556,7 @@ Here, $\bm{r}_{\mathcal{X}}^{\pi}$ and $\bm{\mathcal{P}}_{xx'}^{\pi}$ are the re
 %% Bellman Expectation Equation Applied to Forest Tree Example (1)%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Bellman expectation equation \& forest tree example (1)}
-Let's assume following very simple policy (`\textit{fifty-fifty}')
+Assume the system is following a very simple policy (`\textit{fifty-fifty}')
 \begin{equation*}
 \pi(u = \text{cut}|x) = 0.5, \quad \pi(u = \text{wait}|x) = 0.5 \quad\forall x\in\mathcal{X} \, .
 \end{equation*}
