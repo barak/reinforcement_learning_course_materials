@@ -462,12 +462,15 @@ The RL agent's learning process is heavily linked with the reward distribution o
   \frametitle{State (3)}
   \begin{block}{\centerline{\LARGE WARNING}}
     \begin{Large}
-      When building systems, think really hard about what to use for the state.
+      When building systems, think really hard about what to use for the ``state''.
       \begin{itemize}
-      \item Does it have all the necessary information?
-      \item Are you leaving out something important?
-      \item The state is \emph{now} but might need to include past information.
-      \item If you leave out something critical the task can become impossible!
+      \item State is \emph{now}, may need to include past observations.
+      \item Does it have \hl{all} necessary information?
+
+        It is easy to leave out something important.
+
+        If you leave out something critical the task can become impossible!
+      \item \hl{This was the root cause of many (most) class projects that didn't work.}
       \item Are you making it too big, so hard to learn?
       \end{itemize}
     \end{Large}
