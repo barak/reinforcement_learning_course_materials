@@ -5,7 +5,7 @@
 # Here we use latexmk, and we create a bunch of "stub" files in order
 # to allow parallelism in their processing.
 
-LECS = $(shell cd tex; echo *.tex)
+LECS = $(shell cd tex && echo *.tex)
 BLECS = $(patsubst %,build-%,$(LECS))
 
 all: $(patsubst %,built/%,$(LECS:.tex=.pdf))
