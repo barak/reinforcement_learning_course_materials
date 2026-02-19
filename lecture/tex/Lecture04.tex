@@ -352,7 +352,7 @@ $n(x,u)\leftarrow$ an empty list for state-action visits $\forall \, \left\{x\in
 	\vspace{0.5cm}
 	\item<4-> \hl{$\varepsilon$-greedy on-policy learning} 
 		\begin{itemize}
-		\item<4-> With probability $\varepsilon$ the agent's choice (i.e., the policy output) is overwritten with a random action.
+		\item<4-> With probability $\varepsilon$ the agent's choice (i.e., the policy output) is replaced by a random action.
 		\item<5-> Probability of all non-greedy actions: \begin{equation}\varepsilon/\lvert\mathcal{U}\rvert\,.\end{equation}
 		\item<6-> Probability of the greedy action: \begin{equation}1-\varepsilon+\varepsilon/|\mathcal{U}|\,.\end{equation}
 		\item<5-> Where $\lvert\mathcal{U}\rvert$ is the cardinality of the action space.
