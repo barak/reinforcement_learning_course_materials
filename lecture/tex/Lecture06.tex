@@ -6,7 +6,7 @@
 \frame{\frametitle{Lets unify MC and TD learning}
 \begin{figure}		
 	\includegraphics[height=0.65\textheight]{fig/lec06/Compare_RL_Methods_Update}
-	\caption{MC and TD are the 'extreme options' in terms of the update's depth: what about intermediate solutions? (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
+	\caption{MC and TD are the `extreme options' in terms of the update's depth: what about intermediate solutions? (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 	\label{fig:Compare_RL_Methods_Update_lec06}
 \end{figure}
 }
@@ -194,7 +194,7 @@ The worst error of the expected $n$-step return is always less than or equal to 
 \frame{\frametitle{Transfer the $n$-step approach to state-action values (1)}
 \begin{itemize}
 	\item For on-policy control by SARSA action-value estimates are required. 
-	\item Recap the one-step action-value update as required for 'SARSA(0)':
+	\item Recap the one-step action-value update as required for `SARSA(0)':
 	\begin{equation}
 		\hat{q}(x_k, u_k) \leftarrow \hat{q}(x_k, u_k) + \alpha\left[\underbrace{r_{k+1}+\gamma\hat{q}(x_{k+1}, u_{k+1})}_{\text{\footnotesize target}{\normalsize g}} - \hat{q}(x_k, u_k)\right] .
 	\end{equation}

@@ -163,7 +163,7 @@ given a behavior policy $b(\bm{u}|\bm{x})$.
 \frame{\frametitle{DDPG $\approx$ DQN + DPG}
 \begin{itemize}
 	\item Hence, we can consider the DDPG approach as a combination of DQN + DPG rendering it an \hl{actor-critic off-policy approach for continuous state and action spaces}.\pause
-	\item Similarly to DQN we will introduce \hl{several 'tweaks'} to stabilize and improve the DDPG learning process.\pause	
+	\item Similarly to DQN we will introduce \hl{several `tweaks'} to stabilize and improve the DDPG learning process.\pause	
 \end{itemize}
 \vspace{0.25cm}
 \hl{Tweak \#1}: experience replay buffer
@@ -229,7 +229,7 @@ given a behavior policy $b(\bm{u}|\bm{x})$.
 		\begin{equation*}
 			\bm{u}_k\sim\bm{b}(\bm{u}|\bm{x}_k)=\bm{\mu}(\bm{x}_k,\bm{\theta}_k)+\bm{\nu}_{k},\quad \bm{\nu}_{k}= \lambda \bm{\nu}_{k-1}+ \sigma \bm{\epsilon}_{k-1}.
 		\end{equation*}\pause
-		\item One might also add a schedule for $\lambda$ and $\sigma$ along the training procedure, e.g., starting with significant noise levels (increased exploration) while reducing it over time (focusing exploitation)\footnote{Please note that this 'lambda' is not related to TD($\lambda$), SARSA($\lambda$), etc. Here, it is representing the stiffness of the OU noise process.}.\pause  
+		\item One might also add a schedule for $\lambda$ and $\sigma$ along the training procedure, e.g., starting with significant noise levels (increased exploration) while reducing it over time (focusing exploitation)\footnote{Please note that this `lambda' is not related to TD($\lambda$), SARSA($\lambda$), etc. Here, it is representing the stiffness of the OU noise process.}.\pause  
 	\item However, many other behavior policies are possible, e.g., using model or expert-based guidance.
 \end{itemize}
 }
@@ -505,7 +505,7 @@ then \eqref{eq:approx_q_TD3} and \eqref{eq:true_q_TD3} imply
 \begin{frame}
 \frametitle{Summary: what you've learned today}
 \begin{itemize}
-	\item The deep deterministic policy gradient (DDPG) approach 'transfers' many deep $Q$-network (DQN) ideas to continuous action spaces.\pause
+	\item The deep deterministic policy gradient (DDPG) approach `transfers' many deep $Q$-network (DQN) ideas to continuous action spaces.\pause
 	\item It mainly combines DQN + deterministic policy gradients + policy and value target networks (plus additional minor tweaks).\pause
 	\item However, the DDPG actor-critic suffers from value overestimation and high variance during learning. Hence, sampled policy gradients might not be optimal (pointing towards overrated action values).\pause
 	\item Twin delayed DDPG (TD3) adds clipped double $Q$-learning, delayed policy updates and target policy smoothing to counteract these issues.

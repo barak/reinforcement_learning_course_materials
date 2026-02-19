@@ -72,8 +72,8 @@ A \hl{finite Markov chain} is a tuple $\left\langle\mathcal{X}, \bm{\mathcal{P}}
 \begin{itemize}
 	\onslide<2->\item Specific stochastic process model
 	\onslide<2->\item Sequence of random variables $X_k, X_{k+1},\ldots$
-	\onslide<2->\item 'Memoryless', i.e., system properties are time invariant
-	\onslide<3->\item In continuous-time framework: Markov process\only<3->{\footnote[1]{However, this results in a literature nomenclature inconsistency with Markov decision/reward 'processes'.}} 
+	\onslide<2->\item `Memoryless', i.e., system properties are time invariant
+	\onslide<3->\item In continuous-time framework: Markov process\only<3->{\footnote[1]{However, this results in a literature nomenclature inconsistency with Markov decision/reward `processes'.}} 
 \end{itemize}
 }
 
@@ -118,11 +118,11 @@ with $p_{ij}\in\left\{\Re|0 \leq p_{ij} \leq 1 \right\}$ being the specific prob
 \end{align*}}
 \end{minipage}
 \begin{itemize}
-	\item At $x=1$ a small tree is planted ('starting point').
+	\item At $x=1$ a small tree is planted (`starting point').
 	\item<2-> A tree grows with $(1-\alpha)$ probability.
 	\item<3-> With $\alpha$ probability a natural hazard destroys the tree.
 	\item<4-> If it reaches $x=3$ (large) its growth is limited.
-	\item<4-> The state $x=4$ is terminal ('infinite loop').
+	\item<4-> The state $x=4$ is terminal (`infinite loop').
 \end{itemize}
 }
 
@@ -543,7 +543,7 @@ Here, $\bm{r}_{\mathcal{X}}^{\pi}$ and $\bm{\mathcal{P}}_{xx'}^{\pi}$ are the re
 %% Bellman Expectation Equation Applied to Forest Tree Example (1)%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Bellman expectation equation \& forest tree example (1)}
-Let's assume following very simple policy ('\textit{fifty-fifty}')
+Let's assume following very simple policy (`\textit{fifty-fifty}')
 \begin{equation*}
 \pi(u = \text{cut}|x) = 0.5, \quad \pi(u = \text{wait}|x) = 0.5 \quad\forall x\in\mathcal{X} \, .
 \end{equation*}
@@ -750,7 +750,7 @@ Remember the forest tree MDP example:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Optimal policy for forest tree MDP: state value (1)}
 \vspace{-0.15cm}
-\onslide<1->{Start with $v(x=4)$ ('gone') and then continue going backwards:}
+\onslide<1->{Start with $v(x=4)$ (`gone') and then continue going backwards:}
 \onslide<2->{
 \begin{align*}
 	v^*(x=4) &= 0\, ,}\\
@@ -856,7 +856,7 @@ q^*(x=1,u=w) &= \gamma(1-\alpha)\max\begin{cases}\gamma(1-\alpha)\max\begin{case
 \begin{itemize}
 	\item Possible only for \hl{small action and state-space} MDPs
 	\begin{itemize}
-		\item 'Solving' Backgammon with $\approx 10^{20}$ states?
+		\item `Solving' Backgammon with $\approx 10^{20}$ states?
 	\end{itemize}
 	\pause
 	\item Another issue: total \hl{environment knowledge} required
