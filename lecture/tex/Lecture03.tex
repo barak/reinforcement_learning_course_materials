@@ -232,7 +232,7 @@ Matrix form based on \eqref{eq:Bellman_MDP_linear} then is:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Iterative policy evaluation by Richardson iteration (2)}
 \begin{itemize}
-	\item During one Richardson iteration the 'old' value of $x_k$ is replaced with a 'new' value from the 'old' values of the successor state $x_{k+1}$.
+	\item During one Richardson iteration the `old' value of $x_k$ is replaced with a `new' value from the `old' values of the successor state $x_{k+1}$.
 	\begin{itemize}
 		\item Update $v_{i+1}(x_k)$ from $v_{i}(x_{k+1})$, see \figref{fig:Back_Up_Value_Policy_Evaluation}.
 		\item Updating estimates $(v_{i+1})$ on the basis of other estimates $(v_{i})$ is often called \hl{bootstrapping}.
@@ -275,7 +275,7 @@ Let's reuse the forest tree MDP example from \figref{fig:Forest_Markov_Decision_
 %% Variant: In-Place Updates %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Variant: in-place updates}
-Instead of applying \eqref{eq:iterative_policy_eval_matrix} to the entire vector $\bm{v}_{\mathcal{X},i+1}^{\pi}$ in 'one shot' (synchronous backup), an elementwise \hl{in-place} version of the policy evaluation can be carried out: 
+Instead of applying \eqref{eq:iterative_policy_eval_matrix} to the entire vector $\bm{v}_{\mathcal{X},i+1}^{\pi}$ in `one shot' (synchronous backup), an elementwise \hl{in-place} version of the policy evaluation can be carried out: 
 \setlength{\algomargin}{0.5em}
 \begin{algorithm}[H]
 \SetKwInput{Input}{input} 
@@ -307,7 +307,7 @@ Instead of applying \eqref{eq:iterative_policy_eval_matrix} to the entire vector
 	\item In-place algorithms allow to update states in a beneficial order. \pause
 	\item May converge faster than regular Richardson iteration if state update order is chosen wisely (sweep through state space).\pause
 	\item For forest tree MDP: reverse order, i.e., start with $x=4$.\pause
-	\item As can be seen in \tabref{tab:Forest_tree_policy_eval_in_place} the in-place updates especially converge faster for the 'early states'.
+	\item As can be seen in \tabref{tab:Forest_tree_policy_eval_in_place} the in-place updates especially converge faster for the `early states'.
 \end{itemize}
 
 \begin{table}
@@ -342,7 +342,7 @@ Instead of applying \eqref{eq:iterative_policy_eval_matrix} to the entire vector
 	\begin{itemize}
 		\item Consider a new (non-policy conform) action $u\neq{\pi}(x_k)$.
 		\item Follow thereafter the current policy $\pi$.
-		\item Check the action value of this 'new move'. If it is better than the 'old' value, take it:
+		\item Check the action value of this `new move'. If it is better than the `old' value, take it:
 	\end{itemize}
 \end{itemize}
 	\begin{equation}
@@ -421,7 +421,7 @@ applies, then the policy $\pi'$ must be as good as or better than $\pi$. Hence, 
 \end{equation}\pause
 \begin{itemize}
 	\item This is the Bellman optimality equation, which guarantees that $\pi'=\pi$ must be optimal policies.\pause
-	\item Although proof for policy improvement theorem was presented for deterministic policies, transfer to stochastic policies $\pi(u_k \vert x_k)$ is possible.\pause
+	\item A proof for the policy improvement theorem was presented for deterministic policies, but transfer to stochastic policies $\pi(u_k \vert x_k)$ is straightforward.\pause
 	\item Takeaway message: \hl{policy improvement theorem guarantees finding optimal policies in finite MDPs} (e.g., by DP).
 \end{itemize}	
 }
@@ -444,7 +444,7 @@ applies, then the policy $\pi'$ must be as good as or better than $\pi$. Hence, 
 \end{equation}
 \begin{itemize}
 	\item Evaluate $\rightarrow$ improve $\rightarrow$ evaluate $\rightarrow$ improve ...\pause
-	\item In the 'classic' policy iteration, each policy evaluation step in \eqref{eq:policy_iter} is fully executed, i.e., for each policy $\pi_i$ an exact estimate of $v_{\pi_i}$ is provided either by iterative policy evaluation with a sufficiently high number of steps or by any other method that fully solves \eqref{eq:Bellman_matrix_Ab}.
+	\item In the `classic' policy iteration, each policy evaluation step in \eqref{eq:policy_iter} is fully executed, i.e., for each policy $\pi_i$ an exact estimate of $v_{\pi_i}$ is provided either by iterative policy evaluation with a sufficiently high number of steps or by any other method that fully solves \eqref{eq:Bellman_matrix_Ab}.
 \end{itemize}
 }
 
