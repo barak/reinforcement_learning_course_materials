@@ -200,7 +200,7 @@ The worst error of the expected $n$-step return is always less than or equal to 
 	\end{equation}
 	\end{itemize}\pause
 \begin{block}{$n$-step state-action value prediction target}
-Analog to $n$-step TD, the state-action value target is rewritten as:
+As with the $n$-step TD, the state-action value target is rewritten:
 		\begin{equation}
 		g_{k:k+n} = r_{k+1}+\gamma r_{k+2}+\cdots+\gamma^{n-1} r_{k+n}+\gamma^{n} \hat{q}_{k+n-1}(x_{k+n}, u_{k+n}) .
 \end{equation}
