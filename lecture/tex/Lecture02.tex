@@ -164,7 +164,7 @@ A \hl{finite Markov reward process (MRP)} is a tuple $\left\langle\mathcal{X}, \
 \begin{itemize}
 	\item Markov chain extended with rewards \pause
 	\item Still an autonomous stochastic process without specific inputs \pause
-	\item Reward $R_{k+1}$ only depends on state $X_k$
+	\item The reward $R_{k+1}$ depends only on the state $X_k$
 \end{itemize}
 }
 
@@ -437,7 +437,7 @@ In an MDP environment, a \hl{policy} is a distribution over actions given states
 \frame{\frametitle{Policy (2)}
 Given a finite MDP $\left\langle\mathcal{X}, \mathcal{U}, \bm{\mathcal{P}}, \mathcal{R}, \gamma \right\rangle$ and a policy $\bm{\pi}$:
 \begin{itemize}
-	\item The state sequence $X_k, X_{k+1},\ldots$ is a Markov chain $\left\langle\mathcal{X}, \bm{\mathcal{P}}^{\pi} \right\rangle$ since the state transition probability is only depending on the state:
+	\item The state sequence $X_k, X_{k+1},\ldots$ is a Markov chain $\left\langle\mathcal{X}, \bm{\mathcal{P}}^{\pi} \right\rangle$ since the state transition probability depends only on the current state:
 	\begin{equation}
 		\bm{\mathcal{P}}_{xx'}^{\pi}=\sum_{u_k\in\mathcal{U}}\bm{\pi}(u_k|x_k)\bm{\mathcal{P}}_{xx'}^{u}\, .
 	\end{equation}\pause
