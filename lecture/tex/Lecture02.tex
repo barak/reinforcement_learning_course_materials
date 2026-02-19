@@ -383,11 +383,22 @@ A \hl{finite Markov decision process (MDP)} is a tuple $\left\langle\mathcal{X},
 %% Forest Markov Decision Process (2) %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Example of a Markov decision process (2)}
-For the previous example the state transition probability matrix and reward function are given as:
-\begin{alignat*}{2}
-	\bm{\mathcal{P}}_{xx'}^{u=c} &= \begin{bmatrix}0 & 0 & 0 & 1  \\ 0 & 0 &0 & 1 \\ 0 & 0 &0 & 1 \\ 0 & 0 & 0 & 1\end{bmatrix}, \quad \bm{\mathcal{P}}_{xx'}^{u=w} &&= \begin{bmatrix}0 & 1-\alpha & 0 & \alpha  \\ 0 & 0 &1-\alpha & \alpha \\ 0 & 0 &1-\alpha & \alpha \\ 0 & 0 & 0 & 1\end{bmatrix},\\
-	\bm{r}_{\mathcal{X}}^{u=c} &= \begin{bmatrix}1 & 2 & 3 & 0 \end{bmatrix}\T, \quad \bm{r}_{\mathcal{X}}^{u=w} &&= \begin{bmatrix}0 & 0 & 1 & 0 \end{bmatrix}\T .
-\end{alignat*}
+The previous example's state transition probability matrix and reward function are:
+\begin{align*}
+  \bm{\mathcal{P}}_{xx'}^{u=c} &=
+  \begin{bmatrix}
+    0 & 0 & 0 & 1  \\ 0 & 0 &0 & 1 \\ 0 & 0 &0 & 1 \\ 0 & 0 & 0 & 1
+  \end{bmatrix}
+  &
+  \bm{\mathcal{P}}_{xx'}^{u=w} &=
+  \begin{bmatrix}
+    0 & 1-\alpha & 0 & \alpha  \\ 0 & 0 &1-\alpha & \alpha \\ 0 & 0 &1-\alpha & \alpha \\ 0 & 0 & 0 & 1
+  \end{bmatrix}
+  \\[3ex]
+  \bm{r}_{\mathcal{X}}^{u=c} &= \begin{bmatrix}1 & 2 & 3 & 0 \end{bmatrix}\T
+  &
+  \bm{r}_{\mathcal{X}}^{u=w} &= \begin{bmatrix}0 & 0 & 1 & 0 \end{bmatrix}\T .
+\end{align*}
 \begin{itemize}
 	\item The term $\bm{r}_{\mathcal{X}}^u$ is the abbreviated form for receiving the output of $\mathcal{R}$ for the entire state space $\mathcal{X}$ given the action $u$.
 \end{itemize}
