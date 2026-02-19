@@ -207,7 +207,7 @@ Today's focus:
 \begin{minipage}[c]{\linewidth}
 \begin{itemize}
 	\item Two cont. states: position, velocity
-	\item<2-> One discrete action: acceleration given by $\left\{\mbox{left},\mbox{none},\mbox{right}\right\}$ 
+	\item<2-> One discrete action: acceleration given by $\left\{\text{left},\text{none},\text{right}\right\}$ 
 	\item<3-> $r_k=-1$, i.e., goal is to terminate episode as quick as possible
 	\item<4-> Episode terminates when car reaches the flag (or max steps)
 	\item<5-> Simplified longitudinal car physics with state constraints
@@ -406,7 +406,7 @@ Some remarks:
 $\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$ (greedy choices based on $\hat{q}(\bm{w})$)\;
 \Repeat{$\lVert\bm{w}'-\bm{w}\rVert<\Delta$}{
 		$\bm{w}' \leftarrow \bm{w}$\;
-		$\bm{w}\leftarrow\mbox{LS-SARSA}(\bm{\mathcal{D}}, u_{i+1}\sim\pi)$\;
+		$\bm{w}\leftarrow\text{LS-SARSA}(\bm{\mathcal{D}}, u_{i+1}\sim\pi)$\;
 		$\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$\;
 }
 \caption{Least squares policy iteration (output: $\bm{w}$ for $\hat{q}^*$)}

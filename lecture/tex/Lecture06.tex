@@ -196,7 +196,7 @@ The worst error of the expected $n$-step return is always less than or equal to 
 	\item For on-policy control by SARSA action-value estimates are required. 
 	\item Recap the one-step action-value update as required for 'SARSA(0)':
 	\begin{equation}
-		\hat{q}(x_k, u_k) \leftarrow \hat{q}(x_k, u_k) + \alpha\left[\underbrace{r_{k+1}+\gamma\hat{q}(x_{k+1}, u_{k+1})}_{\mbox{\footnotesize target }\normalsize g} - \hat{q}(x_k, u_k)\right] .
+		\hat{q}(x_k, u_k) \leftarrow \hat{q}(x_k, u_k) + \alpha\left[\underbrace{r_{k+1}+\gamma\hat{q}(x_{k+1}, u_{k+1})}_{\text{\footnotesize target}{\normalsize g}} - \hat{q}(x_k, u_k)\right] .
 	\end{equation}
 	\end{itemize}\pause
 \begin{block}{$n$-step state-action value prediction target}
@@ -570,7 +570,11 @@ The \hl{eligibility trace $z_k(x)\in\Re$} is defined and tracked for each state 
 	\begin{equation}
 \begin{split}
 	z_{0}(x)&=0,\\
-	z_k(x) &=\gamma\lambda z_{k-1}(x)+\begin{cases}0, \quad\mbox{if } x_k \neq x, \\ 1, \quad \mbox{if } x_k = x.\end{cases}
+	z_k(x) &=\gamma\lambda z_{k-1}(x) +
+        \begin{cases}
+          0 & \text{if $x_k \neq x$} \\
+          1 & \text{if $x_k = x$}.
+        \end{cases}
 \end{split}	
 \label{eq:Elig_trace}
 \end{equation}
@@ -631,7 +635,12 @@ Already known prediction and control methods can be modified accordingly. In con
 			take action $u_k$, observe $x_{k+1}$ and $r_{k+1}$\;
 			choose $u_{k+1} \sim \pi(\cdot | x_{k+1})$
 
-			$z_k(x, u) \leftarrow \gamma\lambda z_{k-1}(x, u)+\begin{cases}0, \quad\mbox{if } x_k \neq x \mbox{ or } u_k \neq u, \\ 1, \quad \mbox{if } x_k = x \mbox{ and } u_k = u.\end{cases}$ 
+			$z_k(x, u) \leftarrow \gamma\lambda z_{k-1}(x, u) +
+                        \begin{cases}
+                          0 & \text{if $x_k \neq x$ or $u_k \neq u$} \\
+                          1 & \text{if $x_k = x$ and $u_k = u$.}
+                        \end{cases}
+                        $ 
 			$\forall \, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}$
 			
 			$\delta \leftarrow r_{k+1}+\gamma\hat{q}(x_{k+1}, u_{k+1}) - \hat{q}(x_k, u_k) $

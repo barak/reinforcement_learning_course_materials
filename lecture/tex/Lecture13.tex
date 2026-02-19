@@ -81,7 +81,7 @@ D_{\mathrm{KL}}\left(\mathcal{N}_0 \parallel \mathcal{N}_1\right) =  \frac{1}{2}
 	\label{eq:TRPO_opt_prob}
 	\begin{split}
 		 &\max_{\bm{\theta}}  \, \mathcal{L}_{\bm{\theta}_k}(\bm{\theta}),\\
-		 \mbox{s.t.} \quad\quad  & \overline{D}_{\mathrm{KL}}(\bm{\theta}_k, \bm{\theta})\leq\kappa
+		 \text{s.t.} \quad\quad  & \overline{D}_{\mathrm{KL}}(\bm{\theta}_k, \bm{\theta})\leq\kappa
 	\end{split}
 	\end{equation}\pause
 	with 
@@ -141,7 +141,7 @@ D_{\mathrm{KL}}\left(\mathcal{N}_0 \parallel \mathcal{N}_1\right) =  \frac{1}{2}
 	\label{eq:TRPO_opt_prob_sample}
 	\begin{split}
 		 &\bm{\theta}_{k+1} = \argmax_{\bm{\theta}} \,\El{\frac{\pi_{\bm{\theta}}(\bm{U}|\bm{X})}{\pi_{\bm{\theta}_k}(\bm{U}|\bm{X})}a_{\pi_k}(\bm{X},\bm{U})}{\pi_{\bm{\theta}_k}},\\
-		 \mbox{s.t.} \quad\quad  & \El{D_{\mathrm{KL}}(\pi_{\bm{\theta}_k}(\cdot|\bm{X}) \parallel \pi_{\bm{\theta}}(\cdot|\bm{X}))}{{\pi_{\bm{\theta}_k}}}\leq\kappa.
+		 \text{s.t.} \quad\quad  & \El{D_{\mathrm{KL}}(\pi_{\bm{\theta}_k}(\cdot|\bm{X}) \parallel \pi_{\bm{\theta}}(\cdot|\bm{X}))}{{\pi_{\bm{\theta}_k}}}\leq\kappa.
 	\end{split}
 	\end{equation}
 	\vspace{-0.25cm}
@@ -214,7 +214,7 @@ We will not provide any specific TRPO implementation suggestion at this point, s
 		\begin{equation*}
 	\begin{split}
 		 &\bm{\theta}_{k+1} = \argmax_{\bm{\theta}} \,\El{\frac{\pi_{\bm{\theta}}(\bm{U}|\bm{X})}{\pi_{\bm{\theta}_k}(\bm{U}|\bm{X})}a_{\pi_k}(\bm{X},\bm{U})}{\pi_{\bm{\theta}_k}},\\
-		 \mbox{s.t.} \quad\quad  & \El{D_{\mathrm{KL}}(\pi_{\bm{\theta}_k}(\cdot|\bm{X}) \parallel \pi_{\bm{\theta}}(\cdot|\bm{X}))}{{\pi_{\bm{\theta}_k}}}\leq\kappa.
+		 \text{s.t.} \quad\quad  & \El{D_{\mathrm{KL}}(\pi_{\bm{\theta}_k}(\cdot|\bm{X}) \parallel \pi_{\bm{\theta}}(\cdot|\bm{X}))}{{\pi_{\bm{\theta}_k}}}\leq\kappa.
 	\end{split}
 	\end{equation*}
 based on related unconstrained problems. 

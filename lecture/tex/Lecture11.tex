@@ -152,7 +152,7 @@ A typical policy function is:
 	\item Below we find an example for 
 \end{itemize}
 \begin{equation*}
-	\bm{\mu}=\begin{bmatrix}-0.4 & 0.3\end{bmatrix}\T \quad \mbox{and} \quad \bm{\Sigma}=\begin{bmatrix}0.04 & 0\\ 0 & 0.02 \end{bmatrix} .
+	\bm{\mu}=\begin{bmatrix}-0.4 & 0.3\end{bmatrix}\T \quad \text{and} \quad \bm{\Sigma}=\begin{bmatrix}0.04 & 0\\ 0 & 0.02 \end{bmatrix} .
 \end{equation*}
 \begin{figure}
 \includegraphics[width=6.5cm]{fig/lec11/Gaussian_Policy_Multivariate.pdf}
@@ -348,7 +348,7 @@ Initial situation:
 	\item Score function $\nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})$ can be calculated analytically using suitable policy and chain rule (e.g., by algorithmic differentiation).
 	\item Open question: how to retrieve $q_{\pi}(\bm{x},\bm{u})$ in 
 	\begin{equation*}
-	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{q_{\pi}(\bm{x},\bm{u})\nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})}{\pi} \,\,\mbox{?}
+	\nabla_{\bm{\theta}} J(\bm{\theta}) = \El{q_{\pi}(\bm{x},\bm{u})\nabla_{\bm{\theta}}\ln \pi(\bm{u}|\bm{x},\bm{\theta})}{\pi} \,\,\text{?}
 \end{equation*}
 \end{itemize}
 \vspace{0.5cm}\pause
@@ -406,7 +406,7 @@ Monte Carlo policy gradient:
 \begin{itemize}
 	\onslide<1->\item Gridworld style problem with two actions: left (l), right (r)
 	\onslide<2->\item Second-left state's action execution is reversed
-	\onslide<3->\item Feature representation: $\tilde{x}(x, u=\mbox{r})=\begin{bmatrix}1 & 0\end{bmatrix}\T$, $\tilde{x}(x, u=\mbox{l})=\begin{bmatrix}0 & 1\end{bmatrix}\T$   
+	\onslide<3->\item Feature representation: $\tilde{x}(x, u=\text{r})=\begin{bmatrix}1 & 0\end{bmatrix}\T$, $\tilde{x}(x, u=\text{l})=\begin{bmatrix}0 & 1\end{bmatrix}\T$   
 	\onslide<4->\item A policy-based approach searches for the optimal probability split
 \end{itemize}
 \onslide<1->\begin{figure}
