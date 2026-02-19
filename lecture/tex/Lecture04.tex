@@ -342,22 +342,29 @@ $n(x,u)\leftarrow$ an empty list for state-action visits $\forall \, \left\{x\in
 \begin{itemize}
 	\item Exploration requirement:
 	\begin{itemize}
-		\item Visit all state-action pairs with probability:
+		\item Visit all state-action pairs with probability
 		\begin{equation}
-			 \pi(u|x) > 0 \quad \forall\, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\}\, .
+			 \pi(u|x) > 0 \quad \forall\, \left\{x\in\mathcal{X}, u\in\mathcal{U}\right\} \hspace*{10em}
 		\end{equation}
 		\item<2-> Policies with this characteristic are called: \hl{soft}.
-		\item<3-> Level of exploration can be tuned during the learning process.
+		\item<3-> Level of exploration can be tuned during learning.
 	\end{itemize}
 	\vspace{0.5cm}
 	\item<4-> \hl{$\varepsilon$-greedy on-policy learning} 
 		\begin{itemize}
 		\item<4-> With probability $\varepsilon$ the agent's choice (i.e., the policy output) is overwritten with a random action.
-		\item<5-> Probability of all non-greedy actions: \begin{equation}\varepsilon/|\mathcal{U}|\,.\end{equation}
+		\item<5-> Probability of all non-greedy actions: \begin{equation}\varepsilon/\lvert\mathcal{U}\rvert\,.\end{equation}
 		\item<6-> Probability of the greedy action: \begin{equation}1-\varepsilon+\varepsilon/|\mathcal{U}|\,.\end{equation}
-		\item<5-> Above, $|\mathcal{U}|$ is the cardinality of the action space.
+		\item<5-> Where $\lvert\mathcal{U}\rvert$ is the cardinality of the action space.
 	\end{itemize}
 \end{itemize}
+  % Place image at specific coordinates
+  \onslide<2->
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north east]
+    at (current page.north east) % Change position as needed
+    {\rule{0em}{27ex}\includegraphics[width=0.3\textwidth]{fig/lec04/never-say-never-again-poster}\hspace*{3em}};
+  \end{tikzpicture}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
