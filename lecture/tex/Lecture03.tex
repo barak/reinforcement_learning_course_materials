@@ -214,7 +214,7 @@ Applying the Richardson iteration \eqref{eq:richardson_general} with $w=1$ to th
 \begin{equation}
 	v_{i+1}(x_k)	= \sum_{u_k\in\mathcal{U}}\bm{\pi}(u_k|x_k)\left(\mathcal{R}^u_x + \gamma\sum_{x_{k+1}\in\mathcal{X}}p_{xx'}^u v_{i}(x_{k+1})\right)\, .
 \end{equation}\pause
-Matrix form based on \eqref{eq:Bellman_MDP_linear} then is:
+Or in Matrix form based on \eqref{eq:Bellman_MDP_linear}:
 \begin{equation}
 \label{eq:iterative_policy_eval_matrix}
 	\bm{v}_{\mathcal{X},i+1}^{\pi} =\bm{r}_{\mathcal{X}}^{\pi}+\gamma\bm{\mathcal{P}}_{xx'}^{\pi}\bm{v}_{\mathcal{X},i}^{\pi}\, .
@@ -249,10 +249,20 @@ Matrix form based on \eqref{eq:Bellman_MDP_linear} then is:
 %% Iterative Policy Evaluation Example: Forest Tree MDP%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Iterative policy evaluation example: forest tree MDP}
-Let's reuse the forest tree MDP example from \figref{fig:Forest_Markov_Decision_Process_State_Value} with \textit{fifty-fifty policy}:
-\begin{equation*}
-	\bm{\mathcal{P}}_{xx'}^{\pi} = \begin{bmatrix}0 & \frac{1-\alpha}{2} & 0 & \frac{1+\alpha}{2}  \\ 0 & 0 &\frac{1-\alpha}{2} & \frac{1+\alpha}{2} \\ 0 & 0 &\frac{1-\alpha}{2} & \frac{1+\alpha}{2} \\ 0 & 0 & 0 & 1\end{bmatrix}, \quad\bm{r}_{\mathcal{X}}^{\pi} = \begin{bmatrix}0.5 \\ 1 \\ 2 \\ 0 \end{bmatrix} \, .
-\end{equation*}
+Let's reuse the forest tree MDP example from \figref{fig:Forest_Markov_Decision_Process_State_Value} with the \textit{fifty-fifty policy}:
+\begin{align*}
+	\bm{\mathcal{P}}_{xx'}^{\pi} &=
+        \begin{bmatrix}
+          0 & \frac{1-\alpha}{2} & 0 & \frac{1+\alpha}{2} \\[1.1ex]
+          0 & 0 &\frac{1-\alpha}{2} & \frac{1+\alpha}{2} \\[1.1ex]
+          0 & 0 &\frac{1-\alpha}{2} & \frac{1+\alpha}{2} \\[1.1ex]
+          0 & 0 & 0 & 1
+        \end{bmatrix}
+        &
+        \bm{r}_{\mathcal{X}}^{\pi} &= \begin{bmatrix}0.5 \\ 1 \\ 2 \\ 0 \end{bmatrix}
+        &
+        \bm{v}_{i+1} &= \bm{r}+\gamma\bm{\mathcal{P}}_{xx'}^{\pi}\bm{v}_{i}
+\end{align*}
 \pause
 \begin{table}
 	\centering
@@ -468,7 +478,7 @@ applies, then the policy $\pi'$ must be as good as or better than $\pi$. Hence, 
 %% Policy Iteration Example: Forest Tree MDP (2) %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Policy iteration example: forest tree MDP (2)}
-Assume $\alpha=0.2$ and $\gamma=0.8$ and start with \hl{`tree hater' initial policy}:\pause
+Assume $\alpha=0.2$ and $\gamma=0.8$ and initialize with \hl{`tree hater' policy}:\pause
 \begin{enumerate}
 	\item $\pi_0=\pi(u_k =\text{c}|x_k) \quad \,\forall x_k\in\mathcal{X}$.\pause
 	\item Policy evaluation: $v_\mathcal{X}^{\pi_0}=\begin{bmatrix}1 & 2 & 3 & 0\end{bmatrix}\T$\pause
