@@ -415,7 +415,7 @@ $\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$ (greedy choices based on $\
 \begin{itemize}
 	\item In a (small) discrete action space the $\argmax_{u}$ operation is straightforward. \pause
 	\item After one full LSPI evaluation the data set $\bm{\mathcal{D}}$ might be altered to include new data obtained based on the updated $\bm{w}$ vector. \pause
-	\item Source: M. Lagoudakis and R. Parr, \textit{Least-Squares Policy Iteration}, Journal of Machine Learning Research 4, pp. 1107-1149, 2003
+	\item Source: M. Lagoudakis and R. Parr, \textit{Least-Squares Policy Iteration}, Journal of Machine Learning Research \textbf{4}:1107--1149, 2003
 \end{itemize}
 }
 
@@ -462,7 +462,7 @@ $\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$ (greedy choices based on $\
 \end{itemize}
 \begin{figure}
 \includegraphics[height=4.2cm]{fig/lec10/LSPI_Inv_Pendulum}
-\caption{Balancing steps before episode termination with a clipping of maximum 3000 steps (source: M. Lagoudakis and R. Parr, \textit{Least-Squares Policy Iteration}, Journal of Machine Learning Research 4, pp. 1107-1149, 2003)}
+\caption{Balancing steps before episode termination with a clipping of maximum 3000 steps (source: M. Lagoudakis and R. Parr, \textit{Least-Squares Policy Iteration}, Journal of Machine Learning Research \textbf{4}:1107--1149, 2003)}
 \end{figure}
 }
 
@@ -618,7 +618,7 @@ Motivation behind:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Remarks on DQN implementation}
 \begin{itemize}
-	\item General framework is based on V. Mnih et al., \textit{Human-level control through deep reinforcement learning}, Nature, pp. 529-533, 2015.\pause
+	\item General framework is based on V. Mnih et al., \textit{Human-level control through deep reinforcement learning}, Nature \textbf{518}:529--533, 2015, doi:10.1038/nature14236.\pause
 	\item Often `deep' artificial neural networks are used as function approximation for DQN.
 	\begin{itemize}
 		\item Nevertheless, other model topologies are fully conceivable.\pause
