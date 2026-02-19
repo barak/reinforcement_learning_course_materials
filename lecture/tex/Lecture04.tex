@@ -132,13 +132,13 @@ $l(x)\leftarrow$ an empty list for every $x\in\mathcal{X}$}
 \onslide<1->{First-time visit MC:}
 \begin{itemize}
 	\item<2-> Each return sample $g_J$ is independent of the others since they were drawn from separate episodes.  
-	\item<3-> One receives \hl{i.i.d. data} to estimate $\E{\hat{v}_{\pi}}$ and consequently this \hl{is bias-free}.
+	\item<3-> One receives \hl{i.i.d.\ data} to estimate $\E{\hat{v}_{\pi}}$ and consequently this \hl{is bias-free}.
 	\item<4-> The estimate's variance $\Var{\hat{v}_{\pi}}$ drops with $1/n$ ($n$: available samples). 
 \end{itemize}
 \onslide<5->{Every-time visit MC:}
 \begin{itemize}
 	\item<5-> Each return sample $g_J$ is not independent of the others since they might be obtained from same episodes.   
-	\item<6-> One receives \hl{non-i.i.d.} data to estimate $\E{\hat{v}_{\pi}}$ and consequently this \hl{is biased} for any $n<\infty$.
+	\item<6-> One receives \hl{non-i.i.d.\ data} to estimate $\E{\hat{v}_{\pi}}$ and consequently this \hl{is biased} for any $n<\infty$.
 	\item<7-> Only in the limit $n\rightarrow \infty$ one receives $\left(v_{\pi}(x)-\E{\hat{v}_{\pi}(x)}\right) \rightarrow 0$.
 \end{itemize}
 \vspace{0.5cm}
