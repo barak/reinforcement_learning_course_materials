@@ -482,7 +482,7 @@ The RL agent's learning process is heavily linked with the reward distribution o
 \begin{defi}{History}{History}
 The history is the past sequence of all observations, actions and rewards
 \begin{equation}
-	\mathbb{H}_k = \left\{\bm{y}_0, r_0, \bm{u}_0, \ldots, \bm{u}_{k-1}, \bm{y}_k, r_k\right\}
+	\mathbb{H}_k = (\bm{y}_0, r_0, \bm{u}_0, \ldots, \bm{u}_{k-1}, \bm{y}_k, r_k)
 \end{equation}
 up to the time step $k$.
 \end{defi}
@@ -597,9 +597,9 @@ Evaluating the state and action spaces (e.g., finite vs. continuous) of a new RL
 %% Deterministic policy example %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Deterministic policy example}
-\onslide<1->Find optimal gains $\{K_\mathrm{p}, K_\mathrm{i}, K_\mathrm{d}\}$ given the reward $r_k=-e_k^2$:
+\onslide<1->Find optimal gains $(K_\mathrm{p}, K_\mathrm{i}, K_\mathrm{d})$ given the reward $r_k=-e_k^2$:
 \begin{itemize}
-	\onslide<2->\item Agent's behavior is explicitly determined by $\{K_\mathrm{p}, K_\mathrm{i}, K_\mathrm{d}\}$.
+	\onslide<2->\item Agent's behavior is explicitly determined by $(K_\mathrm{p}, K_\mathrm{i}, K_\mathrm{d})$.
 	\onslide<3->\item	Reference value is part of the environment state: $\bm{x}_k = \begin{bmatrix}y_k & y^*_k\end{bmatrix}\T$.
 	\onslide<4->\item Control output is the agent's action: $\bm{u}_k = \bm{\pi}(\bm{x}_k|K_\mathrm{p}, K_\mathrm{i}, K_\mathrm{d})$.
 \end{itemize}
