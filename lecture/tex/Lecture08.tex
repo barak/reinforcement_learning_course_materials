@@ -231,7 +231,7 @@ How to normalize categorical data?\pause
 	
 	Given $K$ feature vectors $\bm x_k \in \Re^P$ with, e.g., $P=3$ (two real-valued regressors and a categorical independent variable $\bm x_k = (x_{k,r_1}, x_{k,r_2}, x_{k,c})$):\pause
 	\begin{itemize}
-		\item $\tilde x_{k} = x_{k,r_1} + x_{k,r_2}$ (or any other combination, e.g., product, division, subtraction, also cf. \figref{fig:fe_example}),\pause
+		\item $\tilde x_{k} = x_{k,r_1} + x_{k,r_2}$ (or any other combination, e.g., product, division, subtraction, also cf.~\figref{fig:fe_example}),\pause
 		\item $\tilde x_k = x_{k,r} - \frac{1}{|\mathcal B|}\sum_{i \in \mathcal B} x_{i,r}\quad\forall r = \{r_1, r_2\}$ with $\mathcal B = \{i: x_{i,c} = x_{k, c}\}$,\pause
 		\item Clip/drop/aggregate outliers away,\pause
 		\item Coordinate transformations for spatial features (e.g., rotation),\pause

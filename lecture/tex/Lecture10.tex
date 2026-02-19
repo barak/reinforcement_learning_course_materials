@@ -357,8 +357,8 @@ Again, basic usage distinction:
 \end{itemize}\pause
 Possible modifications:
 \begin{itemize}
-	\item To prevent numeric instability regularization is possible, cf. \eqref{eq:Ridge_LSTD}
-	\item Recursive implementation for online usage straightforward, cf. \eqref{eq:RLS}
+	\item To prevent numeric instability regularization is possible, cf.~\eqref{eq:Ridge_LSTD}
+	\item Recursive implementation for online usage straightforward, cf.~\eqref{eq:RLS}
 \end{itemize}
 }
 
@@ -538,7 +538,7 @@ $\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$ (greedy choices based on $\
  \end{equation}\pause
 However, instead of using above semi-gradient step-by-step updates, DQN is characterized by
 	\begin{itemize}
-		\item an \hl{experience replay buffer} for batch learning (cf. prev. lectures),\pause
+		\item an \hl{experience replay buffer} for batch learning (cf.~prev. lectures),\pause
 		\item a separate set of \hl{weights $\bm{w}^-$ for the bootstrapped $Q$-target}. 
 	\end{itemize}\pause
 Motivation behind:
@@ -630,7 +630,7 @@ Motivation behind:
 	\end{itemize}\pause
 	\item Mini-batch sampling from $\bm{\mathcal{D}}$ is often randomly distributed.
 		\begin{itemize}
-		\item Nevertheless, guided sampling with useful distributions for a specific control task can be beneficial (cf. Dyna discussion in 7th lecture).
+		\item Nevertheless, guided sampling with useful distributions for a specific control task can be beneficial (cf.~Dyna discussion in 7th lecture).
 	\end{itemize}\pause
 	\item Likewise, the simple $\varepsilon$-greedy approach can be extended.
 	\begin{itemize}

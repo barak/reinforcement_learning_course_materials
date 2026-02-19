@@ -127,7 +127,7 @@ actor-critic (COPDAC) on continuous-action reinforcement learning (source: D. Si
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Motivation / general idea}
 \begin{itemize}
-	\item The upcoming \hl{deep deterministic policy gradient (DDPG)} algorithm was very much inspired by the successes of DQNs (cf. \algoref{algo:DQN} and landmark \href{https://www.nature.com/articles/nature14236?wm=book_wap_0005}{paper by Mnih et al.}) on discrete action spaces.\pause
+	\item The upcoming \hl{deep deterministic policy gradient (DDPG)} algorithm was very much inspired by the successes of DQNs (cf.~\algoref{algo:DQN} and landmark \href{https://www.nature.com/articles/nature14236?wm=book_wap_0005}{paper by Mnih et al.}) on discrete action spaces.\pause
 	\item However, \hl{DQNs are not directly applicable to (quasi-)continuous action spaces}.\pause
 	\item Recall the incremental $Q$-learning  equation using function approximation
 	\begin{equation*}
@@ -212,7 +212,7 @@ given a behavior policy $b(\bm{u}|\bm{x})$.
 \begin{itemize}
 	\item Minimizing \eqref{eq:Loss_DDPG} is a supervised learning step within the DDPG.\pause
 	\item The \href{https://arxiv.org/abs/1509.02971}{original DDPG paper by Lillicrap et al.} back in 2015/16 suggested to use batch normalization, i.e., re-centering and re-scaling the inputs of each layer in an ANN.\pause
-	\item This idea of batch normalization was presented at that time shortly before by Ioffe and Szegedy (cf. \href{http://proceedings.mlr.press/v37/ioffe15.html}{original paper}).\pause
+	\item This idea of batch normalization was presented at that time shortly before by Ioffe and Szegedy (cf.~\href{http://proceedings.mlr.press/v37/ioffe15.html}{original paper}).\pause
 	\item Today's perspective: stick to the current state-of-the-art supervised ML algorithms for top-class $Q$-learning stability and speed (which are normally well-covered in popular supervised ML toolboxes). 
 \end{itemize}
 }
@@ -290,12 +290,12 @@ given a behavior policy $b(\bm{u}|\bm{x})$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Overestimation bias}
 \begin{itemize}
-	\item For $Q$-learning in the tabular case we have already discussed the \hl{maximization bias} (cf. \figref{Double_Learning_Example}) issue.\pause
+	\item For $Q$-learning in the tabular case we have already discussed the \hl{maximization bias} (cf.~\figref{Double_Learning_Example}) issue.\pause
 	\item Recap: Due to the greedy policy targets, $\hat{q}$ was overestimated when calculated using sampled values of stochastic MDPs.\pause
 	\item Additional problem when applying function approximation: the estimator itself introduces additional variance during the learning process which represents another source of the maximization bias problem.\pause
 \end{itemize}
 \begin{block}{}
-This issue is already known in the DQN context (cf. \algoref{algo:DQN}). Similar to the tabular case, \hl{double DQN} introduces a second $Q$-network counteracting the overestimation issue (cf. \href{https://arxiv.org/pdf/1509.06461.pdf}{paper by van Hasselt et al.}).
+This issue is already known in the DQN context (cf.~\algoref{algo:DQN}). Similar to the tabular case, \hl{double DQN} introduces a second $Q$-network counteracting the overestimation issue (cf.~\href{https://arxiv.org/pdf/1509.06461.pdf}{paper by van Hasselt et al.}).
 \end{block}\pause
 However, we did not address this possible problem in an actor-critic context using function approximation (e.g., DDPG). 
 }
@@ -441,7 +441,7 @@ then \eqref{eq:approx_q_TD3} and \eqref{eq:true_q_TD3} imply
 	\begin{equation*}
 		\bm{w}_{i}^{-} \leftarrow (1-\tau)\bm{w}_{i}^{-}+\tau\bm{w}_{i}, \quad \bm{\theta}^{-} \leftarrow (1-\tau)\bm{\theta}^{-}+\tau\bm{\theta}.
 	\end{equation*}\pause
-	\item However, each policy update will inherently change the (true) $Q$-learning target directly adding variance to the learning process (cf. \figref{fig:Policy_Update_Frequency_TD3} on next slide).\pause
+	\item However, each policy update will inherently change the (true) $Q$-learning target directly adding variance to the learning process (cf.~\figref{fig:Policy_Update_Frequency_TD3} on next slide).\pause
 	\item Therefore, it is argued that a policy update should not follow after each $Q$-learning update such that the critic can adapt properly to the previous policy update.\pause
 	\item The original TD3 implementation suggests a policy update every second $Q$-learning update, however, we can consider this update rate a hyperparameter.
 \end{itemize}

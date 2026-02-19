@@ -13,7 +13,7 @@ Until further notice we assume that:
 	\end{itemize}
 	\item The \hl{action space remains discrete and feasible small}.
 	\begin{itemize}
-		\item The action can be represented as a scalar: $\bm{u}=u$ (cf. 2nd lecture). \pause
+		\item The action can be represented as a scalar: $\bm{u}=u$ (cf.~2nd lecture). \pause
 	\end{itemize}
 	\item The applied approximation functions $J(\bm{w})$ are \hl{differentiable}  with the parameter vector $\bm{w}$.
 	\begin{itemize}
@@ -420,7 +420,7 @@ The semi-gradient of $J(\bm{w})$ for TD(0) from prev. slide is then
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Background and motivation}
 \begin{itemize}
-	\item As already discussed in the tabular case: incremental learning is not data efficient (cf. example \figref{fig:Batch_AB_Example}).
+	\item As already discussed in the tabular case: incremental learning is not data efficient (cf.~example \figref{fig:Batch_AB_Example}).
 	\begin{itemize}
 		\item During one incremental learning step we are not utilizing the given information to the maximum possible extent.
 		\item Also applies to SGD-based updates with function approximation.
@@ -433,7 +433,7 @@ The semi-gradient of $J(\bm{w})$ for TD(0) from prev. slide is then
 \vspace{0.5cm}
 \item What batch learning options do we have?
 	\begin{itemize}
-		\item Experience replay (cf. planning and learning lecture, e.g., \figref{fig:Dyna})
+		\item Experience replay (cf.~planning and learning lecture, e.g., \figref{fig:Dyna})
 		\item If $\hat{v}(\tilde{\bm{x}}, \bm{w})$ is linear: closed-form \hl{least-squares} solution
 	\end{itemize}
 	\end{itemize}
@@ -530,7 +530,7 @@ Having arranged $i=1,\ldots,b$ samples $\left\langle \bm{x}_i, v_\pi(\bm{x}_i)\r
 Depending on the policy $\pi$ the rows in $\bm{\Xi}$ might be linearly correlated.
 \begin{itemize}
 	\item Bad matrix condition of $\bm{\Xi}\T\bm{\Xi}$ can lead to unfeasible values in $\bm{w}^*$.\pause
-	\item Counter measure: add Tikhonov regularization (ridge regression with penalty term $\epsilon$, cf. \eqref{eq:ridge}):
+	\item Counter measure: add Tikhonov regularization (ridge regression with penalty term $\epsilon$, cf.~\eqref{eq:ridge}):
 \end{itemize}
 \begin{equation}
 	\bm{w}_{\text{Ridge}}^* = (\bm{\Xi}\T\bm{\Xi}+\epsilon\bm{I})^{-1}\bm{\Xi}\T\bm{y} .

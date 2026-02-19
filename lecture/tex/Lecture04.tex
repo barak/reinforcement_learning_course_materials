@@ -473,8 +473,8 @@ Observations on forest tree MDP with $\varepsilon$-greedy MC-based control:
 	\item Rather slow convergence rate: quite a number of episodes is required. \pause
 	\item Significant uncertainty present in a single sequence. \pause
 	\item Later states are less often visited and, therefore, more uncertain. \pause
-	\item Exploration is controlled by $\varepsilon$: in a totally greedy policy the state $x=3$ is not visited at all (cf. \figref{fig:Forest_Markov_Decision_Process_Optimal_Action_Value}). With $\varepsilon$-greedy this state is visited occasionally. \pause
-	\item Nevertheless, the above figures highlight that MC-based control for the forest tree MDP tend towards the optimal policies discovered by dynamic programming (cf. \tabref{tab:Forest_tree_value_iteration}). 
+	\item Exploration is controlled by $\varepsilon$: in a totally greedy policy the state $x=3$ is not visited at all (cf.~\figref{fig:Forest_Markov_Decision_Process_Optimal_Action_Value}). With $\varepsilon$-greedy this state is visited occasionally. \pause
+	\item Nevertheless, the above figures highlight that MC-based control for the forest tree MDP tend towards the optimal policies discovered by dynamic programming (cf.~\tabref{tab:Forest_tree_value_iteration}). 
 \end{itemize}
 }
 
@@ -586,7 +586,7 @@ Starting at $X_{k}$ and following $\pi$, the probability of observing a particul
 	&=\prod_k^{T-1} \pi(U_k|X_{k})p(X_{k+1}|X_{k}, U_{k}).
 	\end{split}
 \end{equation}
-Above $p$ is the state-transition probability (cf. \defref{defi:Markov_decision_process}).\pause
+Above $p$ is the state-transition probability (cf.~\defref{defi:Markov_decision_process}).\pause
 \begin{defi}{Importance sampling ratio}{import_sampl_ratio}
 The relative probability of a trajectory under the target and behavior policy, the importance sampling ratio, from sample step $k$ to $T$ is:
 \begin{equation}
@@ -626,8 +626,8 @@ General remark:
 \frame{\frametitle{Off-policy Monte Carlo control}
 Just put everything together:
 \begin{itemize}
-	\item MC-based control utilizing GPI (cf. \figref{fig:GPI_MC}),
-	\item Off-policy learning based on importance sampling (or variants like weighted importance sampling, cf. Barto/Sutton book chapter 5.5).
+	\item MC-based control utilizing GPI (cf.~\figref{fig:GPI_MC}),
+	\item Off-policy learning based on importance sampling (or variants like weighted importance sampling, cf.~Barto/Sutton book chapter 5.5).
 \end{itemize}
 \vspace{1cm} \pause
 Requirement for off-policy MC-based control:
