@@ -307,7 +307,7 @@ Instead of applying \eqref{eq:iterative_policy_eval_matrix} to the entire vector
 	\item In-place algorithms allow to update states in a beneficial order. \pause
 	\item May converge faster than regular Richardson iteration if state update order is chosen wisely (sweep through state space).\pause
 	\item For forest tree MDP: reverse order, i.e., start with $x=4$.\pause
-	\item As can be seen in \tabref{tab:Forest_tree_policy_eval_in_place} the in-place updates especially converge faster for the `early states'.
+	\item As shown in \tabref{tab:Forest_tree_policy_eval_in_place}, in-place updates converge faster, particularly for `early states'.
 \end{itemize}
 
 \begin{table}
