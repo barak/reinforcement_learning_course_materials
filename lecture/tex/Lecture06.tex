@@ -5,7 +5,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Lets unify MC and TD learning}
 \begin{figure}		
-	\includegraphics[height=0.65\textheight]{fig/lec06/Compare_RL_Methods_Update.pdf}
+	\includegraphics[height=0.65\textheight]{fig/lec06/Compare_RL_Methods_Update}
 	\caption{MC and TD are the 'extreme options' in terms of the update's depth: what about intermediate solutions? (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 	\label{fig:Compare_RL_Methods_Update_lec06}
 \end{figure}
@@ -24,7 +24,7 @@
 \begin{column}{0.6\textwidth}
 \begin{minipage}[c]{\linewidth}
 	\begin{figure}		
-	\includegraphics[height=0.65\textheight]{fig/lec06/Back_Up_n_Step_Methods.pdf}
+	\includegraphics[height=0.65\textheight]{fig/lec06/Back_Up_n_Step_Methods}
 	\caption{Different backup diagrams of $n$-step state-value prediction methods}
 	\label{fig:Back_Up_n_Step_Methods}
 \end{figure}
@@ -155,7 +155,7 @@ The worst error of the expected $n$-step return is always less than or equal to 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Example: 19 state random walk}
 \begin{figure}		
-	\includegraphics[height=0.1\textheight]{fig/lec06/Random_Walk_19_States.pdf}
+	\includegraphics[height=0.1\textheight]{fig/lec06/Random_Walk_19_States}
 	\caption{Exemplary random walk Markov reward process (MRP)}
 	\label{fig:Random_Walk_19_States}
 \end{figure}
@@ -163,7 +163,7 @@ The worst error of the expected $n$-step return is always less than or equal to 
 \begin{column}{0.6\textwidth}
 \begin{minipage}[c]{\linewidth}
 	\begin{figure}		
-	\includegraphics[height=0.45\textheight]{fig/lec06/n_Step_TD_Random_Walk.pdf}
+	\includegraphics[height=0.45\textheight]{fig/lec06/n_Step_TD_Random_Walk}
 	\caption{$n$-step TD performance (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 	\label{fig:n_Step_TD_Random_Walk}
 \end{figure}
@@ -237,7 +237,7 @@ Analog to $n$-step TD, the state-action value target is rewritten as:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{$n$-step bootstrapping for state-action values}
 \begin{figure}		
-	\includegraphics[height=0.75\textheight]{fig/lec06/Back_Up_n_Step_Sarsa.pdf}
+	\includegraphics[height=0.75\textheight]{fig/lec06/Back_Up_n_Step_Sarsa}
 	\caption{Different backup diagrams of $n$-step state-action value update targets}
 	\label{fig:Back_Up_n_Step_Sarsa}
 \end{figure}
@@ -285,7 +285,7 @@ Analog to $n$-step TD, the state-action value target is rewritten as:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Illustration with grid-world example}
 \begin{figure}		
-	\includegraphics[height=0.35\textheight]{fig/lec06/n_step_Sarsa_Grid_World_Example.pdf}
+	\includegraphics[height=0.35\textheight]{fig/lec06/n_step_Sarsa_Grid_World_Example}
 	\caption{Executed updates (highlighted by arrows) for different $n$-step SARSA implementations during an episode (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 	\label{fig:n_step_Sarsa_Grid_World_Example}
 \end{figure}
@@ -431,7 +431,7 @@ Analog, an \hl{$n$-step off-policy SARSA-style update} exists:
 \begin{column}{0.35\textwidth}
 \begin{minipage}[c]{\linewidth}
 \begin{figure}
-	\includegraphics[height=0.65\textheight]{fig/lec06/Average_Bootstrap_Example.pdf}
+	\includegraphics[height=0.65\textheight]{fig/lec06/Average_Bootstrap_Example}
 	\caption{Exemplary averaging of $n$-step returns}
 	\label{fig:Average_Bootstrap_Example}
 \end{figure}
@@ -463,7 +463,7 @@ Analog, an \hl{$n$-step off-policy SARSA-style update} exists:
 \begin{column}{0.45\textwidth}
 \begin{minipage}[c]{\linewidth}
 \begin{figure}
-	\includegraphics[height=0.7\textheight]{fig/lec06/Lambda_Return_Backup.pdf}
+	\includegraphics[height=0.7\textheight]{fig/lec06/Lambda_Return_Backup}
 	\caption{Backup diagram for $\lambda$-returns}
 	\label{fig:Lambda_Return_Backup}
 \end{figure}
@@ -507,7 +507,7 @@ Analog, an \hl{$n$-step off-policy SARSA-style update} exists:
 	\end{itemize}}
 \end{itemize}
 \onslide<1->{\begin{figure}
-\includegraphics[height=0.29\textheight]{fig/lec06/Lambda_Weighting_Series.pdf}
+\includegraphics[height=0.29\textheight]{fig/lec06/Lambda_Weighting_Series}
 \caption{Weighting overview in $\lambda$-return series (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 \label{fig:Lambda_Weighting_Series}
 \end{figure}}
@@ -539,7 +539,7 @@ Analog, an \hl{$n$-step off-policy SARSA-style update} exists:
 	\onslide<2->{\item Currently, $\lambda$-returns are only an alternative to $n$-step updates with different weighting options.}
 \end{itemize}
 \onslide<1->{\begin{figure}
-\includegraphics[height=0.25\textheight]{fig/lec06/Forward_View.pdf}
+\includegraphics[height=0.25\textheight]{fig/lec06/Forward_View}
 \caption{The forward view: an update of the current state value is evaluated by future transitions (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 \label{fig:Forward_View}
 \end{figure}}
@@ -556,7 +556,7 @@ Analog, an \hl{$n$-step off-policy SARSA-style update} exists:
 	\onslide<2->{\item Therefore, an \hl{eligibility trace $z_k$} denoting the importance of past events to the current state update is introduced. }
 \end{itemize}
 \onslide<1->{\begin{figure}
-\includegraphics[height=0.4\textheight]{fig/lec06/Backward_View.pdf}
+\includegraphics[height=0.4\textheight]{fig/lec06/Backward_View}
 \caption{The backward view: an update of the current state value is evaluated based on a trace of past transitions (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 \label{fig:Backward_View}
 \end{figure}}
@@ -579,7 +579,7 @@ The \hl{eligibility trace $z_k(x)\in\Re$} is defined and tracked for each state 
 \label{eq:Elig_trace}
 \end{equation}
 \begin{figure}
-\includegraphics[height=0.36\textheight]{fig/lec06/State_Visits_Eligibility_Trace.pdf}
+\includegraphics[height=0.36\textheight]{fig/lec06/State_Visits_Eligibility_Trace}
 \caption{Simplified representation of updating an eligibility trace of an arbitrary state in a finite MDP}
 \label{fig:State_Visits_Eligibility_Trace}
 \end{figure}
@@ -665,7 +665,7 @@ Already known prediction and control methods can be modified accordingly. In con
 \end{itemize}
 \vspace{0.3cm}
 \begin{figure}
-\includegraphics[height=0.4\textheight]{fig/lec06/Traces_Sarsa_Gridworld.pdf}
+\includegraphics[height=0.4\textheight]{fig/lec06/Traces_Sarsa_Gridworld}
 \caption{SARSA variants after an arbitrary episode within a gridworld environment -- arrows indicate action-value change starting from initially zero estimates (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 \label{fig:Traces_Sarsa_Gridworld}
 \end{figure}

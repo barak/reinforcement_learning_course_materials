@@ -32,7 +32,7 @@ Today's focus:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Types of action-value function approximation}
 \begin{figure}
-\includegraphics[height=0.45\textheight]{fig/lec10/Model_types_action_value.pdf}
+\includegraphics[height=0.45\textheight]{fig/lec10/Model_types_action_value}
 \label{fig:Model_types_action_value}
 \caption{Possible function approximation settings for discrete actions}
 \end{figure}
@@ -103,7 +103,7 @@ Today's focus:
 \begin{column}{0.4\textwidth}
 \begin{minipage}[c]{\linewidth}
 \begin{figure}
-\includegraphics[height=2.5cm]{fig/lec03/GPI_02.pdf}
+\includegraphics[height=2.5cm]{fig/lec03/GPI_02}
 \caption{GPI}
 \end{figure}
 \end{minipage}
@@ -196,7 +196,7 @@ Today's focus:
 \begin{column}{0.475\textwidth}
 \begin{minipage}[c]{\linewidth}
 \begin{figure}
-	\includegraphics[width=4.8cm]{fig/lec10/mountain_car.png}
+	\includegraphics[width=4.8cm]{fig/lec10/mountain_car}
 	\caption{Classic RL control example: mountain car (derivative work based on \href{https://github.com/Farama-Foundation/Gymnasium}{https://github.com/Farama-Foundation/Gymnasium}, MIT license)}
 	\label{fig:Mountain_car_gym}
 \end{figure}
@@ -225,7 +225,7 @@ Today's focus:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{SARSA application example: mountain car (2)}
 \begin{figure}
-\includegraphics[height=0.65\textheight]{fig/lec10/Mountain_Car_BS.pdf}
+\includegraphics[height=0.65\textheight]{fig/lec10/Mountain_Car_BS}
 \caption{Cost-to-go function $-\max_u \hat{q}(\bm{x},u,\bm{w})$ for mountain car task using linear approximation with SARSA and tile coding (source: R. Sutton and G. Barto, Reinforcement learning: an introduction, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 \end{figure}
 }
@@ -241,7 +241,7 @@ Today's focus:
 	\item Find an example here: \href{https://github.com/MeepMoop/tilecoding}{https://github.com/MeepMoop/tilecoding} .
 \end{itemize}
 \begin{figure}
-\includegraphics[width=10cm]{fig/lec10/Tile_Coding.pdf}
+\includegraphics[width=10cm]{fig/lec10/Tile_Coding}
 \caption{Tile coding example in 2D (source: R. Sutton and G. Barto, Reinforcement learning: an introduction, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 \end{figure}
 }
@@ -373,7 +373,7 @@ General idea:
 	\item Policy improvement by greedy choices on predicted action values.
 \end{itemize}
 \begin{figure}
-\includegraphics[height=0.3\textheight]{fig/lec03/GPI_02.pdf}
+\includegraphics[height=0.3\textheight]{fig/lec03/GPI_02}
 \end{figure}\pause
 Some remarks:
 \begin{itemize}
@@ -427,7 +427,7 @@ $\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$ (greedy choices based on $\
 \begin{column}{0.475\textwidth}
 \begin{minipage}[c]{\linewidth}
 \begin{figure}
-	\includegraphics[width=4.8cm]{fig/lec10/Inv_pendulum.pdf}
+	\includegraphics[width=4.8cm]{fig/lec10/Inv_pendulum}
 	\caption{Classic RL control example: inverted pendulum (source: \href{https://commons.wikimedia.org/wiki/File:Cart-pendulum.svg}{www.wikipedia.org}, \href{https://creativecommons.org/publicdomain/zero/1.0/deed.en}{CC0 1.0})}
 	\label{fig:Inv_pendulum}
 \end{figure}
@@ -461,7 +461,7 @@ $\pi\leftarrow \argmax_{u}\hat{q}(\cdot, u, \bm{w})$ (greedy choices based on $\
 	\item Radial basis function as feature engineering
 \end{itemize}
 \begin{figure}
-\includegraphics[height=4.2cm]{fig/lec10/LSPI_Inv_Pendulum.pdf}
+\includegraphics[height=4.2cm]{fig/lec10/LSPI_Inv_Pendulum}
 \caption{Balancing steps before episode termination with a clipping of maximum 3000 steps (source: M. Lagoudakis and R. Parr, \textit{Least-Squares Policy Iteration}, Journal of Machine Learning Research 4, pp. 1107-1149, 2003)}
 \end{figure}
 }
@@ -573,7 +573,7 @@ Motivation behind:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Summary of DQN working principle (2)}
 \begin{figure}
-\includegraphics[height=5.5cm]{fig/lec10/DQN.pdf}
+\includegraphics[height=5.5cm]{fig/lec10/DQN}
 \caption{DQN structure from a bird's-eye perspective (derivative work of \figref{fig:RL_Wiki} and \href{https://commons.wikimedia.org/wiki/File:Multi-Layer_Neural_Network-Vector.svg?uselang=de}{wikipedia.org}, \href{https://creativecommons.org/publicdomain/zero/1.0/deed.en}{CC0 1.0})}
 \label{fig:DQN}
 \end{figure}
@@ -653,7 +653,7 @@ Motivation behind:
 	\item<5-> Interesting lecture from V. Minh with more details: \href{https://www.youtube.com/watch?v=fevMOp5TDQs&t=1499s}{YouTube}
 \end{itemize}
 \begin{figure}
-\includegraphics[height=0.4\textheight]{fig/lec10/DQN_Network_Silver.pdf}
+\includegraphics[height=0.4\textheight]{fig/lec10/DQN_Network_Silver}
 \caption{Network architecture overview used for DQN in Atari games \SilverLectureSource}
 \end{figure}
 }
@@ -662,7 +662,7 @@ Motivation behind:
 %% DQN Application Example: Atari Games (2%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{DQN application example: Atari games (2)}
 \begin{figure}
-\includegraphics[height=0.7\textheight]{fig/lec10/DQN_Atari_Results.pdf}
+\includegraphics[height=0.7\textheight]{fig/lec10/DQN_Atari_Results}
 \caption{DQN performance results in Atari games against human performance \SilverLectureSource}
 \end{figure}
 }

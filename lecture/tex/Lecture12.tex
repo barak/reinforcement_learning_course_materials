@@ -110,7 +110,7 @@ Given a metric $J(\bm{\theta})$ for the undiscounted episodic \eqref{eq:performa
 	\item SAC uses a Gaussian policy with linear function approximation.
 \end{itemize}
 \begin{figure}
-\includegraphics[width=11cm]{fig/lec12/SLH_Benchmarks.pdf}
+\includegraphics[width=11cm]{fig/lec12/SLH_Benchmarks}
 \caption{Comparison of stochastic on-policy actor-critic (SAC), stochastic off-policy actor-critic (OffPAC), and deterministic off-policy
 actor-critic (COPDAC) on continuous-action reinforcement learning (source: D. Silver et al., \textit{Deterministic Policy Gradient Algorithms}, International Conference on Machine Learning, 2014)}
 \label{fig:SLH_Benchmarks}
@@ -239,7 +239,7 @@ given a behavior policy $b(\bm{u}|\bm{x})$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Visual summary of DDPG working principle}
 \begin{figure}
-\includegraphics[height=5.75cm]{fig/lec12/DDPG.pdf}
+\includegraphics[height=5.75cm]{fig/lec12/DDPG}
 \caption{DDPG structure from a bird's-eye perspective (derivative work of \figref{fig:RL_Wiki} and \href{https://commons.wikimedia.org/wiki/File:Multi-Layer_Neural_Network-Vector.svg?uselang=de}{wikipedia.org}, \href{https://creativecommons.org/publicdomain/zero/1.0/deed.en}{CC0 1.0})}
 \label{fig:DDPG}
 \end{figure}
@@ -364,7 +364,7 @@ then \eqref{eq:approx_q_TD3} and \eqref{eq:true_q_TD3} imply
 \frame{\frametitle{Overestimation example for DDPG}
 \vspace{0.75cm}
 \begin{figure}
-\includegraphics[height=4cm]{fig/lec12/DDPG_Overestimation.pdf}
+\includegraphics[height=4cm]{fig/lec12/DDPG_Overestimation}
 \caption{Comparison of true and estimated values averaged over 10000 states in two robotic examples from \href{https://gym.openai.com/envs/\#mujoco}{OpenAI Gym}. Estimated values originate from the approximate DDPG critic while the true values are based on the average discounted return over 1000 episodes following the current policy, starting from states sampled from the replay buffer (source: S. Fujimoto et al., \textit{Addressing Function Approximation Error in Actor-Critic Methods}, 2018.}
 \label{fig:DDPG_Overestimation}
 \end{figure}
@@ -453,7 +453,7 @@ then \eqref{eq:approx_q_TD3} and \eqref{eq:true_q_TD3} imply
 \frame{\frametitle{TD3 extensions and modifications (4)}
 \vspace{0.775cm}
 \begin{figure}
-\includegraphics[height=4cm]{fig/lec12/Policy_Update_Frequency_TD3.pdf}
+\includegraphics[height=4cm]{fig/lec12/Policy_Update_Frequency_TD3}
 	\caption{Average estimated action value of a randomly selected state on Hopper-v1 environment from \href{https://gym.openai.com/envs/\#mujoco}{OpenAI Gym} (source: S. Fujimoto et al., \textit{Addressing Function Approximation Error in Actor-Critic Methods}, 2018.}
 	\label{fig:Policy_Update_Frequency_TD3}
 \end{figure}

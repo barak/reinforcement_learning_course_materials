@@ -32,7 +32,7 @@ Monte Carlo methods:
 	\onslide<4->\item Consequence: estimation and policy updates only possible in an episode-by-episode way compared to step-by-step (online)
 \end{itemize}
 \onslide<1->\begin{figure}
-\includegraphics[width=8cm]{fig/lec04/Monte_Carlo_City.jpg}
+\includegraphics[width=8cm]{fig/lec04/Monte_Carlo_City}
 \caption{Monte Carlo port \\(source: \href{https://www.flickr.com/photos/flynn_nrg/40890124713/}{www.flickr.com}, by \href{https://www.flickr.com/photos/flynn_nrg/}{Miguel Mendez} \href{https://creativecommons.org/licenses/by/2.0/}{CC BY 2.0})}
 \label{fig:MMonte_Carlo_City}
 \end{figure}
@@ -161,11 +161,11 @@ $l(x)\leftarrow$ an empty list for every $x\in\mathcal{X}$}
 \end{itemize}
 \begin{figure}
 	\subfloat{
-		\includegraphics[height=2.5cm]{fig/lec04/Back_Up_DP.pdf}
+		\includegraphics[height=2.5cm]{fig/lec04/Back_Up_DP}
 	}
 	\hspace{1cm}
 	\subfloat{
-		\includegraphics[height=2.5cm]{fig/lec04/Back_Up_MC.pdf}
+		\includegraphics[height=2.5cm]{fig/lec04/Back_Up_MC}
 	}
 \caption{Back-up diagrams for DP (left) and MC (right) prediction: shallow one-step back-ups with bootstrapping vs. deep back-ups over full episodes}
 \end{figure}
@@ -179,7 +179,7 @@ Let's reuse the forest tree MDP example with \textit{fifty-fifty policy} and dis
 plus disaster probability $\alpha=0.2$:
 \vspace{0.5cm}
 \begin{figure}		
-	\includegraphics[height=0.5\textheight]{fig/lec04/Forest_Markov_Decision_Process_State_Value.pdf}
+	\includegraphics[height=0.5\textheight]{fig/lec04/Forest_Markov_Decision_Process_State_Value}
 	\caption{Forest MDP with fifty-fifty-policy including state values}
 \end{figure}
 }
@@ -189,7 +189,7 @@ plus disaster probability $\alpha=0.2$:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{MC-based prediction example: forest tree MDP (2)}
 \begin{figure}		
-	\includegraphics[height=0.65\textheight]{fig/lec04/Forest_Tree_MC_Value_Prediction.pdf}
+	\includegraphics[height=0.65\textheight]{fig/lec04/Forest_Tree_MC_Value_Prediction}
 	\caption{State-value estimate of forest tree MDP initial state using MC-based prediction over the number of episodes being evaluated (mean and standard deviation are calculated based on 2000 independent runs)}
 	\label{fig:Forest_Tree_MC_Value_Prediction}
 \end{figure}
@@ -240,7 +240,7 @@ Is a \hl{model available} (i.e., tuple $\left\langle\mathcal{X}, \mathcal{U}, \b
 \end{itemize}
 \onslide<1->{\begin{figure}
 \begin{minipage}[c]{0.25\textwidth}
-    \includegraphics[height=0.4\textheight]{fig/lec04/MC_GPI.pdf}
+    \includegraphics[height=0.4\textheight]{fig/lec04/MC_GPI}
   \end{minipage}
   \begin{minipage}[c]{0.45\textwidth}
     \caption{Transferring GPI to MC-based control (source: R. Sutton and G. Barto, Reinforcement learning: an introduction, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
@@ -438,7 +438,7 @@ Continuation:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{MC-based control example: forest tree MDP (1)}
 \begin{figure}		
-	\includegraphics[height=0.65\textheight]{fig/lec04/Forest_Tree_MC_Control_eps_02.pdf}
+	\includegraphics[height=0.65\textheight]{fig/lec04/Forest_Tree_MC_Control_eps_02}
 	\caption{Different estimates of forest tree MDP ($\alpha=0.2, \gamma=0.8$) using MC control with \hl{$\varepsilon=0.2$} over the number of episodes. Mean is red and standard deviation is light blue, both calculated based on 2000 independent runs.}
 	\label{fig:Forest_Tree_MC_Control_eps_02}
 \end{figure}
@@ -449,7 +449,7 @@ Continuation:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{MC-based control example: forest tree MDP (2)}
 \begin{figure}		
-	\includegraphics[height=0.65\textheight]{fig/lec04/Forest_Tree_MC_Control_eps_005.pdf}
+	\includegraphics[height=0.65\textheight]{fig/lec04/Forest_Tree_MC_Control_eps_005}
 	\caption{Different estimates of forest tree MDP ($\alpha=0.2, \gamma=0.8$) using MC control with \hl{$\varepsilon=0.05$} over the number of episodes. Mean is red and standard deviation is light blue, both calculated based on 2000 independent runs.}
 	\label{fig:Forest_Tree_MC_Control_eps_005}
 \end{figure}

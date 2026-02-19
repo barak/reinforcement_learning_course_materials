@@ -3,7 +3,7 @@
 
 \frame{\frametitle{The machine learning triad}
 \begin{figure}
-	\includegraphics[width=11cm]{fig/lec01/Machine_Learning_Disciplines.pdf}
+	\includegraphics[width=11cm]{fig/lec01/Machine_Learning_Disciplines}
 	\caption{Disciplines of machine learning 
 	}
 	\label{fig:Machine_Learning_Disciplines_2}
@@ -31,7 +31,7 @@ Machine learning (ML) and especially the field of supervised learning (SL) is ex
 %  Typical ML pipeline
 \frame{\frametitle{Typical supervised learning pipeline}
 	\begin{figure}
-		\includegraphics[width=8cm]{fig/lec08/ML_pipeline.png}
+		\includegraphics[width=8cm]{fig/lec08/ML_pipeline}
 		\caption{A typical supervised learning pipeline -- sometimes more art than science}
 		\label{fig:ml_pipeline}
 	\end{figure}
@@ -77,7 +77,7 @@ Machine learning (ML) and especially the field of supervised learning (SL) is ex
 
 \frame{\frametitle{Bias and variance}
 	\begin{figure}
-		\includegraphics[width=12cm]{fig/lec08/bias_variance.pdf}
+		\includegraphics[width=12cm]{fig/lec08/bias_variance}
 		\caption{Left: decision boundaries in binary classification, $k$-nearest neighbors with one (bright) and nine (dark) neighbors. Right: regression example, least squares (dark) and $2$-nearest neighbors (bright).}
 		\label{fig:bias_variance}
 	\end{figure}
@@ -106,7 +106,7 @@ Machine learning (ML) and especially the field of supervised learning (SL) is ex
 	\begin{minipage}[c]{\linewidth}
 	
 		\begin{figure}
-			\includegraphics[width=\textwidth]{fig/lec08/kfold-cv.pdf}
+			\includegraphics[width=\textwidth]{fig/lec08/kfold-cv}
 			\caption{$k$-fold CV with five folds}
 			\label{fig:kfold-cv}
 		\end{figure}
@@ -160,7 +160,7 @@ Machine learning (ML) and especially the field of supervised learning (SL) is ex
 \frame{\frametitle{Feature engineering example (classification)}
 
 	\begin{figure}
-		\includegraphics[width=11cm]{fig/lec08/fe_example.pdf}
+		\includegraphics[width=11cm]{fig/lec08/fe_example}
 		\caption{Features $r=\sqrt{\text{width}^2 + \text{height}^2}$ and $\theta = \arctan{(\frac{\text{height}}{\text{width}})}$ reveal linearly separable class distribution}
 		\label{fig:fe_example}
 	\end{figure}
@@ -170,7 +170,7 @@ Machine learning (ML) and especially the field of supervised learning (SL) is ex
 
 \frame{\frametitle{Feature engineering example (regression)}
 	\begin{figure}
-		\includegraphics[width=11cm]{fig/lec08/fe_example2.pdf}
+		\includegraphics[width=11cm]{fig/lec08/fe_example2}
 		\caption{Log-transform of the target signal exhibits linear relationship to the regressor}
 		\label{fig:fe_example2}
 	\end{figure}
@@ -279,7 +279,7 @@ How to normalize categorical data?\pause
 
 \frame{\frametitle{Model choice}
 	\begin{figure}
-		\includegraphics[width=8.8cm]{fig/lec08/bigdrill.png}
+		\includegraphics[width=8.8cm]{fig/lec08/bigdrill}
 		\caption{Choose models appropriate for the problem! (Source: adapted from \href{https://www.reddit.com/r/toolporn/comments/1kw63x/hilti_30c_in_your_hands_feels_huge_1050_x_750/}{reddit})}
 		\label{fig:bigdrill}
 	\end{figure}
@@ -336,7 +336,7 @@ Among other methods, $\bm w$ can be estimated from $K$ samples by minimizing the
 	\begin{minipage}[c]{\linewidth}
 	
 		\begin{figure}
-			\includegraphics[width=0.9\textwidth]{fig/lec08/neuron.pdf}
+			\includegraphics[width=0.9\textwidth]{fig/lec08/neuron}
 			\caption{A typical neuron as the key building block of ANNs.}
 			\label{fig:neuron}
 		\end{figure}
@@ -364,7 +364,7 @@ Among other methods, $\bm w$ can be estimated from $K$ samples by minimizing the
 	\begin{minipage}[c]{\linewidth}
 	
 		\begin{figure}
-			\includegraphics[width=0.8\textwidth]{fig/lec08/MLP.pdf}
+			\includegraphics[width=0.8\textwidth]{fig/lec08/MLP}
 			\caption{Multi-layer perceptron.}
 			\label{fig:mlp}
 		\end{figure}
@@ -407,7 +407,7 @@ Among other methods, $\bm w$ can be estimated from $K$ samples by minimizing the
 	\begin{column}{0.52\textwidth}
 	\begin{minipage}[r]{\linewidth}
 		\begin{figure}
-			\includegraphics[width=0.8\textwidth]{fig/lec08/act_funcs.pdf}
+			\includegraphics[width=0.8\textwidth]{fig/lec08/act_funcs}
 			\caption{Common activation functions}
 			\label{fig:act_funcs}
 		\end{figure}
@@ -450,7 +450,7 @@ Several iterations over the data set $\bm{\mathcal D}$ are called \hl{epochs}.
 	\begin{column}{0.45\textwidth}
 	\begin{minipage}[c]{\linewidth}
 		\begin{figure}
-		\includegraphics[width=0.8\textwidth]{fig/lec08/sgd.pdf}
+		\includegraphics[width=0.8\textwidth]{fig/lec08/sgd}
 		\caption{BGD vs. SGD}
 		\label{fig:sgd}
 	\end{figure}
@@ -580,11 +580,11 @@ Please note that generally due to the random weight initialization the result of
 	\begin{figure}[tbp]
     \centering
     \begin{minipage}[t]{0.38\textwidth}
-        \includegraphics[width=\textwidth]{fig/lec08/RNN_over_sequence.pdf}
+        \includegraphics[width=\textwidth]{fig/lec08/RNN_over_sequence}
     \end{minipage}\hfill
     \begin{minipage}[t]{0.55\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{fig/lec08/CNN_over_sequence.pdf}
+        \includegraphics[width=\textwidth]{fig/lec08/CNN_over_sequence}
         \end{minipage}
         \caption{Recurrent (left) and 1-D convolutional (right) ANNs are more appropriate in time domains, e.g., where the given data set has a dynamic system background}
 \end{figure}
@@ -592,7 +592,7 @@ Please note that generally due to the random weight initialization the result of
 
 \frame{\frametitle{Hyperparameter optimization (1)}
 	\begin{figure}
-		\includegraphics[width=9cm]{fig/lec08/levels_of_opt.pdf}
+		\includegraphics[width=9cm]{fig/lec08/levels_of_opt}
 		\caption{The three levels of optimization}
 		\label{fig:levels_of_opt}
 	\end{figure}

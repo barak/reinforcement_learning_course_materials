@@ -32,7 +32,7 @@ to (direct) policy-based solutions:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Preface (2)}
 \begin{figure}
-	\includegraphics[height=0.7\textheight]{fig/lec01/RL_Agent_Taxonomy.pdf}
+	\includegraphics[height=0.7\textheight]{fig/lec01/RL_Agent_Taxonomy}
 	\caption{Main categories of reinforcement learning algorithms\\  \SilverLectureSource}
 \end{figure}
 }
@@ -53,7 +53,7 @@ to (direct) policy-based solutions:
 
 \onslide<1->
 \begin{figure}
-	\includegraphics[height=0.5\textheight]{fig/lec01/Rock_paper_scissors_lizard_spock.pdf}
+	\includegraphics[height=0.5\textheight]{fig/lec01/Rock_paper_scissors_lizard_spock}
 	\caption{Rock paper scissors lizard Spock game mechanics\\(source: \href{https://commons.wikimedia.org/wiki/File:Rock_paper_scissors_lizard_spock.svg}{www.wikipedia.org},  by \href{https://en.wikipedia.org/wiki/User:Diriector_Doc}{Diriector Doc} \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC BY-SA 4.0})}
 \end{figure}
 }
@@ -117,7 +117,7 @@ A typical policy function is:
 	\item Depending on $\sigma$ exploration is an inherent part of the (stochastic) policy. 
 \end{itemize}
 \begin{figure}
-\includegraphics[width=5.5cm]{fig/lec11/Gaussian_Distri.pdf}
+\includegraphics[width=5.5cm]{fig/lec11/Gaussian_Distri}
 \caption{Exemplary univariate Gaussian probability density functions (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 \label{fig:Gaussian_Distri}
 \end{figure}
@@ -155,7 +155,7 @@ A typical policy function is:
 	\bm{\mu}=\begin{bmatrix}-0.4 & 0.3\end{bmatrix}\T \quad \text{and} \quad \bm{\Sigma}=\begin{bmatrix}0.04 & 0\\ 0 & 0.02 \end{bmatrix} .
 \end{equation*}
 \begin{figure}
-\includegraphics[width=6.5cm]{fig/lec11/Gaussian_Policy_Multivariate.pdf}
+\includegraphics[width=6.5cm]{fig/lec11/Gaussian_Policy_Multivariate}
 \caption{Exemplary bivariate Gaussian probability density function}
 \label{fig:Gaussian_Policy_Multivariate}
 \end{figure}
@@ -218,7 +218,7 @@ Possible optimality metrics:
 \begin{column}{0.475\textwidth}
 \begin{minipage}[c]{\linewidth}
 \begin{figure}
-	\includegraphics[width=4.5cm]{fig/lec11/Gradient_ascent.pdf}
+	\includegraphics[width=4.5cm]{fig/lec11/Gradient_ascent}
 	\caption{Exemplary optimization paths for (stochastic) gradient ascent \\(derivative work of \href{https://commons.wikimedia.org/wiki/File:Gradient_descent.svg}{www.wikipedia.org}, \href{https://creativecommons.org/publicdomain/zero/1.0/deed.en}{CC0 1.0})}
 	\label{fig:Gradient_ascent}
 \end{figure}
@@ -410,7 +410,7 @@ Monte Carlo policy gradient:
 	\onslide<4->\item A policy-based approach searches for the optimal probability split
 \end{itemize}
 \onslide<1->\begin{figure}
-\includegraphics[height=0.5\textheight]{fig/lec11/Short_Corridor_Problem.pdf}
+\includegraphics[height=0.5\textheight]{fig/lec11/Short_Corridor_Problem}
 \caption{Short-corridor problem with $\varepsilon=0.1$ (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 \label{fig:Short_Corridor_Problem}
 \end{figure}
@@ -421,7 +421,7 @@ Monte Carlo policy gradient:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{REINFORCE example: short-corridor problem (2)}
 \begin{figure}
-\includegraphics[height=0.65\textheight]{fig/lec11/REINFORCE_short_corridor.pdf}
+\includegraphics[height=0.65\textheight]{fig/lec11/REINFORCE_short_corridor}
 \caption{Comparison of Monte Carlo policy gradient approach on short-corridor problem from \figref{fig:Short_Corridor_Problem} for different learning rates (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 \label{fig:REINFORCE_short_corridor}
 \end{figure}
@@ -514,7 +514,7 @@ Monte Carlo policy gradient:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{REINFORCE comparison w/o baseline}
 \begin{figure}
-\includegraphics[height=0.65\textheight]{fig/lec11/REINFORCE_short_corridor_baseline.pdf}
+\includegraphics[height=0.65\textheight]{fig/lec11/REINFORCE_short_corridor_baseline}
 \caption{Comparison of Monte Carlo policy gradient on short-corridor problem from \figref{fig:Short_Corridor_Problem} where both algorithms' learning rates have been tuned (source: R. Sutton and G. Barto, \emph{Reinforcement Learning: An Introduction}, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 \label{fig:REINFORCE_short_corridor_baseline}
 \end{figure}
@@ -588,7 +588,7 @@ Alternative: use an additional function approximator, the so-called \hl{critic},
 	\item Online and on-policy algorithm for discrete and continuous action spaces with built-in exploration by stochastic policy functions.
 \end{itemize}
 \begin{figure}
-\includegraphics[height=0.5\textheight]{fig/lec11/Actor-Critic.pdf}
+\includegraphics[height=0.5\textheight]{fig/lec11/Actor-Critic}
 \caption{Simplified flow diagram of actor-critic-based RL}
 \label{fig:Actor-Critic}
 \end{figure}

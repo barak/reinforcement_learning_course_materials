@@ -48,7 +48,7 @@
 	\onslide<3->\item \hl{We will stick to the scalar representation of states and actions in finite MDPs}.
 \end{itemize}
 \onslide<1->\begin{figure}		
-	\includegraphics[width=4cm]{fig/lec02/Chess_Board.pdf}
+	\includegraphics[width=4cm]{fig/lec02/Chess_Board}
 \end{figure}
 }
 
@@ -103,7 +103,7 @@ with $p_{ij}\in\left\{\Re|0 \leq p_{ij} \leq 1 \right\}$ being the specific prob
 \frame{\frametitle{Example of a Markov chain (1)}
 \begin{minipage}[t]{0.53\linewidth}
 		\vspace{0pt}
-		\begin{figure}		\includegraphics[width=6cm]{fig/lec02/Forest_Markov_Chain.pdf}
+		\begin{figure}		\includegraphics[width=6cm]{fig/lec02/Forest_Markov_Chain}
 		\caption{Forest tree Markov chain}
 		\label{fig:Forest_Markov_Chain}
 	\end{figure}
@@ -131,7 +131,7 @@ with $p_{ij}\in\left\{\Re|0 \leq p_{ij} \leq 1 \right\}$ being the specific prob
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Example of a Markov chain (2)}
 \begin{figure}		
-	\includegraphics[height=0.5\textheight]{fig/lec02/Forest_Markov_Chain.pdf}
+	\includegraphics[height=0.5\textheight]{fig/lec02/Forest_Markov_Chain}
 \end{figure}
 Possible \hl{samples} for the given Markov chain example starting from $x=1$ (small tree):
 \begin{itemize}
@@ -173,7 +173,7 @@ A \hl{finite Markov reward process (MRP)} is a tuple $\left\langle\mathcal{X}, \
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Example of a Markov reward process}
 \begin{figure}		
-	\includegraphics[height=0.5\textheight]{fig/lec02/Forest_Markov_Reward_Process.pdf}
+	\includegraphics[height=0.5\textheight]{fig/lec02/Forest_Markov_Reward_Process}
 	\caption{Forest Markov reward process}
 	\label{fig:Forest_Markov_Reward_Process}
 \end{figure}
@@ -225,7 +225,7 @@ The \hl{state-value function} $v(x_k)$ of an MRP is the expected return starting
 \vspace{0.25cm}
 \onslide<3->{
 \begin{figure}
-	\includegraphics[height=0.325\textheight]{fig/lec02/Value_Golf.pdf}
+	\includegraphics[height=0.325\textheight]{fig/lec02/Value_Golf}
 	\caption{Isolines indicate state value of different golf ball locations (source: R. Sutton and G. Barto, Reinforcement learning: an introduction, 2018, \href{https://creativecommons.org/licenses/by-nc-nd/2.0/}{CC BY-NC-ND 2.0})}
 	\label{fig:Value_Golf}
 \end{figure}}
@@ -236,7 +236,7 @@ The \hl{state-value function} $v(x_k)$ of an MRP is the expected return starting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{State-value samples of forest MRP}
 \onslide<1->{\begin{figure}		
-	\includegraphics[height=0.5\textheight]{fig/lec02/Forest_Markov_Reward_Process.pdf}
+	\includegraphics[height=0.5\textheight]{fig/lec02/Forest_Markov_Reward_Process}
 \end{figure}
 Exemplary \hl{samples} for $\hat{v}$ with $\gamma=0.5$ starting in $x=1$:
 \begin{alignat*}{2}
@@ -268,7 +268,7 @@ Problem: How to calculate all state values in closed form?\\
 \onslide<8->{
 \begin{figure}	
 		 \hspace*{-1.5cm}
-		\includegraphics[width=6.1cm]{fig/lec02/Back_Up_MRP.pdf}
+		\includegraphics[width=6.1cm]{fig/lec02/Back_Up_MRP}
 		\caption{Backup diagram for $v(x_k)$}
 		\label{fig:Back_Up_MRP}
 \end{figure}
@@ -323,7 +323,7 @@ In RL identifying and solving \eqref{eq:MRP_normal_equation} is a key task, whic
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Example of a MRP with state values}
 \begin{figure}		
-	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Reward_Process_State_Value.pdf}
+	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Reward_Process_State_Value}
 	\caption{Forest Markov reward process including state values}
 	\label{fig:Forest_Markov_Chain_State_Value}
 \end{figure}
@@ -365,7 +365,7 @@ A \hl{finite Markov decision process (MDP)} is a tuple $\left\langle\mathcal{X},
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Example of a Markov decision process (1)}
 \begin{figure}		
-	\includegraphics[height=0.5\textheight]{fig/lec02/Forest_Markov_Decision_Process.pdf}
+	\includegraphics[height=0.5\textheight]{fig/lec02/Forest_Markov_Decision_Process}
 	\caption{Forest Markov decision process}
 	\label{fig:Forest_Markov_Decision_Process}
 \end{figure}
@@ -414,7 +414,7 @@ In an MDP environment, a \hl{policy} is a distribution over actions given states
 \end{itemize}
 \onslide<1->{
 \begin{figure}		
-	\includegraphics[height=0.35\textheight]{fig/lec02/monopoly.jpg}
+	\includegraphics[height=0.35\textheight]{fig/lec02/monopoly}
 	\caption{What is you best Monopoly policy? (source: Ylanite Koppens on \href{https://www.pexels.com/de-de/foto/begrifflich-brettspiel-drinnen-farben-776654/}{Pexels})}
 \end{figure}
 }
@@ -475,7 +475,7 @@ In finite MDPs, the state value can be directly linked to the action value (cf.~
 \vspace{0.5cm}
 \begin{figure}	
 		 \hspace*{-1.5cm}
-		\includegraphics[width=6.5cm]{fig/lec02/Back_Up_Value_MDP.pdf}
+		\includegraphics[width=6.5cm]{fig/lec02/Back_Up_Value_MDP}
 		\caption{Backup diagram for $v_{\pi}(x_k)$}
 		\label{fig:Back_Up_Value_MDP}
 \end{figure}
@@ -499,7 +499,7 @@ In finite MDPs, the action value can be directly linked to the state value (cf.~
 \vspace{0.5cm}
 \begin{figure}	
 		 \hspace*{-1.5cm}
-		\includegraphics[width=6.5cm]{fig/lec02/Back_Up_Action_Value_MDP.pdf}
+		\includegraphics[width=6.5cm]{fig/lec02/Back_Up_Action_Value_MDP}
 		\caption{Backup diagram for $q_{\pi}(x_k,u_k)$}
 		\label{fig:Back_Up_Action_Value_MDP}
 \end{figure}
@@ -566,7 +566,7 @@ one receives:
 \frame{\frametitle{Bellman expectation equation \& forest tree example (2)}
 \begin{figure}		
 	%\hspace*{-1.5cm}
-	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Decision_Process_State_Value.pdf}
+	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Decision_Process_State_Value}
 	\caption{Forest MDP with fifty-fifty policy including state values}
 	\label{fig:Forest_Markov_Decision_Process_State_Value}
 \end{figure}
@@ -584,7 +584,7 @@ Using the Bellman expectation from \eqref{eq:q_MDP_finite} the action values can
 \vspace{0.5cm}
 \begin{figure}		
 	\hspace*{0.5cm}
-	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Decision_Process_Action_Value.pdf}
+	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Decision_Process_Action_Value}
 	\caption{Forest MDP with fifty-fifty policy plus action values}
 	\label{fig:Forest_Markov_Decision_Process_Action_Value}
 \end{figure}
@@ -671,7 +671,7 @@ For any finite MDP
 Again, the Bellman optimality equation can be visualized by a backup diagram: 
 \begin{figure}	
 		 %\hspace*{-1.5cm}
-		\includegraphics[width=4.5cm]{fig/lec02/Back_Up_Value_Optimal_MDP.pdf}
+		\includegraphics[width=4.5cm]{fig/lec02/Back_Up_Value_Optimal_MDP}
 		\caption{Backup diagram for $v^*(x_k)$}
 		\label{fig:Back_Up_Value_Optimal_MDP}
 \end{figure}
@@ -700,7 +700,7 @@ And, in the finite MDP case:
 \pause
 \begin{figure}	
 		 %\hspace*{-1.5cm}
-		\includegraphics[width=4.7cm]{fig/lec02/Back_Up_Action_Value_Optimal_MDP.pdf}
+		\includegraphics[width=4.7cm]{fig/lec02/Back_Up_Action_Value_Optimal_MDP}
 		\caption{Backup diagram for $q^*(x_k,u_k)$}
 		\label{fig:Back_Up_Action_Value_Optimal_MDP}
 \end{figure}
@@ -731,7 +731,7 @@ And, in the finite MDP case:
 \frame{\frametitle{Optimal policy for forest tree MDP}
 Remember the forest tree MDP example:
 \begin{figure}		
-	\includegraphics[height=0.5\textheight]{fig/lec02/Forest_Markov_Decision_Process_No_Color.pdf}
+	\includegraphics[height=0.5\textheight]{fig/lec02/Forest_Markov_Decision_Process_No_Color}
 	\label{fig:Forest_Markov_Decision_Process_No_Color}
 \end{figure}
 
@@ -774,7 +774,7 @@ Remember the forest tree MDP example:
 	\end{itemize}
 \end{itemize}
 \begin{figure}		
-	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Decision_Process_Optimal_State_Value.pdf}
+	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Decision_Process_Optimal_State_Value}
 		\caption{State values under optimal policy ($\gamma=0.8$,	$\alpha=0.2$)}
 	\label{fig:Forest_Markov_Decision_Process_Optimal_State_Value}
 \end{figure}
@@ -785,7 +785,7 @@ Remember the forest tree MDP example:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Optimal policy for forest tree MDP: state value (3)}
 \begin{figure}		
-	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Decision_Process_Optimal_State_Value_Gamma09.pdf}
+	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Decision_Process_Optimal_State_Value_Gamma09}
 		\caption{State values under optimal policy (\hl{$\gamma=0.9$},	$\alpha=0.2$)}
 	\label{fig:Forest_Markov_Decision_Process_Optimal_State_Value_Gamma09}
 \end{figure}
@@ -832,7 +832,7 @@ q^*(x=1,u=w) &= \gamma(1-\alpha)\max\begin{cases}\gamma(1-\alpha)\max\begin{case
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Optimal policy for forest tree MDP: action value (3)}
 \begin{figure}		
-	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Decision_Process_Optimal_Action_Value.pdf}
+	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Decision_Process_Optimal_Action_Value}
 		\caption{Action values under optimal policy ($\gamma=0.8$,	$\alpha=0.2$)}
 	\label{fig:Forest_Markov_Decision_Process_Optimal_Action_Value}
 \end{figure}
@@ -843,7 +843,7 @@ q^*(x=1,u=w) &= \gamma(1-\alpha)\max\begin{cases}\gamma(1-\alpha)\max\begin{case
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{\frametitle{Optimal policy for forest tree MDP: action value (4)}
 \begin{figure}		
-	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Decision_Process_Optimal_Action_Value_Gamma09.pdf}
+	\includegraphics[height=0.6\textheight]{fig/lec02/Forest_Markov_Decision_Process_Optimal_Action_Value_Gamma09}
 		\caption{Action values under optimal policy (\hl{$\gamma=0.9$},	$\alpha=0.2$)}
 	\label{fig:Forest_Markov_Decision_Process_Optimal_Action_Value_Gamma09}
 \end{figure}
