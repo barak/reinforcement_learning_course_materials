@@ -3,13 +3,10 @@
 # and moved main.pdf to the appropriate target location.
 
 # Here we use latexmk, and we create a bunch of "stub" files in order
-# to allow parallelism in their processing.
+# to avoid mutation of tracked files and also allow parallelism in
+# their processing.
 
-LECS = $(shell cd tex && echo *.tex)
-BLECS = $(patsubst %,build-%,$(LECS))
-
-all: $(patsubst %,built/%,$(LECS:.tex=.pdf))
-all: built/all.pdf
+all: handouts slides
 .PHONY: all
 
 # The "FORCE" trick here causes latexmk to be run even when the .pdf
@@ -22,25 +19,30 @@ LATEXMKFLAGS =
 FORCE:
 .PHONY: FORCE
 
+LECS = $(shell cd tex && echo *.tex)
+
+built/%.pdf: build-%.pdf
+	ln --force $< $@
+
+BLECS = $(patsubst %,build-%,$(LECS))
+slides: $(patsubst %,built/%,$(LECS:.tex=.pdf))
+slides: built/all.pdf
+.PHONY: slides
+
 $(BLECS):
 	echo "\includeonly{tex/$(subst build-,,$@)}\input{main.tex}" > $@
 
 .PRECIOUS: $(BLECS:.tex=.pdf)
 .PRECIOUS: build-all.pdf
 
-built/%.pdf: build-%.pdf
-	ln --force $< $@
+build-handout-%.tex: build-%.tex
+	echo "\PassOptionsToClass{handout}{beamer}\input{build-$*}" > $@
 
-handout-%.tex:
-	echo "\PassOptionsToClass{handout}{beamer} \input{$(notdir $*)}" > $@
+.PRECIOUS: $(patsubst %,build-handout-%,$(LECS))
+.PRECIOUS: $(patsubst %,build-handout-%,$(LECS:.tex=.pdf))
+.PRECIOUS: build-handout-all.tex
+.PRECIOUS: build-handout-all.pdf
 
-.PRECIOUS: $(patsubst %,handout-build-%,$(LECS))
-.PRECIOUS: $(patsubst %,handout-build-%,$(LECS:.tex=.pdf))
-.PRECIOUS: handout-build-all.tex
-.PRECIOUS: handout-build-all.pdf
-
-built/handout-%.pdf: handout-build-%.pdf
-	ln --force $< $@
-
-all: $(patsubst %,built/handout-%,$(LECS:.tex=.pdf))
-all: built/handout-all.pdf
+handouts: $(patsubst %,built/handout-%,$(LECS:.tex=.pdf))
+handouts: built/handout-all.pdf
+.PHONY: handouts
