@@ -22,7 +22,8 @@
 *.toc
 *.tps
 lecture/*.pdf
-!lecture/built/*.pdf
+lecture/build-*.tex
+lecture/built/*.pdf
 **/fig/**/*-eps-converted-to.pdf
 *.dvi
 *.fdb_latexmk
