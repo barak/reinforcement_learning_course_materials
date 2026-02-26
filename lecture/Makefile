@@ -14,8 +14,12 @@ all: handouts slides
 # dependencies, like figure graphics and included files.
 LATEXMK = latexmk
 LATEXMKFLAGS =
+#  -jobname='%A'
+#  -auxdir=X -outdir=X -out2dir=X
 %.pdf: %.tex FORCE
-	$(LATEXMK) $(LATEXMKFLAGS) -pdf $<
+	mkdir -p $*/tex
+	$(LATEXMK) -auxdir=$* -outdir=. $(LATEXMKFLAGS) -pdf $<
+
 FORCE:
 .PHONY: FORCE
 
